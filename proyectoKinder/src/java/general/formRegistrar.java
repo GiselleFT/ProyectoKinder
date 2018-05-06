@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class formInicioSesion extends HttpServlet {
+public class formRegistrar extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -20,16 +20,16 @@ public class formInicioSesion extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Inicio de sesion</title>");     
+            out.println("<title>Registrar</title>");     
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Inicio de sesion</h1>");
-            //Separar inicio de sesion por tipo de usuario??
-            out.println("<form action='inicioProfesor' method='get'>");
+            out.println("<h1>Registrate</h1>");
+            
+            out.println("<form action='registrarUsuario' method='get'>");
             out.println("<h6>Usuario:</h6> <input type='text' name='usuario'/><br />");
             out.println("<h6>Contrasena:</h6> <input type='text' name='contrasena'/><br />");
             out.println("<br />");
-            out.println("<input type='submit' value='Entrar'/>");
+            out.println("<input type='submit' value='Registrar'/>");
             out.println("</form>");
             
             
