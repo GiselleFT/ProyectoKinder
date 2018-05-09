@@ -48,6 +48,18 @@
         <servlet-name>adminEjercicio8</servlet-name>
         <servlet-class>profesor.adminEjercicio8</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>administrarProfesores</servlet-name>
+        <servlet-class>administrador.administrarProfesores</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>adminProfesores</servlet-name>
+        <servlet-class>administrador.adminProfesores</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>agregarProfesor</servlet-name>
+        <servlet-class>administrador.modificarProfesor</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>formRegistrar</servlet-name>
         <url-pattern>/formRegistrar</url-pattern>
@@ -95,6 +107,18 @@
     <servlet-mapping>
         <servlet-name>adminEjercicio8</servlet-name>
         <url-pattern>/adminEjercicio8</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>administrarProfesores</servlet-name>
+        <url-pattern>/administrarProfesores</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminProfesores</servlet-name>
+        <url-pattern>/adminProfesores</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>agregarProfesor</servlet-name>
+        <url-pattern>/agregarProfesor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
