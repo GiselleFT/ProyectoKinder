@@ -1,0 +1,33 @@
+<!--
+    ********USUARIO********
+    *tipo = Se refiere al tipo de usuario.
+            -Administrador
+            -Profesor
+            -Alumno
+            
+    *nombre = Cadena que contiene el Nombre del usuario. Conformado por:
+              Nombre, Apellido Paterno, Apellido Materno
+    
+    *usuario = Cadena que contiene el Nombre para identificarlo como usuario
+    
+    *contrasena = Cadena que contiene la constraseña que crea el usuario al registrarse
+             
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">    
+    <xs:element name="USUARIO">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="tipo" type="xs:string"/>
+                <xs:element name="nombre" type="xs:string"/>
+                <xs:element name="usuario" type="xs:string"/>
+                <xs:element name="contrasena" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+
+
+
+
+
