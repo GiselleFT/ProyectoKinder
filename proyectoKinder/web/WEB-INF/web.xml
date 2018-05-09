@@ -49,16 +49,20 @@
         <servlet-class>profesor.adminEjercicio8</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>administrarProfesores</servlet-name>
-        <servlet-class>administrador.administrarProfesores</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>adminProfesores</servlet-name>
-        <servlet-class>administrador.adminProfesores</servlet-class>
+        <servlet-name>menuAdministrador</servlet-name>
+        <servlet-class>administrador.menuAdministrador</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>agregarProfesor</servlet-name>
+        <servlet-class>administrador.agregarProfesor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modificarProfesor</servlet-name>
         <servlet-class>administrador.modificarProfesor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>administrarProfesores</servlet-name>
+        <servlet-class>administrador.administrarProfesores</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>formRegistrar</servlet-name>
@@ -109,16 +113,20 @@
         <url-pattern>/adminEjercicio8</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>administrarProfesores</servlet-name>
-        <url-pattern>/administrarProfesores</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>adminProfesores</servlet-name>
-        <url-pattern>/adminProfesores</url-pattern>
+        <servlet-name>menuAdministrador</servlet-name>
+        <url-pattern>/menuAdministrador</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>agregarProfesor</servlet-name>
         <url-pattern>/agregarProfesor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modificarProfesor</servlet-name>
+        <url-pattern>/modificarProfesor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>administrarProfesores</servlet-name>
+        <url-pattern>/administrarProfesores</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

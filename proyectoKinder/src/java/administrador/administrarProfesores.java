@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class adminProfesores extends HttpServlet {
+public class administrarProfesores extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -31,7 +31,7 @@ public class adminProfesores extends HttpServlet {
             out.println("</form>");
             
             //Baja
-            out.println("<form action='adminProfesores' method='get'>");
+            out.println("<form action='administrarProfesores' method='get'>");
             out.println("<input type='submit' value='Eliminar'/><br />");
             out.println("</form>");
             

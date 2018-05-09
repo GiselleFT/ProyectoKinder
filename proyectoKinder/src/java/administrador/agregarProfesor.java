@@ -25,7 +25,7 @@ public class agregarProfesor extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Agregar Profesor</h1>");
             
-            out.println("<form action='adminProfesores' method='get'>");
+            out.println("<form action='administrarProfesores' method='get'>");
             out.println("<h6>Nombre:</h6> <input type='text' name='nombre'/><br />");
             out.println("<h6>Usuario:</h6> <input type='text' name='usuario'/><br />");
             out.println("<h6>Contrasena:</h6> <input type='text' name='contrasena'/><br />");
