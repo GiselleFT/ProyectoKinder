@@ -53,16 +53,20 @@
         <servlet-class>administrador.menuAdministrador</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>agregarProfesor</servlet-name>
-        <servlet-class>administrador.agregarProfesor</servlet-class>
+        <servlet-name>agregarUsuario</servlet-name>
+        <servlet-class>administrador.agregarUsuario</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>modificarProfesor</servlet-name>
-        <servlet-class>administrador.modificarProfesor</servlet-class>
+        <servlet-name>modificarUsuario</servlet-name>
+        <servlet-class>administrador.modificarUsuario</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>administrarProfesores</servlet-name>
-        <servlet-class>administrador.administrarProfesores</servlet-class>
+        <servlet-name>administrarUsuario</servlet-name>
+        <servlet-class>administrador.administrarUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addUser</servlet-name>
+        <servlet-class>administrador.addUser</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>formRegistrar</servlet-name>
@@ -117,16 +121,20 @@
         <url-pattern>/menuAdministrador</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>agregarProfesor</servlet-name>
-        <url-pattern>/agregarProfesor</url-pattern>
+        <servlet-name>agregarUsuario</servlet-name>
+        <url-pattern>/agregarUsuario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>modificarProfesor</servlet-name>
-        <url-pattern>/modificarProfesor</url-pattern>
+        <servlet-name>modificarUsuario</servlet-name>
+        <url-pattern>/modificarUsuario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>administrarProfesores</servlet-name>
-        <url-pattern>/administrarProfesores</url-pattern>
+        <servlet-name>administrarUsuario</servlet-name>
+        <url-pattern>/administrarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addUser</servlet-name>
+        <url-pattern>/addUser</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

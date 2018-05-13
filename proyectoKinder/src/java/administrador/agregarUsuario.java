@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class menuAdministrador extends HttpServlet {
+public class agregarUsuario extends HttpServlet {
     
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          
             response.setContentType("text/html;charset=UTF-8");
@@ -19,6 +19,7 @@ public class menuAdministrador extends HttpServlet {
             String usuario = (String)session.getAttribute("usuario");
             String contrasena = (String)session.getAttribute("contrasena");
             String tipoAtt = (String)session.getAttribute("tipo");
+            System.out.println("agregarUsuario.java" + tipoAtt);
             PrintWriter out = response.getWriter();
             //*****************************//
             if(!tipoAtt.equals("1")){
@@ -29,19 +30,24 @@ public class menuAdministrador extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Menu Administrador</title>");     
+            out.println("<title>Agregar Profesor</title>");     
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Menu Administrador</h1>");
+            out.println("<h1>Agregar Profesor</h1>");
             
-            
-            out.println("<form action='administrarUsuario' method='get'>");
-            out.println("<input type='submit' value='Administrar Usuario'/><br />");
+            out.println("<form method='get' action='addUser'>");
+            out.println("<h6>Nombre:</h6> <input id='nombre' type='text' name='nombre'/><br />");
+            out.println("<h6>Usuario:</h6> <input id='usuario' type='text' name='usuario'/><br />");
+            out.println("<h6>Contrasena:</h6> <input id='contrasena' type='password' name='contrasena'/><br />");
+            out.println("<h6>Tipo:</h6> <select name='tipo' id='tipo'>"
+                    + "<option>Administrador</option>"
+                    + "<option>Profesor</option>"
+                    + "<option>Alumno</option></select>"
+                    + "<br />");
+            out.println("<input type='hidden' name='"+tipoAtt+"'>");
+            out.println("<input type='submit' value='Agregar usuario'>");
             out.println("</form>");
             
-            out.println("<form action='login' method='get'>");
-            out.println("<input type='submit' value='Cerrar Sesion'/><br />");
-            out.println("</form>");
             
          
             
