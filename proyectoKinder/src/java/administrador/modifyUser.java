@@ -18,17 +18,17 @@ import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
-public class addUser extends HttpServlet {
+public class modifyUser extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             response.setContentType("text/html;charset=UTF-8");
             HttpSession session = request.getSession();
-            String nombreNuevo = (String)request.getParameter("nombreNuevo");//Del registro del nuevo usuarioNuevo
-            String usuarioNuevo = (String)request.getParameter("usuarioNuevo");//Del registro del nuevo usuarioNuevo
-            String contrasenaNuevo = (String)request.getParameter("contrasenaNuevo");//Del registro del nuevo usuarioNuevo
-            String tipoNuevo = (String)request.getParameter("tipoNuevo");//Del registro del nuevo usuarioNuevo
+            String nombreNuevo = request.getParameter("nombreNuevo");//Del registro del nuevo usuarioNuevo
+            String usuarioNuevo = request.getParameter("usuarioNuevo");//Del registro del nuevo usuarioNuevo
+            String contrasenaNuevo = request.getParameter("contrasenaNuevo");//Del registro del nuevo usuarioNuevo
+            String tipoNuevo = request.getParameter("tipoNuevo");//Del registro del nuevo usuarioNuevo
             //Cast del tipo
             if(tipoNuevo.equals("Administrador")){
                 tipoNuevo = "1";
@@ -39,6 +39,10 @@ public class addUser extends HttpServlet {
             else if(tipoNuevo.equals("Alumno")){
                 tipoNuevo = "3";
             }
+            
+            //info del usuario a modificar
+            String id = (String)session.getAttribute("id");//id del usuario a modificar
+            System.out.println("id modifyUser= "+id);
             
             
             String usuario = (String)session.getAttribute("usuario");//Del administrador
@@ -81,50 +85,47 @@ public class addUser extends HttpServlet {
                 Document doc = builder.build(BD);//documentos para contruir base de datos
                 //Se obtiene el elemento raiz del xml
                 Element raiz = doc.getRootElement();
-                //Crea los elementos que conforman a un Usuario con los valores del nuevo registro
-                Element usuarioP = new Element("USUARIO");
-                Element nombreU = new Element("nombre");
-                Element usuarioU = new Element("usuario");
-                Element contrasenaU = new Element("contrasena");
-                
                 //Lista de nodos almacenados, lo que esta contenido entre las etiquetas de raiz
-                List lista = raiz.getChildren();//llena lista con los datos de la base de datos
-                String id = "";
-                int id2;
-                    //Obtiene informacion del último elemento añadido, para asignar ID
-                    Element e = (Element)lista.get(lista.size()-1);
-                    id = e.getAttributeValue("id");
-                    id2 = Integer.parseInt(id) + 1;
-                    id = ""+id2;//para ultimo id
+                List lista = raiz.getChildren();
                 
-                usuarioP.setAttribute("id",id);
-                usuarioP.setAttribute("tipo", tipoNuevo);
-                nombreU.setText(nombreNuevo);//setText lo que va entre etiqueta de apertura y cierre
-                contrasenaU.setText(contrasenaNuevo);
-                usuarioU.setText(usuarioNuevo);
-                
-                //Agregar contenido de los elementos a nodo padre (USUARIO)
-                usuarioP.addContent(nombreU);
-                usuarioP.addContent(usuarioU);
-                usuarioP.addContent(contrasenaU);
-                
-                //Agregar contenido de USUARIO a raiz
-                raiz.addContent(usuarioP);
-                
-                //Se crea serializador xml (para guardar en el xml)
-                XMLOutputter xmlo =new XMLOutputter();
-                
-                //validar que si escriba bien el archivo, guardar los cambios al archivo
-//                try (FileWriter fw = new FileWriter(rutaAbsoluta+"\\BD.xml")){
-                try (FileWriter fw = new FileWriter("C:\\Users\\Giselle\\Documents\\GitHub\\ProyectoKinder\\proyectoKinder\\web\\BD.xml")){
-                    xmlo.setFormat(Format.getPrettyFormat());//Formato de salida al xml
-                    xmlo.output(doc, fw);//se escribe en el archivo
-                    fw.flush();
-                }
-                response.sendRedirect("administrarUsuario");
-                
-                
-                
+                //Para recorrer el arbol de nodos
+                for(int i=0;i<lista.size();i++){//Por cada elemento 
+                    //Se procesa un elemento de la lista
+                    Element element = (Element)lista.get(i);//guarda los datos de la lista en un arreglo de elementos
+                    //encontrar el elemento con el id capturado
+                    Attribute idElement = element.getAttribute("id");
+                    if(idElement.getValue().matches(id)){//se ha encontrado usuario con id a modificar
+                        //Obtiene los elementos que contiene el elemento actual
+                        List lista2 = element.getChildren();//pasa los elementos a lista2
+                        //Nombre
+                        Element nombre2 = (Element)lista2.get(0);
+                        //Se crea usuario2 para comparar con usuario
+                        Element usuario2 = (Element)lista2.get(1);
+                        //se crea contrasena2 para comprar con contrasena
+                        Element contrasena2 = (Element)lista2.get(2);
+                        //Atributo tipo
+                        Attribute tipo2 = element.getAttribute("tipo");
+                        
+                        
+                        nombre2.setText(nombreNuevo);
+                        usuario2.setText(usuarioNuevo);
+                        contrasena2.setText(contrasenaNuevo);
+                        tipo2.setValue(tipoNuevo);
+                        
+                        //Se crea serializador xml (para guardar en el xml)
+                        XMLOutputter xmlo =new XMLOutputter();
+
+                        //validar que si escriba bien el archivo, guardar los cambios al archivo
+        //                try (FileWriter fw = new FileWriter(rutaAbsoluta+"\\BD.xml")){
+                        try (FileWriter fw = new FileWriter("C:\\Users\\Giselle\\Documents\\GitHub\\ProyectoKinder\\proyectoKinder\\web\\BD.xml")){
+                            xmlo.setFormat(Format.getPrettyFormat());//Formato de salida al xml
+                            xmlo.output(doc, fw);//se escribe en el archivo
+                            fw.flush();
+                        }
+                        response.sendRedirect("administrarUsuario");
+                    }
+                    
+                } 
             }
             catch(Exception e){
                 e.printStackTrace();

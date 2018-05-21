@@ -1,6 +1,7 @@
 package administrador;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -10,12 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.jdom.Attribute;
+import org.jdom.Content;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
+import org.jdom.output.Format;
+import org.jdom.output.XMLOutputter;
 
-public class modificarUsuario extends HttpServlet {
+public class eliminarUsuario extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -41,10 +45,10 @@ public class modificarUsuario extends HttpServlet {
             }
             //*******************************************//
             
-            //info del usuario a modificar
+            //info del usuario a eliminar
             String id = (String)request.getParameter("id");//id del usuario a modificar
             session.setAttribute("id", id);
-            System.out.println("id modificarUsuario= "+id);
+            System.out.println("id eliminarUsuario= "+id);
             
             try{
                 //Contruye un documento JDOM usando SAX, para procesar xml
@@ -63,14 +67,6 @@ public class modificarUsuario extends HttpServlet {
                 //Lista de nodos almacenados, lo que esta contenido entre las etiquetas de raiz
                 List lista = raiz.getChildren();
                 
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Modificar Usuario</title>");
-                out.println("<link href='estilos.css' type='text/css' rel='stylesheet'>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1>Modificar Usuario</h1>");
                 
                 //Para recorrer el arbol de nodos
                 for(int i=0;i<lista.size();i++){//Por cada elemento 
@@ -79,44 +75,26 @@ public class modificarUsuario extends HttpServlet {
                     //encontrar el elemento con el id capturado
                     Attribute idElement = element.getAttribute("id");
                     if(idElement.getValue().matches(id)){//se ha encontrado usuario con id a modificar
-                        //Obtiene los elementos que contiene el elemento actual
-                        List lista2 = element.getChildren();//pasa los elementos a lista2
-                        //Nombre
-                        Element nombre2 = (Element)lista2.get(0);
-                        //Se crea usuario2 para comparar con usuario
-                        Element usuario2 = (Element)lista2.get(1);
-                        //se crea contrasena2 para comprar con contrasena
-                        Element contrasena2 = (Element)lista2.get(2);
-                        //Atributo tipo
-                        Attribute tipo2 = element.getAttribute("tipo");
+                        lista.remove(i);
+                        
+//                        Content c = raiz.getContent(i);
                         
                         
-                        String nombreM = nombre2.getText();
-                        String usuarioM = usuario2.getText();
-                        String contrasenaM = contrasena2.getText();
-                        String tipoM = tipo2.getValue();
+//                        System.out.println("Element getContent= "+element.getContent(i));
+//                        element.getParentElement().removeContent(c);
                         
-//                        System.out.println("Info recuperada:");
-//                        System.out.println("Nombre: "+nombreM);
-//                        System.out.println("Usuario: "+usuarioM);
-//                        System.out.println("Contrasena: "+contrasenaM);
-//                        System.out.println("Tipo: "+tipoM);
                         
-                        out.println("<form action='modifyUser' method='get'>");
-                        out.println("<h6>Nombre:</h6> <input id='nombre' type='text' value='"+nombreM+"' name='nombreNuevo'/><br />");
-                        out.println("<h6>Usuario:</h6> <input id='usuario' type='text' value='"+usuarioM+"' name='usuarioNuevo'/><br />");
-                        out.println("<h6>Contrasena:</h6> <input id='contrasena' type='password' value='"+contrasenaM+"' name='contrasenaNuevo'/><br />");
-                        out.println("<h6>Tipo:</h6> <select id='tipo' name='tipoNuevo'>"//Combobox
-                                + "<option>Administrador</option>"
-                                + "<option>Profesor</option>"
-                                + "<option>Alumno</option></select>"
-                                + "<br />");
-                        out.println("<input type='hidden' name='tipo' value="+tipoAtt+">");//Del administrador
-                        out.println("<br />");
-                        out.println("<br />");
-                        out.println("<input type='submit' value='Modificar usuario'>");
-                        out.println("</form>");
-                        
+                        //Se crea serializador xml (para guardar en el xml)
+                        XMLOutputter xmlo =new XMLOutputter();
+
+                        //validar que si escriba bien el archivo, guardar los cambios al archivo
+        //                try (FileWriter fw = new FileWriter(rutaAbsoluta+"\\BD.xml")){
+                        try (FileWriter fw = new FileWriter("C:\\Users\\Giselle\\Documents\\GitHub\\ProyectoKinder\\proyectoKinder\\web\\BD.xml")){
+                            xmlo.setFormat(Format.getPrettyFormat());//Formato de salida al xml
+                            xmlo.output(doc, fw);//se escribe en el archivo
+                            fw.flush();
+                        }
+                        response.sendRedirect("administrarUsuario");
                     }
                     
                 }

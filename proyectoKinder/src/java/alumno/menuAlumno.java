@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class menuProfesor extends HttpServlet {
+public class menuAlumno extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -20,12 +20,12 @@ public class menuProfesor extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Menu Profesor</title>");     
+            out.println("<title>Menu Alumno</title>");     
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Menu Profesor</h1>");
+            out.println("<h1>Menu Alumno</h1>");
             out.println("<br />");
-            //out.println("<h1>Bienvenido Profesor:"+usuario+"</h1>");
+            //out.println("<h1>Bienvenido Alumno:"+usuario+"</h1>");
             
             //Altas, bajas y cambios de ejercicios
             out.println("<h2>Administrar Ejercicios</h2>");

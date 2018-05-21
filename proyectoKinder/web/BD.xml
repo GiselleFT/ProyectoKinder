@@ -15,10 +15,5 @@
     <usuario>alumno</usuario>
     <contrasena>alumno</contrasena>
   </USUARIO>
-  <USUARIO id="4" tipo="1">
-    <nombre>u1</nombre>
-    <usuario>u1</usuario>
-    <contrasena>u1</contrasena>
-  </USUARIO>
 </raiz>
 
