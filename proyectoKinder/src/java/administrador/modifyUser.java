@@ -77,7 +77,12 @@ public class modifyUser extends HttpServlet {
 //                rutaAbsoluta = rutaAbsoluta.replaceAll("'\'", "'\\'");
 //                System.out.println("RUTA ABSOLUTA= "+rutaAbsoluta);
                 //Ruta absoluta del archivo BD.xml
-                File BD = new File("C:\\Users\\Giselle\\Documents\\GitHub\\ProyectoKinder\\proyectoKinder\\web\\BD.xml");
+//                File BD = new File("C:\\Users\\Giselle\\Documents\\GitHub\\ProyectoKinder\\proyectoKinder\\web\\BD.xml");
+                String rutaAbsoluta = request.getSession().getServletContext().getRealPath("/");
+                rutaAbsoluta = rutaAbsoluta.replace("\\", "/");
+                rutaAbsoluta = rutaAbsoluta.replaceAll("/build", "");
+                rutaAbsoluta = rutaAbsoluta.concat("BD.xml");
+                File BD = new File(rutaAbsoluta);
 //                System.out.println("addUser ruta:" + rutaAbsoluta);
 //                File BD = new File(rutaAbsoluta+"\\BD.xml");
                 
@@ -117,7 +122,7 @@ public class modifyUser extends HttpServlet {
 
                         //validar que si escriba bien el archivo, guardar los cambios al archivo
         //                try (FileWriter fw = new FileWriter(rutaAbsoluta+"\\BD.xml")){
-                        try (FileWriter fw = new FileWriter("C:\\Users\\Giselle\\Documents\\GitHub\\ProyectoKinder\\proyectoKinder\\web\\BD.xml")){
+                        try (FileWriter fw = new FileWriter(rutaAbsoluta)){
                             xmlo.setFormat(Format.getPrettyFormat());//Formato de salida al xml
                             xmlo.output(doc, fw);//se escribe en el archivo
                             fw.flush();

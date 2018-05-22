@@ -55,7 +55,12 @@ public class modificarUsuario extends HttpServlet {
 //                System.out.println("formInicioSesion ruta:" + rutaAbsoluta);
 //                System.out.println("RUTA ABSOLUTA= "+rutaAbsoluta);
                 //Ruta absoluta del archivo BD.xml
-                File BD = new File("C:\\Users\\Giselle\\Documents\\GitHub\\ProyectoKinder\\proyectoKinder\\web\\BD.xml");              
+//                File BD = new File("C:\\Users\\Giselle\\Documents\\GitHub\\ProyectoKinder\\proyectoKinder\\web\\BD.xml"); 
+                String rutaAbsoluta = request.getSession().getServletContext().getRealPath("/");
+                rutaAbsoluta = rutaAbsoluta.replace("\\", "/");
+                rutaAbsoluta = rutaAbsoluta.replaceAll("/build", "");
+                rutaAbsoluta = rutaAbsoluta.concat("BD.xml");
+                File BD = new File(rutaAbsoluta);
                 //Para cargar el documento xml
                 Document doc = builder.build(BD);//documentos para contruir base de datos
                 //Se obtiene el elemento raiz del xml
