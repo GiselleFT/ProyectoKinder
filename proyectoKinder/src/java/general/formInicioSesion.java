@@ -40,7 +40,7 @@ public class formInicioSesion extends HttpServlet {
                 SAXBuilder builder = new SAXBuilder();
                 //Para obtener la ruta absoluta del proyecto
 //                String rutaAbsoluta = request.getSession().getServletContext().getRealPath("/");
-//                rutaAbsoluta = rutaAbsoluta.replaceAll("'\'", "'\\'");
+//                rutaAbsoluta = rutaAbsoluta.replaceAll("'\build'", "''");
 //                System.out.println("formInicioSesion ruta:" + rutaAbsoluta);
 //                System.out.println("RUTA ABSOLUTA= "+rutaAbsoluta);
                 //Ruta absoluta del archivo BD.xml
@@ -56,7 +56,7 @@ public class formInicioSesion extends HttpServlet {
                 out.println("<html>");
                 out.println("<head>");
                 out.println("<title>Inicio Sesion</title>");
-                out.println("<link href='estilos.css' type='text/css' rel='stylesheet'>");
+                out.println("<link rel='stylesheet' href='css/estilos.css'>");
                 out.println("</head>");
                 out.println("<body>");
                 

@@ -1,12 +1,10 @@
-function eliminarUsuario(){
-    var id = document.getElementById("id").value;
-//    var id = document.getElementById("id").value; 
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET","deleteUser?id="+id, true);
-    xmlhttp.send();
-}
-
-
+//function eliminarUsuario(){
+//    var id = document.getElementById("id").value;
+////    var id = document.getElementById("id").value; 
+//    var xmlhttp = new XMLHttpRequest();
+//    xmlhttp.open("GET","deleteUser?id="+id, true);
+//    xmlhttp.send();
+//}
 
 //function agregarUsuario(){
 //    var nombre = document.getElementById("nombre").value; 

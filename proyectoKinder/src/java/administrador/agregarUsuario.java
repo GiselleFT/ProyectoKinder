@@ -35,15 +35,16 @@ public class agregarUsuario extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Agregar Usuario</title>");     
+            out.println("<title>Agregar Usuario</title>");
+            out.println("<link rel='stylesheet' href='css/estilos.css'>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Agregar Usuario</h1>");
             
             out.println("<form action='addUser' method='get'>");
-            out.println("<h6>Nombre:</h6> <input id='nombre' type='text' name='nombreNuevo'/><br />");
-            out.println("<h6>Usuario:</h6> <input id='usuario' type='text' name='usuarioNuevo'/><br />");
-            out.println("<h6>Contrasena:</h6> <input id='contrasena' type='password' name='contrasenaNuevo'/><br />");
+            out.println("<h6>Nombre:</h6> <input id='nombre' type='text' name='nombreNuevo' required/><br />");
+            out.println("<h6>Usuario:</h6> <input id='usuario' type='text' name='usuarioNuevo' required/><br />");
+            out.println("<h6>Contrasena:</h6> <input id='contrasena' type='password' name='contrasenaNuevo' required/><br />");
             out.println("<h6>Tipo:</h6> <select id='tipo' name='tipoNuevo'>"//Combobox
                     + "<option>Administrador</option>"
                     + "<option>Profesor</option>"
@@ -53,6 +54,14 @@ public class agregarUsuario extends HttpServlet {
             out.println("<br />");
             out.println("<br />");
             out.println("<input type='submit' value='Agregar usuario'>");
+            out.println("</form>");
+            
+            
+            out.println("<br />");
+            out.println("<br />");
+            //Agregar Usuario
+            out.println("<form action='menuAdministrador' method='get'>");
+            out.println("<input type='submit' value='Menu Administrador'>");
             out.println("</form>");
             
             out.println("</body>");

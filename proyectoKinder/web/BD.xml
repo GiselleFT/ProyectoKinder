@@ -15,5 +15,15 @@
     <usuario>alumno</usuario>
     <contrasena>alumno</contrasena>
   </USUARIO>
+  <USUARIO id="4" tipo="3">
+    <nombre>alumno2</nombre>
+    <usuario>alumno2</usuario>
+    <contrasena>alumno2</contrasena>
+  </USUARIO>
+  <USUARIO id="5" tipo="2">
+    <nombre>profesor2</nombre>
+    <usuario>profesor2</usuario>
+    <contrasena>profesor2</contrasena>
+  </USUARIO>
 </raiz>
 

@@ -64,14 +64,20 @@ public class administrarUsuario extends HttpServlet {
                 out.println("<html>");
                 out.println("<head>");
                 out.println("<title>Administrar Usuarios</title>");
-                out.println("<link href='estilos.css' type='text/css' rel='stylesheet'>");
+                out.println("<link rel='stylesheet' href='css/estilos.css'>");
                 out.println("</head>");
                 out.println("<body>");
                 
+                //out.println("<div class='contenido'>");
+                out.println("<h1>Administrar Usuarios</h1>");
+                out.println("<br />");
                 //Agregar Usuario
                 out.println("<form action='agregarUsuario' method='post'>");
                 out.println("<input type='submit' value='Crear Usuario'>");
                 out.println("</form>");
+                
+                
+                //out.println("</div>");
                 
                 out.println("<br />");
                 out.println("<br />");
@@ -161,6 +167,14 @@ public class administrarUsuario extends HttpServlet {
                     out.println("</tr>"); 
                 }
                 out.println("</table>");
+                
+                out.println("<br />");
+                out.println("<br />");
+                //Agregar Usuario
+                out.println("<form action='menuAdministrador' method='get'>");
+                out.println("<input type='submit' value='Menu Administrador'>");
+                out.println("</form>");
+                
                 out.println("</body>");
                 out.println("</html>");
         }catch(JDOMException e){}

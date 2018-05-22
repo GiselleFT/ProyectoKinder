@@ -37,13 +37,20 @@ public class menuAdministrador extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Menu Administrador</title>");     
+            out.println("<title>Menu Administrador</title>");
+            out.println("<link rel='stylesheet' href='css/estilos.css'>");
             out.println("</head>");
             out.println("<body>");
+            
+            
+            //out.println("<div class='contenido'>");
             out.println("<h1>Menu Administrador</h1>");
             out.println("<br />");
-            out.println("<h1>Bienvenido Administrador:"+usuario+"</h1>");
+            out.println("<h1>Bienvenido Administrador: "+usuario+"</h1>");
+            //out.println("</div>");
             
+            
+            //out.println("<div class='sidenav'>");
             //Alta, baja y cambio de usuarios
             out.println("<form action='administrarUsuario' method='get'>");
             out.println("<input type='submit' value='Administrar Usuario'/><br />");
@@ -54,10 +61,11 @@ public class menuAdministrador extends HttpServlet {
             out.println("<input type='submit' value='Administrar Grupos'/><br />");
             out.println("</form>");
             
-            //Checar??
-            out.println("<form action='login' method='get'>");
+            //Cerrar Sesion
+            out.println("<form action='login.html' method='get'>");
             out.println("<input type='submit' value='Cerrar Sesion'/><br />");
             out.println("</form>");
+            //out.println("</div>");
             
          
             

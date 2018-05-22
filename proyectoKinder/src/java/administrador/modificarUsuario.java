@@ -67,7 +67,7 @@ public class modificarUsuario extends HttpServlet {
                 out.println("<html>");
                 out.println("<head>");
                 out.println("<title>Modificar Usuario</title>");
-                out.println("<link href='estilos.css' type='text/css' rel='stylesheet'>");
+                out.println("<link rel='stylesheet' href='css/estilos.css'>");
                 out.println("</head>");
                 out.println("<body>");
                 out.println("<h1>Modificar Usuario</h1>");
@@ -103,14 +103,32 @@ public class modificarUsuario extends HttpServlet {
 //                        System.out.println("Tipo: "+tipoM);
                         
                         out.println("<form action='modifyUser' method='get'>");
-                        out.println("<h6>Nombre:</h6> <input id='nombre' type='text' value='"+nombreM+"' name='nombreNuevo'/><br />");
-                        out.println("<h6>Usuario:</h6> <input id='usuario' type='text' value='"+usuarioM+"' name='usuarioNuevo'/><br />");
-                        out.println("<h6>Contrasena:</h6> <input id='contrasena' type='password' value='"+contrasenaM+"' name='contrasenaNuevo'/><br />");
-                        out.println("<h6>Tipo:</h6> <select id='tipo' name='tipoNuevo'>"//Combobox
+                        out.println("<h6>Nombre:</h6> <input id='nombre' type='text' value='"+nombreM+"' name='nombreNuevo' required/><br />");
+                        out.println("<h6>Usuario:</h6> <input id='usuario' type='text' value='"+usuarioM+"' name='usuarioNuevo' required/><br />");
+                        out.println("<h6>Contrasena:</h6> <input id='contrasena' type='password' value='"+contrasenaM+"' name='contrasenaNuevo' required/><br />");
+                        if(tipoM.equals("1")){
+                            out.println("<h6>Tipo:</h6> <select id='tipo' name='tipoNuevo'>"//Combobox
                                 + "<option>Administrador</option>"
                                 + "<option>Profesor</option>"
                                 + "<option>Alumno</option></select>"
+                                + "<br />");  
+                        }
+                        else if(tipoM.equals("2")){
+                            out.println("<h6>Tipo:</h6> <select id='tipo' name='tipoNuevo'>"//Combobox
+                                + "<option>Profesor</option>"
+                                + "<option>Administrador</option>"
+                                + "<option>Alumno</option></select>"
                                 + "<br />");
+                        }
+                        else if(tipoM.equals("3")){
+                            out.println("<h6>Tipo:</h6> <select id='tipo' name='tipoNuevo'>"//Combobox
+                                + "<option>Alumno</option>"
+                                + "<option>Administrador</option>"
+                                + "<option>Profesor</option></select>"
+                                + "<br />");
+                        }
+                        
+                        
                         out.println("<input type='hidden' name='tipo' value="+tipoAtt+">");//Del administrador
                         out.println("<br />");
                         out.println("<br />");
@@ -120,6 +138,14 @@ public class modificarUsuario extends HttpServlet {
                     }
                     
                 }
+                
+                out.println("<br />");
+                out.println("<br />");
+                //Agregar Usuario
+                out.println("<form action='menuAdministrador' method='get'>");
+                out.println("<input type='submit' value='Menu Administrador'>");
+                out.println("</form>");
+                
                 out.println("</body>");
                 out.println("</html>");
         }catch(JDOMException e){}

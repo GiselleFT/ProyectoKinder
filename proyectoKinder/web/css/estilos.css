@@ -1,4 +1,4 @@
-/*@import url('https://fonts.googleapis.com/css?family=Quicksand');*/
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
 
 /*h1, h2, h3, h4, h5, h6{
 	font-family: 'Quicksand', sans-serif;
@@ -7,11 +7,41 @@
 	text-align: center;
 }*/
 
-*{
+* {
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    letter-spacing: 1px;
+	color: #000;
+}
+
+/*
+h1, h2, h3, h4, h5, h6{
 	box-sizing: border-box;
-    /*font-family: 'Quicksand', sans-serif;*/
 	letter-spacing: 1px;
 	color: #000;
 	text-align: center;
 }
+*/
+
+/*
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+}
+
+.content {
+    margin-left: 200px;
+    padding-left: 20px;
+}
+*/
+
+
+
 
