@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<raiz xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="esquemaUsuario.xsd">
+  <USUARIO id="1" tipo="1">
+    <nombre>root</nombre>
+    <usuario>root</usuario>
+    <contrasena>root</contrasena>
+  </USUARIO>
+  <USUARIO id="2" tipo="2">
+    <nombre>profesor</nombre>
+    <usuario>profesor</usuario>
+    <contrasena>profesor</contrasena>
+  </USUARIO>
+  <USUARIO id="3" tipo="3">
+    <nombre>alumno</nombre>
+    <usuario>alumno</usuario>
+    <contrasena>alumno</contrasena>
+  </USUARIO>
+  <USUARIO id="4" tipo="3">
+    <nombre>alumno2</nombre>
+    <usuario>alumno2</usuario>
+    <contrasena>alumno2</contrasena>
+  </USUARIO>
+  <USUARIO id="5" tipo="2">
+    <nombre>profesor2</nombre>
+    <usuario>profesor2</usuario>
+    <contrasena>profesor2</contrasena>
+  </USUARIO>
+</raiz>
+

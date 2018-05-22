@@ -40,11 +40,14 @@ public class formInicioSesion extends HttpServlet {
                 SAXBuilder builder = new SAXBuilder();
                 //Para obtener la ruta absoluta del proyecto
 //                String rutaAbsoluta = request.getSession().getServletContext().getRealPath("/");
-//                rutaAbsoluta = rutaAbsoluta.replaceAll("'\build'", "''");
+//                rutaAbsoluta = rutaAbsoluta.replaceAll("'\build'", "");
+//                rutaAbsoluta = rutaAbsoluta.replaceFirst("\\build", "\\web\\BD.xml");
 //                System.out.println("formInicioSesion ruta:" + rutaAbsoluta);
 //                System.out.println("RUTA ABSOLUTA= "+rutaAbsoluta);
                 //Ruta absoluta del archivo BD.xml
-                File BD = new File("C:\\Users\\Giselle\\Documents\\GitHub\\ProyectoKinder\\proyectoKinder\\web\\BD.xml");              
+                File BD = new File("\\bd\\BD.xml");
+//                System.out.println("ruta = " + ruta.getAbsolutePath());
+//                File BD = new File("C:\\Users\\Giselle\\Documents\\GitHub\\ProyectoKinder\\proyectoKinder\\web\\BD.xml");              
                 //Para cargar el documento xml
                 Document doc = builder.build(BD);//documentos para contruir base de datos
                 //Se obtiene el elemento raiz del xml

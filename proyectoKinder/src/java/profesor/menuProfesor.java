@@ -43,7 +43,7 @@ public class menuProfesor extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Menu Profesor</h1>");
             out.println("<br />");
-            //out.println("<h1>Bienvenido Profesor:"+usuario+"</h1>");
+            out.println("<h1>Bienvenido Profesor: "+usuario+"</h1>");
             
             //Altas, bajas y cambios de ejercicios
             out.println("<h2>Administrar Ejercicios</h2>");

@@ -1,4 +1,4 @@
-package profesor;
+package alumno;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -43,7 +43,7 @@ public class menuAlumno extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Menu Alumno</h1>");
             out.println("<br />");
-            out.println("<h1>Bienvenido Alumno:"+usuario+"</h1>");
+            out.println("<h1>Bienvenido Alumno: "+usuario+"</h1>");
             
 //            //Altas, bajas y cambios de ejercicios
 //            out.println("<h2>Administrar Ejercicios</h2>");
@@ -82,10 +82,10 @@ public class menuAlumno extends HttpServlet {
 //            
 //            out.println("<br /><br />");
 //            
-//            //Cerrar Sesion
-//            out.println("<form action='login.html' method='get'>");
-//            out.println("<input type='submit' value='Cerrar Sesion'/><br />");
-//            out.println("</form>");
+            //Cerrar Sesion
+            out.println("<form action='login.html' method='get'>");
+            out.println("<input type='submit' value='Cerrar Sesion'/><br />");
+            out.println("</form>");
             
             out.println("</body>");
             out.println("</html>");

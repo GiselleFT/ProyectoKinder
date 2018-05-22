@@ -146,6 +146,7 @@ public class administrarUsuario extends HttpServlet {
                         out.println("<td>");
                         //Por medio del id, se localiza al usuario por eliminar
                         out.println("<form action='eliminarUsuario' method='post'>");
+                        
                         out.println("<input type='hidden' name='id' value="+id.getValue()+">");//Del administrador
                         out.println("<input type='submit' value='Eliminar'>");
                         out.println("</form>");
