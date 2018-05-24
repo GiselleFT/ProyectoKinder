@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,27 +19,21 @@ import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
-public class addUser extends HttpServlet {
+public class addGroup extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             response.setContentType("text/html;charset=UTF-8");
             HttpSession session = request.getSession();
-            String nombreNuevo = (String)request.getParameter("nombreNuevo");//Del registro del nuevo usuarioNuevo
-            String usuarioNuevo = (String)request.getParameter("usuarioNuevo");//Del registro del nuevo usuarioNuevo
-            String contrasenaNuevo = (String)request.getParameter("contrasenaNuevo");//Del registro del nuevo usuarioNuevo
-            String tipoNuevo = (String)request.getParameter("tipoNuevo");//Del registro del nuevo usuarioNuevo
-            //Cast del tipo
-            if(tipoNuevo.equals("Administrador")){
-                tipoNuevo = "1";
-            }
-            else if(tipoNuevo.equals("Profesor")){
-                tipoNuevo = "2";
-            }
-            else if(tipoNuevo.equals("Alumno")){
-                tipoNuevo = "3";
-            }
+            String nombreGrupoNuevo = (String)request.getParameter("nombreGrupoNuevo");//Del registro del nuevo idProfesorNuevo
+            String idProfesorNuevo = (String)request.getParameter("idProfesorNuevo");//Del registro del nuevo idProfesorNuevo
+            
+            String [] idAlumnos = request.getParameterValues("alumnoSeleccionado");
+//            System.out.println(idAlumnos.length);
+//           for (int i = 0; i < idAlumnos.length; i++) {
+//               System.out.println("idAlumno"+i+": "+idAlumnos[i]);
+//        }
             
             
             String usuario = (String)session.getAttribute("usuario");//Del administrador
@@ -47,10 +42,10 @@ public class addUser extends HttpServlet {
             session.setAttribute("tipo", tipoAtt);//conservar sesion del administrador con su tipo
             PrintWriter out = response.getWriter();
             
-            //info del nuevo usuarioNuevo
+            //info del nuevo idProfesorNuevo
 //            System.out.println("addUser");
-//            System.out.println("nuevo= "+nombreNuevo);
-//            System.out.println("nuevo= "+usuarioNuevo);
+//            System.out.println("nuevo= "+nombreGrupoNuevo);
+//            System.out.println("nuevo= "+idProfesorNuevo);
 //            System.out.println("nuevo= "+contrasenaNuevo);
 //            System.out.println("nuevo= "+tipoNuevo);
             
@@ -64,18 +59,10 @@ public class addUser extends HttpServlet {
                response.sendRedirect("login.html");
             }
             //*******************************************//
-            
+//            
             try{
                 //Contruye un documento JDOM usando SAX, para procesar xml
                 SAXBuilder builder = new SAXBuilder();
-                //Para obtener la ruta absoluta del proyecto
-//                String rutaAbsoluta = request.getSession().getServletContext().getRealPath("/");
-//                rutaAbsoluta = rutaAbsoluta.replaceAll("'\'", "'\\'");
-//                System.out.println("RUTA ABSOLUTA= "+rutaAbsoluta);
-                //Ruta absoluta del archivo BD.xml
-//                File BD = new File("C:\\Users\\Giselle\\Documents\\GitHub\\ProyectoKinder\\proyectoKinder\\web\\BD.xml");
-//                System.out.println("addUser ruta:" + rutaAbsoluta);
-//                File BD = new File(rutaAbsoluta+"\\BD.xml");
                 //Para obtener la ruta absoluta del proyecto
                 String rutaAbsoluta = request.getSession().getServletContext().getRealPath("/");
                 rutaAbsoluta = rutaAbsoluta.replace("\\", "/");
@@ -86,36 +73,63 @@ public class addUser extends HttpServlet {
                 Document doc = builder.build(BD);//documentos para contruir base de datos
                 //Se obtiene el elemento raiz del xml
                 Element raiz = doc.getRootElement();
+                
                 //Crea los elementos que conforman a un Usuario con los valores del nuevo registro
-                Element usuarioP = new Element("USUARIO");
-                Element nombreU = new Element("nombre");
-                Element usuarioU = new Element("usuario");
-                Element contrasenaU = new Element("contrasena");
+                Element grupoP = new Element("GRUPO");
+                Element nombreG = new Element("grupo");
+                Element idProfesorG = new Element("idProfesor");
+                Element nombreProfesorG = new Element("nombreProfesor");
+                Element inscritosG = new Element("inscritos");
+                
+                
+                
                 
                 //Lista de nodos almacenados, lo que esta contenido entre las etiquetas de raiz
-//                List lista = raiz.getChildren();//llena lista con los datos de la base de datos
-                List lista = raiz.getChildren("USUARIO");
+//                List lista2 = raiz.getChildren();//llena lista2 con los datos de la base de datos
+                List lista2 = raiz.getChildren("GRUPO");
                 String id = "";
                 int id2;
                     //Obtiene informacion del último elemento añadido, para asignar ID
-                    Element e = (Element)lista.get(lista.size()-1);
+                    Element e = (Element)lista2.get(lista2.size()-1);
                     id = e.getAttributeValue("id");
                     id2 = Integer.parseInt(id) + 1;
                     id = ""+id2;//para ultimo id
                 
-                usuarioP.setAttribute("id",id);
-                usuarioP.setAttribute("tipo", tipoNuevo);
-                nombreU.setText(nombreNuevo);//setText lo que va entre etiqueta de apertura y cierre
-                contrasenaU.setText(contrasenaNuevo);
-                usuarioU.setText(usuarioNuevo);
+                grupoP.setAttribute("id",id);
+                nombreG.setText(nombreGrupoNuevo);//setText lo que va entre etiqueta de apertura y cierre
+                idProfesorG.setText(idProfesorNuevo);
+                List lista = raiz.getChildren("USUARIO");
+                //Para obtener nombre del profesor
+                //Para recorrer el arbol de nodos
+                for(int i=0;i<lista.size();i++){//Por cada elemento 
+                    //Se procesa un elemento de la lista
+                    Element element = (Element)lista.get(i);//guarda los datos de la lista en un arreglo de elementos
+                    //encontrar el elemento con el id capturado
+                    Attribute idTipo = element.getAttribute("tipo");
+                    Attribute idUsuario = element.getAttribute("id");//IMPORTANTE
+                    if(idTipo.getValue().matches("2") && idUsuario.getValue().matches(idProfesorNuevo)){//se ha encontrado usuario Profesor
+                       List lista3 = element.getChildren();//pasa los elementos a lista2
+                       Element nombreProfG = (Element)lista3.get(0);//Obtiene el nombre
+                       nombreProfesorG.setText(nombreProfG.getText());
+                    }
+                }
+                
+                inscritosG.setText(idAlumnos.length+"");
+                
                 
                 //Agregar contenido de los elementos a nodo padre (USUARIO)
-                usuarioP.addContent(nombreU);
-                usuarioP.addContent(usuarioU);
-                usuarioP.addContent(contrasenaU);
+                grupoP.addContent(nombreG);
+                grupoP.addContent(idProfesorG);
+                grupoP.addContent(nombreProfesorG);
+                grupoP.addContent(inscritosG);
+                for (int i = 0; i < idAlumnos.length; i++) {
+                    Element idAlumno = new Element("idAlumno");
+                    idAlumno.setText(idAlumnos[i]);
+                    grupoP.addContent(idAlumno);
+                }
                 
                 //Agregar contenido de USUARIO a raiz
-                raiz.addContent(usuarioP);
+                raiz.addContent(grupoP);
                 
                 //Se crea serializador xml (para guardar en el xml)
                 XMLOutputter xmlo =new XMLOutputter();
@@ -127,7 +141,7 @@ public class addUser extends HttpServlet {
                     xmlo.output(doc, fw);//se escribe en el archivo
                     fw.flush();
                 }
-                response.sendRedirect("administrarUsuario");
+                response.sendRedirect("administrarGrupos");
                 
                 
                 
@@ -139,4 +153,3 @@ public class addUser extends HttpServlet {
             
             
     }
-

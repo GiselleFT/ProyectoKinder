@@ -76,6 +76,22 @@
         <servlet-name>eliminarUsuario</servlet-name>
         <servlet-class>administrador.eliminarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>administrarGrupos</servlet-name>
+        <servlet-class>administrador.administrarGrupos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>eliminarGrupo</servlet-name>
+        <servlet-class>administrador.eliminarGrupo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>agregarGrupo</servlet-name>
+        <servlet-class>administrador.agregarGrupo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addGroup</servlet-name>
+        <servlet-class>administrador.addGroup</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>formInicioSesion</servlet-name>
         <url-pattern>/formInicioSesion</url-pattern>
@@ -151,6 +167,22 @@
     <servlet-mapping>
         <servlet-name>eliminarUsuario</servlet-name>
         <url-pattern>/eliminarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>administrarGrupos</servlet-name>
+        <url-pattern>/administrarGrupos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>eliminarGrupo</servlet-name>
+        <url-pattern>/eliminarGrupo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>agregarGrupo</servlet-name>
+        <url-pattern>/agregarGrupo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addGroup</servlet-name>
+        <url-pattern>/addGroup</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -56,8 +56,8 @@ public class formInicioSesion extends HttpServlet {
                 //Se obtiene el elemento raiz del xml
                 Element raiz = doc.getRootElement();
                 //Lista de nodos almacenados, lo que esta contenido entre las etiquetas de raiz
-                List lista = raiz.getChildren();
-                
+//                List lista = raiz.getChildren();
+                List lista = raiz.getChildren("USUARIO");
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
@@ -66,6 +66,7 @@ public class formInicioSesion extends HttpServlet {
                 out.println("</head>");
                 out.println("<body>");
                 
+                System.out.println("Tamano lista: " + lista.size());
                 //Para recorrer el arbol de nodos
                 for(int i=0;i<lista.size();i++){//Por cada elemento  
                     //Se procesa un elemento de la lista

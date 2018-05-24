@@ -20,5 +20,38 @@
     <usuario>alumno2</usuario>
     <contrasena>alumno2</contrasena>
   </USUARIO>
+  <USUARIO id="5" tipo="2">
+    <nombre>m</nombre>
+    <usuario>m</usuario>
+    <contrasena>m</contrasena>
+  </USUARIO>
+  <USUARIO id="6" tipo="2">
+    <nombre>profesor2</nombre>
+    <usuario>profesor2</usuario>
+    <contrasena>profesor2</contrasena>
+  </USUARIO>
+  <GRUPO id="1">
+    <grupo>1cm1</grupo>
+    <idProfesor>2</idProfesor>
+    <nombreProfesor>profesor</nombreProfesor>
+    <inscritos>2</inscritos>
+    <idAlumno>3</idAlumno>
+    <idAlumno>4</idAlumno>
+  </GRUPO>
+  <GRUPO id="2">
+    <grupo>1cm2</grupo>
+    <idProfesor>6</idProfesor>
+    <nombreProfesor>profesor2</nombreProfesor>
+    <inscritos>2</inscritos>
+    <idAlumno>3</idAlumno>
+    <idAlumno>4</idAlumno>
+  </GRUPO>
+  <GRUPO id="3">
+    <grupo>3cm5</grupo>
+    <idProfesor>2</idProfesor>
+    <nombreProfesor>profesor</nombreProfesor>
+    <inscritos>1</inscritos>
+    <idAlumno>3</idAlumno>
+  </GRUPO>
 </raiz>
 

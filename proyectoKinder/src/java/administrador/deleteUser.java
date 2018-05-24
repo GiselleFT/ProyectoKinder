@@ -79,7 +79,8 @@ public class deleteUser extends HttpServlet {
                 //Se obtiene el elemento raiz del xml
                 Element raiz = doc.getRootElement();
                 //Lista de nodos almacenados, lo que esta contenido entre las etiquetas de raiz
-                List lista = raiz.getChildren();
+//                List lista = raiz.getChildren();
+                List lista = raiz.getChildren("USUARIO");
                 
                 //Para recorrer el arbol de nodos
                 for(int i=0;i<lista.size();i++){//Por cada elemento 

@@ -15,7 +15,7 @@ import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 
-public class administrarUsuario extends HttpServlet {
+public class administrarGrupos extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -65,7 +65,7 @@ public class administrarUsuario extends HttpServlet {
                 Element raiz = doc.getRootElement();
                 //Lista de nodos almacenados, lo que esta contenido entre las etiquetas de raiz
 //                List lista = raiz.getChildren();
-                List lista = raiz.getChildren("USUARIO");
+                List lista = raiz.getChildren("GRUPO");
                 
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
@@ -76,11 +76,11 @@ public class administrarUsuario extends HttpServlet {
                 out.println("<body>");
                 
                 //out.println("<div class='contenido'>");
-                out.println("<h1>Administrar Usuarios</h1>");
+                out.println("<h1>Administrar Grupos</h1>");
                 out.println("<br />");
                 //Agregar Usuario
-                out.println("<form action='agregarUsuario' method='post'>");
-                out.println("<input type='submit' value='Crear Usuario'>");
+                out.println("<form action='agregarGrupo' method='post'>");
+                out.println("<input type='submit' value='Crear Grupo'>");
                 out.println("</form>");
                 
                 
@@ -93,9 +93,11 @@ public class administrarUsuario extends HttpServlet {
                 out.println("<table border='3'>");
                     //Columnas
                     out.println("<tr>");
-                    out.println("<th>Usuario</th>");
-                    out.println("<th>Nombre</th>");
-                    out.println("<th>Tipo</th>"); 
+                    out.println("<th>ID Grupo</th>");
+                    out.println("<th>Grupo</th>");
+                    out.println("<th>ID Profesor</th>");
+                    out.println("<th>Nombre Profesor</th>");
+                    out.println("<th>Inscritos</th>"); 
                     out.println("<th>Modificar</th>"); 
                     out.println("<th>Eliminar</th>"); 
                     out.println("</tr>");
@@ -108,69 +110,49 @@ public class administrarUsuario extends HttpServlet {
                     Element element = (Element)lista.get(i);//guarda los datos de la lista en un arreglo de elementos
                     //Obtiene los elementos que contiene el elemento actual
                     List lista2 = element.getChildren();//pasa los elementos a lista2
-                    //Se recupera nombre
-                    Element nombre = (Element)lista2.get(0);
+                    //Se recupera idGrupo de grupo
+                    Attribute idGrupo = element.getAttribute("id");
+                    //Se recupera grupo
+                    Element grupo = (Element)lista2.get(0);
                     //Se recupera usuario 
-                    Element usuario2 = (Element)lista2.get(1);
-                    //Se recupera tipo de usuario
-                    Attribute tipo = element.getAttribute("tipo");
-
-                    if(tipo.getValue().matches("1")){
-                        type = "Administrador";
-                    }
-                    else if(tipo.getValue().matches("2")){
-                        type = "Profesor";
-                    }
-                    else if(tipo.getValue().matches("3")){
-                        type = "Alumno";
-                    }
-                    else{
-                        type = "No definido";
-                    }
+                    Element idProfesor = (Element)lista2.get(1); 
+                    //Se recupera usuario 
+                    Element nombreProfesor = (Element)lista2.get(2);
+                    //Se recupera usuario 
+                    Element inscritos = (Element)lista2.get(3);
                     
-                    //Se recupera id de usuario
-                    Attribute id = element.getAttribute("id");
                     
                     //Se crea una fila para desplegar info de usuario
                     out.println("<tr>");
                         out.println("<td>");
-                        out.println(nombre.getValue());
+                        out.println(idGrupo.getValue());
                         out.println("</td>");
                         out.println("<td>");
-                        out.println(usuario2.getValue());
+                        out.println(grupo.getValue());
                         out.println("</td>");
                         out.println("<td>");
-                        out.println(type);
+                        out.println(idProfesor.getValue());
+                        out.println("</td>");
+                        out.println("<td>");
+                        out.println(nombreProfesor.getValue());
+                        out.println("</td>");
+                        out.println("<td>");
+                        out.println(inscritos.getValue());
                         out.println("</td>");
                         out.println("<td>");
                         //Por medio del id, se localiza al usuario por modificar
-                        out.println("<form action='modificarUsuario' method='post'>");
-                        out.println("<input type='hidden' name='id' value="+id.getValue()+">");//Del administrador
+                        out.println("<form action='modificarGrupo' method='post'>");
+                        out.println("<input type='hidden' name='idGrupo' value="+idGrupo.getValue()+">");//Del administrador
                         out.println("<input type='submit' value='Modificar'>");
                         out.println("</form>");
                         //out.println("<button type='button' onclick='modificarUsuario()'>Modificar</button>");
                         out.println("</td>");
                         out.println("<td>");
                         //Por medio del id, se localiza al usuario por eliminar
-                        out.println("<form action='eliminarUsuario' method='post'>");
-                        
-                        out.println("<input type='hidden' name='id' value="+id.getValue()+">");//Del administrador
+                        out.println("<form action='eliminarGrupo' method='post'>");
+                        out.println("<input type='hidden' name='idGrupo' value="+idGrupo.getValue()+">");//Del administrador
                         out.println("<input type='submit' value='Eliminar'>");
                         out.println("</form>");
-//                        out.println("<button type='button' onclick='eliminarUsuario()'>Eliminar</button>");
-                        
-//                        out.println("<script>");
-//                        out.println("<script src='funciones.js'></script>");
-//                        out.println("function eliminarUsuario(id){");
-//                        out.println("var id = document.getElementById(\"id\").value;");
-//                        out.println("var xmlhttp = new XMLHttpRequest();");
-//                        out.println("xmlhttp.open(\"GET\",\"deleteUser?id=\"+id, true);");
-//                        out.println("xmlhttp.send();");
-//                        out.println("}");
-//                        out.println("</script>");
-
-                        
-                        
                         out.println("</td>");
                     out.println("</tr>"); 
                 }
