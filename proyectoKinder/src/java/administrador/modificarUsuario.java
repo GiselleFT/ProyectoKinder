@@ -147,7 +147,7 @@ public class modificarUsuario extends HttpServlet {
                 
                 out.println("<br />");
                 out.println("<br />");
-                //Agregar Usuario
+                
                 out.println("<form action='menuAdministrador' method='get'>");
                 out.println("<input type='submit' value='Menu Administrador'>");
                 out.println("</form>");

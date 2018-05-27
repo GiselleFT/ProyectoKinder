@@ -47,11 +47,12 @@
     <idAlumno>4</idAlumno>
   </GRUPO>
   <GRUPO id="3">
-    <grupo>3cm5</grupo>
+    <grupo>2cm3</grupo>
     <idProfesor>2</idProfesor>
     <nombreProfesor>profesor</nombreProfesor>
-    <inscritos>1</inscritos>
+    <inscritos>2</inscritos>
     <idAlumno>3</idAlumno>
+    <idAlumno>4</idAlumno>
   </GRUPO>
 </raiz>
 

@@ -28,12 +28,7 @@ public class addGroup extends HttpServlet {
             HttpSession session = request.getSession();
             String nombreGrupoNuevo = (String)request.getParameter("nombreGrupoNuevo");//Del registro del nuevo idProfesorNuevo
             String idProfesorNuevo = (String)request.getParameter("idProfesorNuevo");//Del registro del nuevo idProfesorNuevo
-            
             String [] idAlumnos = request.getParameterValues("alumnoSeleccionado");
-//            System.out.println(idAlumnos.length);
-//           for (int i = 0; i < idAlumnos.length; i++) {
-//               System.out.println("idAlumno"+i+": "+idAlumnos[i]);
-//        }
             
             
             String usuario = (String)session.getAttribute("usuario");//Del administrador

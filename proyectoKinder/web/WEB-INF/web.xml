@@ -92,6 +92,14 @@
         <servlet-name>addGroup</servlet-name>
         <servlet-class>administrador.addGroup</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>modificarGrupo</servlet-name>
+        <servlet-class>administrador.modificarGrupo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modifyGroup</servlet-name>
+        <servlet-class>administrador.modifyGroup</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>formInicioSesion</servlet-name>
         <url-pattern>/formInicioSesion</url-pattern>
@@ -183,6 +191,14 @@
     <servlet-mapping>
         <servlet-name>addGroup</servlet-name>
         <url-pattern>/addGroup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modificarGrupo</servlet-name>
+        <url-pattern>/modificarGrupo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modifyGroup</servlet-name>
+        <url-pattern>/modifyGroup</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
