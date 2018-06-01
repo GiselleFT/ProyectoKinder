@@ -20,11 +20,6 @@
     <usuario>alumno2</usuario>
     <contrasena>alumno2</contrasena>
   </USUARIO>
-  <USUARIO id="5" tipo="2">
-    <nombre>m</nombre>
-    <usuario>m</usuario>
-    <contrasena>m</contrasena>
-  </USUARIO>
   <USUARIO id="6" tipo="2">
     <nombre>profesor2</nombre>
     <usuario>profesor2</usuario>
@@ -65,6 +60,18 @@
     <respuestaFalsa>Respuesta falsa1</respuestaFalsa>
     <respuestaFalsa>Respuesta falsa2</respuestaFalsa>
   </EJERCICIO>
-  
+  <USUARIO id="7" tipo="2">
+    <nombre>Tona</nombre>
+    <usuario>Tona</usuario>
+    <contrasena>Tona</contrasena>
+  </USUARIO>
+  <GRUPO id="4">
+    <grupo>Marrano</grupo>
+    <idProfesor>7</idProfesor>
+    <nombreProfesor>Tona</nombreProfesor>
+    <inscritos>2</inscritos>
+    <idAlumno>3</idAlumno>
+    <idAlumno>4</idAlumno>
+  </GRUPO>
 </raiz>
 
