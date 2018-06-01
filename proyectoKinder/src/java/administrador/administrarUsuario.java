@@ -45,15 +45,6 @@ public class administrarUsuario extends HttpServlet {
                 //Contruye un documento JDOM usando SAX, para procesar xml
                 SAXBuilder builder = new SAXBuilder();
                 //Para obtener la ruta absoluta del proyecto
-//                String rutaAbsoluta = request.getSession().getServletContext().getRealPath("/");
-//                rutaAbsoluta = rutaAbsoluta.replaceAll("'\'", "'\\'");
-//                System.out.println("RUTA ABSOLUTA= "+rutaAbsoluta);
-                //Ruta absoluta del archivo BD.xml
-//                File BD = new File("C:\\Users\\Giselle\\Documents\\GitHub\\ProyectoKinder\\proyectoKinder\\web\\BD.xml");
-//                System.out.println("administrarUsuario ruta:" + rutaAbsoluta);
-//                File BD = new File(rutaAbsoluta+"\\BD.xml");
-//                File BD = new File("xml/BD.xml");
-                //Para cargar el documento xml
                 String rutaAbsoluta = request.getSession().getServletContext().getRealPath("/");
                 rutaAbsoluta = rutaAbsoluta.replace("\\", "/");
                 rutaAbsoluta = rutaAbsoluta.replaceAll("/build", "");
@@ -78,16 +69,36 @@ public class administrarUsuario extends HttpServlet {
                 //out.println("<div class='contenido'>");
                 out.println("<h1>Administrar Usuarios</h1>");
                 out.println("<br />");
+                
+                out.println("<div class='vertical-menu'>");
+                out.println("<a href='menuAdministrador' class='active'>Menú Administrador</a>");
+                //Alta, baja y cambio de usuarios
+                out.println("<a href='administrarUsuario'>Administrar Usuarios</a>");
+                //Alta, baja y cambio de grupos
+                out.println("<a href='administrarGrupos'>Administrar Grupos</a>");
+                //Cerrar Sesion
+                out.println("<a href='login.html'>Cerrar Sesión</a>");
+                out.println("</div>");
+                
+                
+                
+                out.println("<div class='contenido'>");
                 //Agregar Usuario
                 out.println("<form action='agregarUsuario' method='post'>");
                 out.println("<input type='submit' value='Crear Usuario'>");
                 out.println("</form>");
                 
-                
-                //out.println("</div>");
-                
                 out.println("<br />");
                 out.println("<br />");
+                
+                out.println("</div>");
+                
+                
+                
+                
+                
+                
+                
                 
                 //Mostrar tabla de usuarios registrados
                 out.println("<table border='3'>");

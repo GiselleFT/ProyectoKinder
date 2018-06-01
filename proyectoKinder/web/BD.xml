@@ -54,5 +54,17 @@
     <idAlumno>3</idAlumno>
     <idAlumno>4</idAlumno>
   </GRUPO>
+  <EJERCICIO id="1" idProfesor="2">
+    <nombre>ejercicio test</nombre>
+    <instruccion>Elige la opcion correcta</instruccion>
+    <audioInstruccion>audio.mp3</audioInstruccion>
+    <imagen>imagen.jpg</imagen>
+    <audioImagen>audio.mp3</audioImagen>
+    <pista>la respuesta es la 1 jeje</pista>
+    <respuestaCorrecta>Respuesta correcta</respuestaCorrecta>
+    <respuestaFalsa>Respuesta falsa1</respuestaFalsa>
+    <respuestaFalsa>Respuesta falsa2</respuestaFalsa>
+  </EJERCICIO>
+  
 </raiz>
 

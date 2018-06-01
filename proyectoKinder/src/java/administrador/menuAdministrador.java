@@ -18,7 +18,7 @@ public class menuAdministrador extends HttpServlet {
             //Recuperamos la sesion
             HttpSession session = request.getSession();
             String usuario = (String)session.getAttribute("usuario");
-            String contrasena = (String)session.getAttribute("contrasena");
+//            String contrasena = (String)session.getAttribute("contrasena");
             String tipoAtt = (String)session.getAttribute("tipo");
             PrintWriter out = response.getWriter();
             
@@ -47,30 +47,42 @@ public class menuAdministrador extends HttpServlet {
             out.println("<h1>Menu Administrador</h1>");
             out.println("<br />");
             out.println("<h1>Bienvenido Administrador: "+usuario+"</h1>");
-            //out.println("</div>");
             
             
-            //out.println("<div class='sidenav'>");
+            
+            out.println("<div class='vertical-menu'>");
+            out.println("<a href='menuAdministrador' class='active'>Menú Administrador</a>");
             //Alta, baja y cambio de usuarios
-            out.println("<form action='administrarUsuario' method='get'>");
-            out.println("<input type='submit' value='Administrar Usuario'/><br />");
-            out.println("</form>");
-            
+            out.println("<a href='administrarUsuario'>Administrar Usuarios</a>");
             //Alta, baja y cambio de grupos
-            out.println("<form action='administrarGrupos' method='get'>");
-            out.println("<input type='submit' value='Administrar Grupos'/><br />");
-            out.println("</form>");
-            
+            out.println("<a href='administrarGrupos'>Administrar Grupos</a>");
             //Cerrar Sesion
-            out.println("<form action='login.html' method='get'>");
-            out.println("<input type='submit' value='Cerrar Sesion'/><br />");
-            out.println("</form>");
-            //out.println("</div>");
-            
-         
+            out.println("<a href='login.html'>Cerrar Sesión</a>");
+            out.println("</div>");
             
             out.println("</body>");
             out.println("</html>");
     }
 
 }
+
+
+
+
+
+
+/******************************************************************************/
+//Menu con forms
+//out.println("<form action='administrarUsuario' method='get'>");
+            //out.println("<input type='submit' value='Administrar Usuario'/><br />");
+            //out.println("</form>");
+            
+            //Alta, baja y cambio de grupos
+//            out.println("<form action='administrarGrupos' method='get'>");
+//            out.println("<input type='submit' value='Administrar Grupos'/><br />");
+//            out.println("</form>");
+            
+            //Cerrar Sesion
+//            out.println("<form action='login.html' method='get'>");
+//            out.println("<input type='submit' value='Cerrar Sesion'/><br />");
+//            out.println("</form>");

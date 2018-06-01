@@ -25,39 +25,30 @@ public class formInicioSesion extends HttpServlet {
             //Recuperar parametros de login
             String usuario = request.getParameter("usuario");
             String contrasena = request.getParameter("contrasena");
-            
             boolean existeUsuario = false;
-
             //Subir parametros a la sesion
             HttpSession session = request.getSession();
             session.setAttribute("usuario", usuario);
             session.setAttribute("contrasena", contrasena);
 
             PrintWriter out = response.getWriter();
-
             try{
                 //Contruye un documento JDOM usando SAX, para procesar xml
                 SAXBuilder builder = new SAXBuilder();
                 //Para obtener la ruta absoluta del proyecto
                 String rutaAbsoluta = request.getSession().getServletContext().getRealPath("/");
-//                System.out.println("RUTA ABSOLUTA antes= "+rutaAbsoluta);
                 rutaAbsoluta = rutaAbsoluta.replace("\\", "/");
                 rutaAbsoluta = rutaAbsoluta.replaceAll("/build", "");
-                rutaAbsoluta = rutaAbsoluta.concat("BD.xml");
-//                rutaAbsoluta = rutaAbsoluta.replaceFirst("\\build", "\\web\\BD.xml");
-//                System.out.println("formInicioSesion ruta:" + rutaAbsoluta);
-//                System.out.println("RUTA ABSOLUTA= "+rutaAbsoluta);
                 //Ruta absoluta del archivo BD.xml
-                System.out.println("RUTA FINAL= " + rutaAbsoluta);
-                File BD = new File(rutaAbsoluta);
-//                File BD = new File("C:\\Users\\Giselle\\Documents\\GitHub\\ProyectoKinder\\proyectoKinder\\web\\BD.xml");              
+                rutaAbsoluta = rutaAbsoluta.concat("BD.xml");
+                File BD = new File(rutaAbsoluta);             
                 //Para cargar el documento xml
                 Document doc = builder.build(BD);//documentos para contruir base de datos
                 //Se obtiene el elemento raiz del xml
                 Element raiz = doc.getRootElement();
-                //Lista de nodos almacenados, lo que esta contenido entre las etiquetas de raiz
-//                List lista = raiz.getChildren();
+                //Lista de USUARIOS almacenados, lo que esta contenido entre las etiquetas de raiz
                 List lista = raiz.getChildren("USUARIO");
+                
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
@@ -66,11 +57,11 @@ public class formInicioSesion extends HttpServlet {
                 out.println("</head>");
                 out.println("<body>");
                 
-                System.out.println("Tamano lista: " + lista.size());
-                //Para recorrer el arbol de nodos
+//                System.out.println("Tamano lista: " + lista.size());
+                //Para recorrer el arbol de nodos de la lista
                 for(int i=0;i<lista.size();i++){//Por cada elemento  
                     //Se procesa un elemento de la lista
-                    Element element = (Element)lista.get(i);//guarda los datos de la lista en un arreglo de elementos
+                    Element element = (Element)lista.get(i);//Uno de los elementos de la lista
                     //Obtiene los elementos que contiene el elemento actual
                     List lista2 = element.getChildren();//pasa los elementos a lista2
                     //Se crea usuario2 para comparar con usuario
@@ -78,13 +69,13 @@ public class formInicioSesion extends HttpServlet {
                     //se crea contrasena2 para comprar con contrasena
                     Element contrasena2 = (Element)lista2.get(2);
                    
-                    if(usuario2.getTextTrim().matches(usuario)){//valida si el usuario se encuentra en la bd
+                    if(usuario2.getText().matches(usuario)){//valida si el usuario se encuentra en la bd
                         existeUsuario = true;
-                        if(contrasena2.getTextTrim().matches(contrasena)){//valida si la contraseña coincide
+                        if(contrasena2.getText().matches(contrasena)){//valida si la contraseña coincide
                             Attribute tipo = element.getAttribute("tipo");
                             //Sube a sesion el tipo de usuario que logro iniciar sesion
                             session.setAttribute("tipo", tipo.getValue());//getValue, retorna el valor textual del atributo
-                            System.out.println("Tipo=" + tipo.getValue());
+                            System.out.println("Inicio sesion Tipo=" + tipo.getValue());
                             if(tipo.getValue().matches("1")){//Administrador
                                 response.sendRedirect("menuAdministrador");
                             }
@@ -99,16 +90,13 @@ public class formInicioSesion extends HttpServlet {
                             }
                         }
                         else{//contraseña incorrecta
-                            out.println("<center><h1>Contrasena incorrecta para: "+usuario+"</h1></center></br>");//indica error de contraseña
+                            out.println("<center><h1>Contraseña incorrecta para: "+usuario+"</h1></center></br>");//indica error de contraseña
                             out.println("<center><h1><a href='login.html'>!Regresar al Login</a></h1></center>");
                             break;//rompe ciclo for
                         }
-                    }//Si no existe el usuario (aun)
-                    else{
+                    }
+                    else{//Si no existe el usuario (aun)
                         existeUsuario = false;
-                        //String cadena=element.getTextTrim();
-//                        out.println(cadena);
-//                        out.println("<br>");
                     }
                 }
                 if(!existeUsuario){//Si no existe el usuario
