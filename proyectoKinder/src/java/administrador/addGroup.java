@@ -69,11 +69,6 @@ public class addGroup extends HttpServlet {
                 rutaAbsoluta = rutaAbsoluta.concat("BD.xml");
                 File BD = new File(rutaAbsoluta);
                 
-                //Para obtener la ruta absoluta del proyecto XSD
-                String rutaEsquema = request.getSession().getServletContext().getRealPath("/");
-                rutaEsquema = rutaEsquema.replace("\\", "/");
-                rutaEsquema = rutaEsquema.replaceAll("/build", "");
-                rutaEsquema = rutaEsquema.concat("esquemaUsuario.xsd");
                 
                 //Para cargar el documento xml
                 Document doc = builder.build(BD);//documentos para contruir base de datos
