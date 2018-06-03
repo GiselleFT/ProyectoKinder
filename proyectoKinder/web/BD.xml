@@ -2,7 +2,7 @@
 <raiz xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="esquemaUsuario.xsd">
   <USUARIO id="1" tipo="1">
     <nombre>root</nombre>
-    <usuario>root</usuario>
+    <usuario>root@gmail.com</usuario>
     <contrasena>root</contrasena>
   </USUARIO>
   <USUARIO id="2" tipo="2">
@@ -60,11 +60,6 @@
     <respuestaFalsa>Respuesta falsa1</respuestaFalsa>
     <respuestaFalsa>Respuesta falsa2</respuestaFalsa>
   </EJERCICIO>
-  <USUARIO id="7" tipo="2">
-    <nombre>Tona</nombre>
-    <usuario>Tona</usuario>
-    <contrasena>Tona</contrasena>
-  </USUARIO>
   <GRUPO id="4">
     <grupo>Marrano</grupo>
     <idProfesor>7</idProfesor>
