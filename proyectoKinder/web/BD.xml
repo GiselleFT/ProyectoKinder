@@ -6,6 +6,7 @@
     <contrasena>root</contrasena>
   </USUARIO>
   <USUARIO id="2" tipo="2">
+    <nombre>profesor</nombre>
     <usuario>profesor</usuario>
     <contrasena>profesor</contrasena>
   </USUARIO>
@@ -96,13 +97,6 @@
     <nombreProfesor>profesor</nombreProfesor>
     <inscritos>1</inscritos>
     <idAlumno>3</idAlumno>
-  </GRUPO>
-  <GRUPO id="9">
-    <grupo>sdds</grupo>
-    <idProfesor>2</idProfesor>
-    <nombreProfesor>profesor</nombreProfesor>
-    <inscritos>1</inscritos>
-    <idAlumno>4</idAlumno>
   </GRUPO>
 </raiz>
 

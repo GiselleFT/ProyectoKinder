@@ -56,23 +56,26 @@ public class errorValidacion extends HttpServlet {
 
             out.println("<h3>"+errorConforme+"</h3>");
             out.println("<h3>"+errorValido+"</h3>");
+            
+            out.println("<center><h1><a href='login.html'>!Regresar al Login</a></h1></center>");
+            
             //Regresar al menu, dependiendo del tipo de usuario
-            if(tipoAtt.equals("1")){
-                out.println("<form action='menuAdministrador' method='get'>");
-                out.println("<input type='submit' value='Regresar al menu'>");
-                out.println("</form>");
-            }
-            else if(tipoAtt.equals("2")){
-                
-                out.println("<form action='menuProfesor' method='get'>");
-                out.println("<input type='submit' value='Regresar al menu'>");
-                out.println("</form>");
-            }
-            else if(tipoAtt.equals("3")){
-                out.println("<form action='menuAlumno' method='get'>");
-                out.println("<input type='submit' value='Regresar al menu'>");
-                out.println("</form>");
-            }
+//            if(tipoAtt.equals("1")){
+//                out.println("<form action='menuAdministrador' method='get'>");
+//                out.println("<input type='submit' value='Regresar al menu'>");
+//                out.println("</form>");
+//            }
+//            else if(tipoAtt.equals("2")){
+//                
+//                out.println("<form action='menuProfesor' method='get'>");
+//                out.println("<input type='submit' value='Regresar al menu'>");
+//                out.println("</form>");
+//            }
+//            else if(tipoAtt.equals("3")){
+//                out.println("<form action='menuAlumno' method='get'>");
+//                out.println("<input type='submit' value='Regresar al menu'>");
+//                out.println("</form>");
+//            }
             
 
             out.println("</body>");

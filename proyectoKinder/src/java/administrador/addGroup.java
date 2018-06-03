@@ -148,33 +148,6 @@ public class addGroup extends HttpServlet {
                     fw.flush();
                 }
                 
-                /*Bloque para checar si el xml es bien conformado y valido respecto
-                    a su esquema xsd
-                */
-                validador validador = new validador();
-                try {
-                    //Si no hay errores, continua con el flujo
-                    if(validador.checkAll(rutaAbsoluta, rutaEsquema, out)){
-                       response.sendRedirect("administrarGrupos"); 
-                    }
-                    else{//Pantalla de error
-                        response.sendRedirect("errorValidacion?errorConforme="+validador.getErrorConforme()+"&errorValido="
-                                +validador.getErrorValido());
-                    }
-                    
-                } catch (JDOMException ex) {
-                    System.out.println("Error en validacion");
-                    Logger.getLogger(addGroup.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (SAXException ex) {
-                    System.out.println("Error en validacion");
-                    Logger.getLogger(addGroup.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                
-                
-                
-                
-                
-                
             }
             catch(Exception e){
                 e.printStackTrace();
