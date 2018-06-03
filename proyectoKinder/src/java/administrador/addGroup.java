@@ -1,11 +1,14 @@
 package administrador;
 
+import general.validador;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +21,7 @@ import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
+import org.xml.sax.SAXException;
 
 public class addGroup extends HttpServlet {
     
@@ -58,12 +62,19 @@ public class addGroup extends HttpServlet {
             try{
                 //Contruye un documento JDOM usando SAX, para procesar xml
                 SAXBuilder builder = new SAXBuilder();
-                //Para obtener la ruta absoluta del proyecto
+                //Para obtener la ruta absoluta del proyecto XML
                 String rutaAbsoluta = request.getSession().getServletContext().getRealPath("/");
                 rutaAbsoluta = rutaAbsoluta.replace("\\", "/");
                 rutaAbsoluta = rutaAbsoluta.replaceAll("/build", "");
                 rutaAbsoluta = rutaAbsoluta.concat("BD.xml");
                 File BD = new File(rutaAbsoluta);
+                
+                //Para obtener la ruta absoluta del proyecto XSD
+                String rutaEsquema = request.getSession().getServletContext().getRealPath("/");
+                rutaEsquema = rutaEsquema.replace("\\", "/");
+                rutaEsquema = rutaEsquema.replaceAll("/build", "");
+                rutaEsquema = rutaEsquema.concat("esquemaUsuario.xsd");
+                
                 //Para cargar el documento xml
                 Document doc = builder.build(BD);//documentos para contruir base de datos
                 //Se obtiene el elemento raiz del xml
@@ -136,7 +147,31 @@ public class addGroup extends HttpServlet {
                     xmlo.output(doc, fw);//se escribe en el archivo
                     fw.flush();
                 }
-                response.sendRedirect("administrarGrupos");
+                
+                /*Bloque para checar si el xml es bien conformado y valido respecto
+                    a su esquema xsd
+                */
+                validador validador = new validador();
+                try {
+                    //Si no hay errores, continua con el flujo
+                    if(validador.checkAll(rutaAbsoluta, rutaEsquema, out)){
+                       response.sendRedirect("administrarGrupos"); 
+                    }
+                    else{//Pantalla de error
+                        response.sendRedirect("errorValidacion?errorConforme="+validador.getErrorConforme()+"&errorValido="
+                                +validador.getErrorValido());
+                    }
+                    
+                } catch (JDOMException ex) {
+                    System.out.println("Error en validacion");
+                    Logger.getLogger(addGroup.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SAXException ex) {
+                    System.out.println("Error en validacion");
+                    Logger.getLogger(addGroup.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                
+                
                 
                 
                 

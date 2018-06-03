@@ -6,7 +6,6 @@
     <contrasena>root</contrasena>
   </USUARIO>
   <USUARIO id="2" tipo="2">
-    <nombre>profesor</nombre>
     <usuario>profesor</usuario>
     <contrasena>profesor</contrasena>
   </USUARIO>
@@ -66,6 +65,43 @@
     <nombreProfesor>Tona</nombreProfesor>
     <inscritos>2</inscritos>
     <idAlumno>3</idAlumno>
+    <idAlumno>4</idAlumno>
+  </GRUPO>
+  <GRUPO id="5">
+    <grupo>grupo3</grupo>
+    <idProfesor>6</idProfesor>
+    <nombreProfesor>profesor2</nombreProfesor>
+    <inscritos>2</inscritos>
+    <idAlumno>3</idAlumno>
+    <idAlumno>4</idAlumno>
+  </GRUPO>
+  <GRUPO id="6">
+    <grupo>grupo9</grupo>
+    <idProfesor>2</idProfesor>
+    <nombreProfesor>profesor</nombreProfesor>
+    <inscritos>2</inscritos>
+    <idAlumno>3</idAlumno>
+    <idAlumno>4</idAlumno>
+  </GRUPO>
+  <GRUPO id="7">
+    <grupo>qqq</grupo>
+    <idProfesor>2</idProfesor>
+    <nombreProfesor>profesor</nombreProfesor>
+    <inscritos>1</inscritos>
+    <idAlumno>3</idAlumno>
+  </GRUPO>
+  <GRUPO id="8">
+    <grupo>wewew</grupo>
+    <idProfesor>2</idProfesor>
+    <nombreProfesor>profesor</nombreProfesor>
+    <inscritos>1</inscritos>
+    <idAlumno>3</idAlumno>
+  </GRUPO>
+  <GRUPO id="9">
+    <grupo>sdds</grupo>
+    <idProfesor>2</idProfesor>
+    <nombreProfesor>profesor</nombreProfesor>
+    <inscritos>1</inscritos>
     <idAlumno>4</idAlumno>
   </GRUPO>
 </raiz>

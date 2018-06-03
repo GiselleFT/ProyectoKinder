@@ -17,50 +17,47 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:element name="raiz">  
         <xs:complexType>
-            <xs:element name="USUARIO">
-                <xs:complexType>
-                    <xs:all>
-                        <xs:element name="nombre" type="xs:string"/>
-                        <xs:element name="usuario" type="xs:string"/>
-                        <xs:element name="contrasena" type="xs:string"/>
-                    </xs:all>
-                    <xs:attribute name="id" use="required"/>
-                    <xs:attribute name="tipo" use="required"/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="GRUPO">
-                <xs:complexType>
-                    <xs:all>
-                        <xs:element name="grupo" type="xs:string"/>
-                        <xs:element name="idProfesor" type="xs:integer"/>
-                        <xs:element name="nombreProfesor" type="xs:string"/>
-                        <xs:element name="inscritos" type="xs:integer"/>
-                        <xs:element name="idAlumno" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
-                    </xs:all>
-                    <xs:attribute name="id" use="required"/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="EJERCICIO">
-                <xs:complexType>
-                    <xs:all>
-                        <xs:element name="nombre" type="xs:string"/>
-                        <xs:element name="instruccion" type="xs:string"/>
-                        <xs:element name="audioInstruccion" type="xs:string"/>
-                        <xs:element name="imagen" type="xs:string"/>
-                        <xs:element name="audioImagen" type="xs:string"/>
-                        <xs:element name="pista" type="xs:string"/>
-                        <xs:element name="respuestaCorrecta" type="xs:string"/>
-                        <xs:element name="respuestaFalsa" type="xs:string" minOccurs="2" maxOccurs="2"/>
-                    </xs:all>
-                    <xs:attribute name="id" use="required"/>
-                    <xs:attribute name="idProfesor" use="required"/>
-                </xs:complexType>
-            </xs:element>
+            <xs:choice minOccurs="1" maxOccurs="unbounded">
+                <xs:element name="USUARIO">
+                        <xs:complexType>
+                            <xs:all>
+                                <xs:element name="nombre" type="xs:string"/>
+                                <xs:element name="usuario" type="xs:string"/>
+                                <xs:element name="contrasena" type="xs:string"/>
+                            </xs:all>
+                            <xs:attribute name="id" type="xs:integer" use="required"/>
+                            <xs:attribute name="tipo" type="xs:integer" use="required"/>
+                        </xs:complexType>
+                </xs:element>
+                <xs:element name="GRUPO">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="grupo" type="xs:string"/>
+                                <xs:element name="idProfesor" type="xs:integer"/>
+                                <xs:element name="nombreProfesor" type="xs:string"/>
+                                <xs:element name="inscritos" type="xs:integer"/>
+                                <xs:element name="idAlumno" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+                            </xs:sequence>
+                            <xs:attribute name="id" type="xs:integer" use="required"/>
+                        </xs:complexType>
+                </xs:element>
+                <xs:element name="EJERCICIO">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="nombre" type="xs:string"/>
+                                <xs:element name="instruccion" type="xs:string"/>
+                                <xs:element name="audioInstruccion" type="xs:string"/>
+                                <xs:element name="imagen" type="xs:string"/>
+                                <xs:element name="audioImagen" type="xs:string"/>
+                                <xs:element name="pista" type="xs:string"/>
+                                <xs:element name="respuestaCorrecta" type="xs:string"/>
+                                <xs:element name="respuestaFalsa" type="xs:string" minOccurs="2" maxOccurs="2"/>
+                            </xs:sequence>
+                            <xs:attribute name="id" type="xs:integer" use="required"/>
+                            <xs:attribute name="idProfesor" type="xs:integer" use="required"/>
+                        </xs:complexType>
+                </xs:element>
+            </xs:choice>
         </xs:complexType>
     </xs:element> 
 </xs:schema>
-
-
-
-
-
