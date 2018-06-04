@@ -95,6 +95,8 @@ for(int i=0;i<lista.size();i++){//Por cada elemento
         existeUsuario = true;
         if(contrasena2.getText().matches(contrasena)){//valida si la contraseña coincide
             Attribute tipo = element.getAttribute("tipo");
+            Attribute idUsuario = element.getAttribute("id");
+            session.setAttribute("idUsuario", idUsuario.getValue());
             //Sube a sesion el tipo de usuario que logro iniciar sesion
             session.setAttribute("tipo", tipo.getValue());//getValue, retorna el valor textual del atributo
             System.out.println("Inicio sesion Tipo=" + tipo.getValue());

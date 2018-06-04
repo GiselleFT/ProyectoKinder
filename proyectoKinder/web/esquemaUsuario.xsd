@@ -51,7 +51,7 @@
                                 <xs:element name="audioImagen" type="xs:string"/>
                                 <xs:element name="pista" type="xs:string"/>
                                 <xs:element name="respuestaCorrecta" type="xs:string"/>
-                                <xs:element name="respuestaFalsa" type="xs:string" minOccurs="2" maxOccurs="2"/>
+                                <xs:element name="respuestaIncorrecta" type="xs:string" minOccurs="2" maxOccurs="2"/>
                             </xs:sequence>
                             <xs:attribute name="id" type="xs:integer" use="required"/>
                             <xs:attribute name="idProfesor" type="xs:integer" use="required"/>

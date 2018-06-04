@@ -45,40 +45,17 @@ public class menuProfesor extends HttpServlet {
             out.println("<br />");
             out.println("<h1>Bienvenido Profesor: "+usuario+"</h1>");
             
+            
             //Altas, bajas y cambios de ejercicios
-            out.println("<h2>Administrar Ejercicios</h2>");
-            
-            out.println("<form action='adminEjercicio1' method='get'>");
-            out.println("<input type='submit' value='Seleccionar Inicio de Mezclas consonanticas'/><br />");
+            out.println("<form action='adminEjercicios' method='get'>");
+            out.println("<input type='submit' value='Administrar Ejercicios'/><br />");
             out.println("</form>");
             
-            out.println("<form action='adminEjercicio2' method='get'>");
-            out.println("<input type='submit' value='Completar Inicio de Mezclas consonanticas'/><br />");
+            //Altas y bajas de ejercicios a grupos
+            out.println("<form action='adminGrupos' method='get'>");
+            out.println("<input type='submit' value='Administrar Grupos'/><br />");
             out.println("</form>");
             
-            out.println("<form action='adminEjercicio3' method='get'>");
-            out.println("<input type='submit' value='Seleccionar Palabra Inicio de Mezclas consonanticas'/><br />");
-            out.println("</form>");
-            
-            out.println("<form action='adminEjercicio4' method='get'>");
-            out.println("<input type='submit' value='Seleccionar Fin de Mezclas consonanticas'/><br />");
-            out.println("</form>");
-            
-            out.println("<form action='adminEjercicio5' method='get'>");
-            out.println("<input type='submit' value='Completar Fin de Mezclas consonanticas'/><br />");
-            out.println("</form>");
-            
-            out.println("<form action='adminEjercicio6' method='get'>");
-            out.println("<input type='submit' value='Seleccionar Palabra Fin de Mezclas consonanticas'/><br />");
-            out.println("</form>");
-            
-            out.println("<form action='adminEjercicio7' method='get'>");
-            out.println("<input type='submit' value='Seleccionar Palabra'/><br />");
-            out.println("</form>");
-            
-            out.println("<form action='adminEjercicio8' method='get'>");
-            out.println("<input type='submit' value='Seleccionar Digrafo'/><br />");
-            out.println("</form>");
             
             out.println("<br /><br />");
             

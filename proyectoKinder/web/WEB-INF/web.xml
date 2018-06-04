@@ -9,38 +9,6 @@
         <servlet-class>profesor.menuProfesor</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>adminEjercicio1</servlet-name>
-        <servlet-class>profesor.adminEjercicio1</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>adminEjercicio2</servlet-name>
-        <servlet-class>profesor.adminEjercicio2</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>adminEjercicio3</servlet-name>
-        <servlet-class>profesor.adminEjercicio3</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>adminEjercicio4</servlet-name>
-        <servlet-class>profesor.adminEjercicio4</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>adminEjercicio5</servlet-name>
-        <servlet-class>profesor.adminEjercicio5</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>adminEjercicio6</servlet-name>
-        <servlet-class>profesor.adminEjercicio6</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>adminEjercicio7</servlet-name>
-        <servlet-class>profesor.adminEjercicio7</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>adminEjercicio8</servlet-name>
-        <servlet-class>profesor.adminEjercicio8</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>menuAdministrador</servlet-name>
         <servlet-class>administrador.menuAdministrador</servlet-class>
     </servlet>
@@ -104,6 +72,26 @@
         <servlet-name>errorValidacion</servlet-name>
         <servlet-class>general.errorValidacion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>adminEjercicios</servlet-name>
+        <servlet-class>profesor.adminEjercicios</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>adminGrupos</servlet-name>
+        <servlet-class>profesor.adminGrupos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>agregarEjercicio</servlet-name>
+        <servlet-class>profesor.agregarEjercicio</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addExercise</servlet-name>
+        <servlet-class>profesor.addExercise</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modificarEjercicio</servlet-name>
+        <servlet-class>profesor.modificarEjercicio</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>formInicioSesion</servlet-name>
         <url-pattern>/formInicioSesion</url-pattern>
@@ -111,38 +99,6 @@
     <servlet-mapping>
         <servlet-name>menuProfesor</servlet-name>
         <url-pattern>/menuProfesor</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>adminEjercicio1</servlet-name>
-        <url-pattern>/adminEjercicio1</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>adminEjercicio2</servlet-name>
-        <url-pattern>/adminEjercicio2</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>adminEjercicio3</servlet-name>
-        <url-pattern>/adminEjercicio3</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>adminEjercicio4</servlet-name>
-        <url-pattern>/adminEjercicio4</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>adminEjercicio5</servlet-name>
-        <url-pattern>/adminEjercicio5</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>adminEjercicio6</servlet-name>
-        <url-pattern>/adminEjercicio6</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>adminEjercicio7</servlet-name>
-        <url-pattern>/adminEjercicio7</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>adminEjercicio8</servlet-name>
-        <url-pattern>/adminEjercicio8</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>menuAdministrador</servlet-name>
@@ -207,6 +163,26 @@
     <servlet-mapping>
         <servlet-name>errorValidacion</servlet-name>
         <url-pattern>/errorValidacion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminEjercicios</servlet-name>
+        <url-pattern>/adminEjercicios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminGrupos</servlet-name>
+        <url-pattern>/adminGrupos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>agregarEjercicio</servlet-name>
+        <url-pattern>/agregarEjercicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addExercise</servlet-name>
+        <url-pattern>/addExercise</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modificarEjercicio</servlet-name>
+        <url-pattern>/modificarEjercicio</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

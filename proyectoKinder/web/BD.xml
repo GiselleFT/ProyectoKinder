@@ -7,7 +7,7 @@
   </USUARIO>
   <USUARIO id="2" tipo="2">
     <nombre>profesor</nombre>
-    <usuario>profesor</usuario>
+    <usuario>profesor@gmail.com</usuario>
     <contrasena>profesor</contrasena>
   </USUARIO>
   <USUARIO id="3" tipo="3">
@@ -57,8 +57,30 @@
     <audioImagen>audio.mp3</audioImagen>
     <pista>la respuesta es la 1 jeje</pista>
     <respuestaCorrecta>Respuesta correcta</respuestaCorrecta>
-    <respuestaFalsa>Respuesta falsa1</respuestaFalsa>
-    <respuestaFalsa>Respuesta falsa2</respuestaFalsa>
+    <respuestaIncorrecta>Respuesta falsa1</respuestaIncorrecta>
+    <respuestaIncorrecta>Respuesta falsa2</respuestaIncorrecta>
+  </EJERCICIO>
+  <EJERCICIO id="2" idProfesor="2">
+    <nombre>ejercicio test2</nombre>
+    <instruccion>Elige la opcion correcta</instruccion>
+    <audioInstruccion>audio.mp3</audioInstruccion>
+    <imagen>imagen.jpg</imagen>
+    <audioImagen>audio.mp3</audioImagen>
+    <pista>la respuesta es la 1 jeje</pista>
+    <respuestaCorrecta>Respuesta correcta</respuestaCorrecta>
+    <respuestaIncorrecta>Respuesta falsa1</respuestaIncorrecta>
+    <respuestaIncorrecta>Respuesta falsa2</respuestaIncorrecta>
+  </EJERCICIO>
+  <EJERCICIO id="3" idProfesor="6">
+    <nombre>ejercicio test3</nombre>
+    <instruccion>Elige la opcion correcta</instruccion>
+    <audioInstruccion>audio.mp3</audioInstruccion>
+    <imagen>imagen.jpg</imagen>
+    <audioImagen>audio.mp3</audioImagen>
+    <pista>la respuesta es la 1 jeje</pista>
+    <respuestaCorrecta>Respuesta correcta</respuestaCorrecta>
+    <respuestaIncorrecta>Respuesta falsa1</respuestaIncorrecta>
+    <respuestaIncorrecta>Respuesta falsa2</respuestaIncorrecta>
   </EJERCICIO>
   <GRUPO id="4">
     <grupo>Marrano</grupo>
@@ -98,5 +120,16 @@
     <inscritos>1</inscritos>
     <idAlumno>3</idAlumno>
   </GRUPO>
+  <EJERCICIO id="4" idProfesor="2">
+    <nombre>q</nombre>
+    <instruccion>q</instruccion>
+    <audioInstruccion>q</audioInstruccion>
+    <imagen>q</imagen>
+    <audioImagen>q</audioImagen>
+    <pista>q</pista>
+    <respuestaCorrecta>q</respuestaCorrecta>
+    <respuestaIncorrecta>q</respuestaIncorrecta>
+    <respuestaIncorrecta>q</respuestaIncorrecta>
+  </EJERCICIO>
 </raiz>
 
