@@ -92,6 +92,14 @@
         <servlet-name>modificarEjercicio</servlet-name>
         <servlet-class>profesor.modificarEjercicio</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>modifyExercise</servlet-name>
+        <servlet-class>profesor.modifyExercise</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>eliminarEjercicio</servlet-name>
+        <servlet-class>profesor.eliminarEjercicio</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>formInicioSesion</servlet-name>
         <url-pattern>/formInicioSesion</url-pattern>
@@ -183,6 +191,14 @@
     <servlet-mapping>
         <servlet-name>modificarEjercicio</servlet-name>
         <url-pattern>/modificarEjercicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modifyExercise</servlet-name>
+        <url-pattern>/modifyExercise</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>eliminarEjercicio</servlet-name>
+        <url-pattern>/eliminarEjercicio</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

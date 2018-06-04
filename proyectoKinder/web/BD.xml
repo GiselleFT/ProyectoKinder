@@ -83,7 +83,7 @@
     <respuestaIncorrecta>Respuesta falsa2</respuestaIncorrecta>
   </EJERCICIO>
   <GRUPO id="4">
-    <grupo>Marrano</grupo>
+    <grupo>3CM12</grupo>
     <idProfesor>7</idProfesor>
     <nombreProfesor>Tona</nombreProfesor>
     <inscritos>2</inscritos>
@@ -120,16 +120,5 @@
     <inscritos>1</inscritos>
     <idAlumno>3</idAlumno>
   </GRUPO>
-  <EJERCICIO id="4" idProfesor="2">
-    <nombre>q</nombre>
-    <instruccion>q</instruccion>
-    <audioInstruccion>q</audioInstruccion>
-    <imagen>q</imagen>
-    <audioImagen>q</audioImagen>
-    <pista>q</pista>
-    <respuestaCorrecta>q</respuestaCorrecta>
-    <respuestaIncorrecta>q</respuestaIncorrecta>
-    <respuestaIncorrecta>q</respuestaIncorrecta>
-  </EJERCICIO>
 </raiz>
 

@@ -118,12 +118,14 @@ public class adminEjercicios extends HttpServlet {
                             out.println("<td>");
                             //Por medio del id, se localiza al usuario por modificar
                             out.println("<form action='modificarEjercicio' method='post'>");
+                            out.println("<input type='hidden' name='id' value="+id.getValue()+">");//Del ejercicio
                             out.println("<input type='submit' value='Modificar'>");
                             out.println("</form>");
                             out.println("</td>");
                             out.println("<td>");
                             //Por medio del id, se localiza al ejercicio por eliminar
                             out.println("<form action='eliminarEjercicio' method='post'>");
+                            out.println("<input type='hidden' name='id' value="+id.getValue()+">");//Del ejercicio
                             out.println("<input type='submit' value='Eliminar'>");
                             out.println("</form>");
                             out.println("</td>");
