@@ -120,5 +120,16 @@
     <inscritos>1</inscritos>
     <idAlumno>3</idAlumno>
   </GRUPO>
+  <EJERCICIO id="4" idProfesor="2">
+    <nombre>a</nombre>
+    <instruccion>a</instruccion>
+    <audioInstruccion>1033459.jpeg</audioInstruccion>
+    <imagen>perritos3.jpg</imagen>
+    <audioImagen />
+    <pista>a</pista>
+    <respuestaCorrecta>a</respuestaCorrecta>
+    <respuestaIncorrecta>a</respuestaIncorrecta>
+    <respuestaIncorrecta />
+  </EJERCICIO>
 </raiz>
 

@@ -29,14 +29,14 @@ public class addExercise extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        String nombreNuevo = (String) request.getParameter("nombreNuevo");//Del registro del nuevo ejercicioNuevo
-        String instruccionNuevo = (String) request.getParameter("instruccionNuevo");
-        String audioInstruccionNuevo = (String) request.getParameter("audioInstruccionNuevo");
-        String imagenNuevo =""; /*(String)request.getParameter("imagenNuevo");*/
-        String audioImagenNuevo = (String) request.getParameter("audioImagenNuevo");
-        String pistaNuevo = (String) request.getParameter("pistaNuevo");
-        String respuestaCorrectaNuevo = (String) request.getParameter("respuestaCorrectaNuevo");
-        String respuestaIncorrecta1Nuevo = (String) request.getParameter("respuestaIncorrecta1Nuevo");
+        String nombreNuevo = (String)session.getAttribute("nombreNuevo");
+        String instruccionNuevo = (String)session.getAttribute("instruccionNuevo");
+        String audioInstruccionNuevo = (String)session.getAttribute("audioInstruccionNuevo");
+        String imagenNuevo = (String)session.getAttribute("imagenNuevo");
+        String audioImagenNuevo = (String)session.getAttribute("audioImagenNuevo");
+        String pistaNuevo = (String)session.getAttribute("pistaNuevo");
+        String respuestaCorrectaNuevo = (String)session.getAttribute("respuestaCorrectaNuevo");
+        String respuestaIncorrecta1Nuevo = (String)session.getAttribute("respuestaIncorrecta1Nuevo");
         String respuestaIncorrecta2Nuevo = (String) request.getParameter("respuestaIncorrecta2Nuevo");
 
         String usuario = (String) session.getAttribute("usuario");//Del administrador
@@ -57,38 +57,6 @@ public class addExercise extends HttpServlet {
             response.sendRedirect("login.html");
         }
         //*******************************************//
-
-        if (!ServletFileUpload.isMultipartContent(request)) {
-            throw new IllegalArgumentException("Request is not multipart, please 'multipart/form-data' enctype for your form.");
-        }
-
-        ServletFileUpload uploadHandler = new ServletFileUpload(new DiskFileItemFactory());
-        PrintWriter writer = response.getWriter();
-        String ruta = request.getSession().getServletContext().getRealPath("/");
-        ruta = ruta.replace("\\", "/");
-        ruta = ruta.replaceAll("/build", "");
-        ruta = ruta.concat("/archivos/");
-        System.out.println(ruta);
-        System.out.println(new File(ruta));
-        try {
-            List<FileItem> items = uploadHandler.parseRequest(request);
-
-            for (FileItem item : items) {
-                if (!item.isFormField()) {
-                    File file = new File(ruta, item.getName());
-                    imagenNuevo=item.getName();
-                    item.write(file);
-                    System.out.println("uploaded");
-                }
-            }
-        } catch (FileUploadException e) {
-            throw new RuntimeException(e);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        } finally {
-
-            writer.close();
-        }
 
         try {
             //Contruye un documento JDOM usando SAX, para procesar xml
