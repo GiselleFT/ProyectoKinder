@@ -117,13 +117,13 @@ public class administrarUsuario extends HttpServlet {
 
             out.println("<br />");
             out.println("<br />");
-            out.println("            <div class=\"wrapper wrapper-content\">");
-            out.println("                <div class=\"middle-box text-center animated fadeInRightBig\">");
+            out.println("            <div class=\"wrapper  wrapper-content animated fadeInRight\">");
+            
             out.println("                    <div class=\"row\">");
             out.println("                <div class=\"col-lg-12\">");
             out.println("                    <div class=\"ibox float-e-margins\">");
             out.println("                        <div class=\"ibox-title\">");
-            out.println("                            <h5>Custom responsive table </h5>");
+            out.println("                            <h5>Custom rnsive table </h5>");
             out.println("                            <div class=\"ibox-tools\">");
             out.println("                                <a class=\"collapse-link\">");
             out.println("                                    <i class=\"fa fa-chevron-up\"></i>");

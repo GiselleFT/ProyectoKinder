@@ -41,11 +41,11 @@ public class agregarEjercicio extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Agregar Ejercicio</h1>");
             
-            out.println("<form action='addExercise' method='get'>");
+            out.println("<form action='addExercise' class='dropzone' method='post'>");
             out.println("<h6>Nombre:</h6> <input id='nombre' type='text' name='nombreNuevo' required/><br />");
             out.println("<h6>Instruccion:</h6> <input id='instruccion' type='text' name='instruccionNuevo' required/><br />");
             out.println("<h6>Audio Instruccion:</h6> <input id='audioInstruccion' type='text' name='audioInstruccionNuevo' required/><br />");
-            out.println("<h6>Imagen:</h6> <input id='imagen' type='text' name='imagenNuevo' required/><br />");
+            //out.println("<h6>Imagen:</h6> <input id='imagen' type='text' name='imagenNuevo' required/><br />");
             out.println("<h6>Audio Imagen:</h6> <input id='audioImagen' type='text' name='audioImagenNuevo' required/><br />");
             out.println("<h6>Pista:</h6> <input id='pista' type='text' name='pistaNuevo' required/><br />");
             out.println("<h6>Respuesta correcta:</h6> <input id='respuestaCorrecta' type='text' name='respuestaCorrectaNuevo' required/><br />");
@@ -54,6 +54,10 @@ public class agregarEjercicio extends HttpServlet {
             
             out.println("<br />");
             out.println("<br />");
+            out.println("<div class='fallback'>");
+            out.println("<input name='file' type='file' multiple />");
+            out.println("</div>");
+            
             out.println("<input type='submit' value='Agregar ejercicio'>");
             out.println("</form>");
             
