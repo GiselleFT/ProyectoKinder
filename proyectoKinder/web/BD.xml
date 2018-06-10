@@ -132,15 +132,15 @@
     <respuestaIncorrecta>sam</respuestaIncorrecta>
   </EJERCICIO>
   <EJERCICIO id="6" idProfesor="2">
-    <nombre>oso</nombre>
-    <instruccion>oso</instruccion>
-    <audioInstruccion>2_</audioInstruccion>
-    <imagen>2_</imagen>
-    <audioImagen>2_</audioImagen>
-    <pista>oso</pista>
-    <respuestaCorrecta>oso</respuestaCorrecta>
-    <respuestaIncorrecta>oso</respuestaIncorrecta>
-    <respuestaIncorrecta>oso2</respuestaIncorrecta>
+    <nombre>a</nombre>
+    <instruccion>a</instruccion>
+    <audioInstruccion>2_take_on_me_chida.mp3</audioInstruccion>
+    <imagen>2_20160412_102429.jpg</imagen>
+    <audioImagen>2_take_on_me.mp3</audioImagen>
+    <pista>a</pista>
+    <respuestaCorrecta>a</respuestaCorrecta>
+    <respuestaIncorrecta>a</respuestaIncorrecta>
+    <respuestaIncorrecta>a</respuestaIncorrecta>
   </EJERCICIO>
 </raiz>
 

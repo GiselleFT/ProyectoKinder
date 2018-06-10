@@ -132,7 +132,7 @@ public class modificarImagen extends HttpServlet {
         out.println("<br />");
         //Agregar Usuario
 
-        out.println("<a href=\"http://localhost:29201/proyectoKinder/modificarEjercicio?id="+session.getAttribute("id")+"&first=2\" >\n" +
+        out.println("<a href=\"/proyectoKinder/modificarEjercicio?id="+session.getAttribute("id")+"&first=2\" >\n" +
 "                                <button  class=\"btn btn-w-m btn-danger\" type=\"submit\">Regresar</button>\n" +
 "                            </a>");
         out.println("                </div>");
