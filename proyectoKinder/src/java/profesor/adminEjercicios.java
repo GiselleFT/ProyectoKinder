@@ -61,31 +61,104 @@ public class adminEjercicios extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Administrar Ejercicios</title>");
-            out.println("<link rel='stylesheet' href='css/estilos.css'>");
+            out.println("    <meta charset=\"utf-8\">");
+            out.println("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+            out.println("    <title>INSPINIA | Empty Page</title>");
+            out.println("    <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">");
+            out.println("    <link href=\"font-awesome/css/font-awesome.css\" rel=\"stylesheet\">");
+            out.println("    <link href=\"css/animate.css\" rel=\"stylesheet\">");
+            out.println("    <link href=\"css/style.css\" rel=\"stylesheet\">");
             out.println("</head>");
-            out.println("<body>");
+            out.println("<body class=\"\">");
+            out.println("    <div id=\"wrapper\">");
+            out.println("    <nav class=\"navbar-default navbar-static-side\" role=\"navigation\">");
+            out.println("        <div class=\"sidebar-collapse\">");
+            out.println("            <ul class=\"nav metismenu\" id=\"side-menu\">");
+            out.println("                <li class=\"nav-header\">");
+            out.println("                    <div class=\"logo-element\">");
+            out.println("                        IN+");
+            out.println("                    </div>");
+            out.println("                </li>");
+            out.println("                <li>");
+            out.println("                    <a href=\"#\"><i class=\"fa fa-user-circle\"></i> <span class=\"nav-label\">Menu administrador</span><span class=\"fa arrow\"></span></a>");
+            out.println("                    <ul class=\"nav nav-second-level collapse\">");
+            out.println("                        <li><a href=\"adminEjercicios\">Administrar Ejercicios</a></li>");
+            out.println("                        <li><a href=\"adminGrupos\">Administrar Grupos</a></li>");
+            out.println("                    </ul>");
+            out.println("                </li>");
+            out.println("                <li class=\"special_link\">");
+            out.println("                    <a href=\"login.html\"><i class=\"fa fa-times-rectangle\"></i> <span class=\"nav-label\">Cerrar sesion</span></a>");
+            out.println("                </li>");
+            out.println("            </ul>");
+            out.println("");
+            out.println("        </div>");
+            out.println("    </nav>");
+            out.println("        <div id=\"page-wrapper\" class=\"gray-bg\">");
+            out.println("        <div class=\"row border-bottom\">");
+            out.println("        <nav class=\"navbar navbar-static-top  \" role=\"navigation\" style=\"margin-bottom: 0\">");
+            out.println("        <div class=\"navbar-header\">");
+            out.println("            <a class=\"navbar-minimalize minimalize-styl-2 btn btn-primary \" href=\"#\"><i class=\"fa fa-bars\"></i> </a>");
+            out.println("            <form role=\"search\" class=\"navbar-form-custom\" action=\"search_results.html\">");
+            out.println("                <div class=\"form-group\">");
+            out.println("                    <input type=\"text\" placeholder=\"Search for something...\" class=\"form-control\" name=\"top-search\" id=\"top-search\">");
+            out.println("                </div>");
+            out.println("            </form>");
+            out.println("        </div>");
+            out.println("");
+            out.println("        </nav>");
+            out.println("        </div>");
+            out.println("            <div class=\"row wrapper border-bottom white-bg page-heading\">");
+            out.println("                <div class=\"col-sm-4\">");
+            out.println("                    <h2>Bienvenido profesor: " + usuario + "</h2>");
+            out.println("                </div>");
+            out.println("            </div>");
+            
 
-            out.println("<h1>Administrar Ejercicios</h1>");
             out.println("<br />");
-            //Agregar Usuario
+            out.println("<br />");
             out.println("<form action='agregarEjercicio' method='post'>");
-            out.println("<input type='submit' value='Crear Ejercicio'>");
+            out.println("<input type='submit' value='Crear Ejercicio' align='center' class=\"btn btn-w-m btn-success\">");
             out.println("</form>");
+            out.println("            <div class=\"wrapper  wrapper-content animated fadeInRight\">");
+            
 
-            out.println("<br />");
-            out.println("<br />");
-
-            //Mostrar tabla de usuarios registrados
-            out.println("<table border='3'>");
-            //Columnas
-            out.println("<tr>");
+            out.println("                    <div class=\"row\">");
+            out.println("                <div class=\"col-lg-12\">");
+            out.println("                    <div class=\"ibox float-e-margins\">");
+            out.println("                        <div class=\"ibox-title\">");
+            out.println("                            <h5>Ejercicios</h5>");
+            out.println("                            <div class=\"ibox-tools\">");
+            out.println("                                <a class=\"collapse-link\">");
+            out.println("                                    <i class=\"fa fa-chevron-up\"></i>");
+            out.println("                                </a>");
+            out.println("                                <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">");
+            out.println("                                    <i class=\"fa fa-wrench\"></i>");
+            out.println("                                </a>");
+            out.println("                                <a class=\"close-link\">");
+            out.println("                                    <i class=\"fa fa-times\"></i>");
+            out.println("                                </a>");
+            out.println("                            </div>");
+            out.println("                        </div>");
+            out.println("                        <div class=\"ibox-content\">");
+            out.println("                            <div class=\"row\">");
+            out.println("<div class=\"col-sm-200\">");
+            out.println("<div class=\"input-group\"><input type=\"text\" placeholder=\"Search\" class=\"input-sm form-control\"> <span class=\"input-group-btn\">");
+            out.println("<button type=\"button\" class=\"btn btn-sm btn-primary\"> Go!</button> </span></div>");
+            out.println("                                </div>");
+            out.println("                            </div>");
+            out.println("                            <div class=\"table-responsive\">");
+            out.println("                                <table class=\"footable table table-stripped\" data-page-size=\"32\" data-filter=#filter>");
+            out.println("                                    <thead>");
+            out.println("                                    <tr>");
             out.println("<th>ID</th>");
             out.println("<th>Nombre</th>");
             out.println("<th>Ver</th>");
             out.println("<th>Modificar</th>");
             out.println("<th>Eliminar</th>");
-            out.println("</tr>");
+            out.println("                                    </tr>");
+            out.println("                                    </thead>");
+            String type = "";
+
             //Para recorrer el arbol de nodos
             for (int i = 0; i < lista.size(); i++) {//Por cada elemento  
                 //Se procesa un elemento de la lista
@@ -101,6 +174,7 @@ public class adminEjercicios extends HttpServlet {
                 //Solo se pueden mostrar los ejercicios que el profesor es autor
                 if (idUsuario.matches(idProfesor.getValue())) {
                     //Se crea una fila para desplegar info de ejercicio
+                    out.println("                                    <tbody>");
                     out.println("<tr>");
                     out.println("<td>");
                     out.println(id.getValue());
@@ -112,7 +186,7 @@ public class adminEjercicios extends HttpServlet {
                     out.println("<td>");
                     out.println("<form action='verEjercicio' method='post'>");
                     out.println("<input type='hidden' name='id' value=" + id.getValue() + ">");//Del ejercicio
-                    out.println("<input type='submit' value='Ver'>");
+                    out.println("<input type='submit' value='Ver' class=\"btn btn-w-m btn-default\">");
                     out.println("</form>");
                     out.println("</td>");
                     //Por medio del id, se localiza al ejercicio por modificar
@@ -120,30 +194,49 @@ public class adminEjercicios extends HttpServlet {
                     out.println("<form action='modificarEjercicio' method='get'>");
                     out.println("<input type='hidden' name='id' value=" + id.getValue() + ">");
                     out.println("<input type='hidden' name='first' value='1'>");//Del ejercicio
-                    out.println("<input type='submit' value='Modificar'>");
+                    out.println("<input type='submit' value='Modificar' class=\"btn btn-w-m btn-default\">");
                     out.println("</form>");
                     out.println("</td>");
                     //Por medio del id, se localiza al ejercicio por eliminar
                     out.println("<td>");
                     out.println("<form action='eliminarEjercicio' method='post'>");
                     out.println("<input type='hidden' name='id' value=" + id.getValue() + ">");//Del ejercicio
-                    out.println("<input type='submit' value='Eliminar'>");
+                    out.println("<input type='submit' value='Eliminar' class=\"btn btn-w-m btn-danger\">");
                     out.println("</form>");
                     out.println("</td>");
                     out.println("</tr>");
+                    out.println("                                    </tbody>");
                 }
             }
-            out.println("</table>");
 
-            out.println("<br />");
-            out.println("<br />");
-
+            //----------------------
+            out.println("                                </table>");
+            out.println("                            </div>");
+            
+            out.println("");
+            out.println("                        </div>");
+            out.println("                    </div>");
+            out.println("                </div>");
+            out.println("");
+            out.println("            </div>");
             out.println("<form action='menuProfesor' method='get'>");
-            out.println("<input type='submit' value='Menu Profesor'>");
+            out.println("<input type='submit' value='Menu Profesor' class=\"btn btn-sm btn-warning\">");
             out.println("</form>");
-
+            out.println("                </div>");
+            
+            out.println("            </div>");
+            out.println("        </div>");
+            out.println("        </div>");
+            out.println("");
+            out.println("    <script src=\"js/jquery-3.1.1.min.js\"></script>");
+            out.println("    <script src=\"js/bootstrap.min.js\"></script>");
+            out.println("    <script src=\"js/plugins/metisMenu/jquery.metisMenu.js\"></script>");
+            out.println("    <script src=\"js/plugins/slimscroll/jquery.slimscroll.min.js\"></script>");
+            out.println("    <script src=\"js/inspinia.js\"></script>");
+            out.println("    <script src=\"js/plugins/pace/pace.min.js\"></script>");
             out.println("</body>");
             out.println("</html>");
+            out.println("");
         } catch (JDOMException e) {
         }
     }

@@ -64,15 +64,6 @@ public class modificarEjercicio extends HttpServlet {
             //Lista de nodos almacenados, lo que esta contenido entre las etiquetas de raiz
             List lista = raiz.getChildren("EJERCICIO");
 
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Modificar Ejercicio</title>");
-            out.println("<link rel='stylesheet' href='css/estilos.css'>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Modificar Ejercicio</h1>");
-
             //Para recorrer el arbol de nodos
             for (int i = 0; i < lista.size(); i++) {//Por cada elemento 
                 //Se procesa un elemento de la lista
@@ -114,57 +105,151 @@ public class modificarEjercicio extends HttpServlet {
                     String respuestaIncorrecta1M = (String) session.getAttribute("respuestaIncorrecta1Nuevo");
                     String respuestaIncorrecta2M = (String) session.getAttribute("respuestaIncorrecta2Nuevo");
 
-                    //Modificar archivos multimedia
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("    <meta charset=\"utf-8\">");
+                    out.println("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+                    out.println("    <title>INSPINIA | Empty Page</title>");
+                    out.println("    <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">");
+                    out.println("    <link href=\"font-awesome/css/font-awesome.css\" rel=\"stylesheet\">");
+                    out.println("    <link href=\"css/animate.css\" rel=\"stylesheet\">");
+                    out.println("    <link href=\"css/style.css\" rel=\"stylesheet\">");
+                    out.println("</head>");
+                    out.println("<body class=\"\">");
+                    out.println("    <div id=\"wrapper\">");
+                    out.println("    <nav class=\"navbar-default navbar-static-side\" role=\"navigation\">");
+                    out.println("        <div class=\"sidebar-collapse\">");
+                    out.println("            <ul class=\"nav metismenu\" id=\"side-menu\">");
+                    out.println("                <li class=\"nav-header\">");
+                    out.println("                    <div class=\"logo-element\">");
+                    out.println("                        IN+");
+                    out.println("                    </div>");
+                    out.println("                </li>");
+                    out.println("                <li>");
+                    out.println("                    <a href=\"#\"><i class=\"fa fa-user-circle\"></i> <span class=\"nav-label\">Menu administrador</span><span class=\"fa arrow\"></span></a>");
+                    out.println("                    <ul class=\"nav nav-second-level collapse\">");
+                    out.println("                        <li><a href=\"adminEjercicios\">Administrar Ejercicios</a></li>");
+                    out.println("                        <li><a href=\"adminGrupos\">Administrar Grupos</a></li>");
+                    out.println("                    </ul>");
+                    out.println("                </li>");
+                    out.println("                <li class=\"special_link\">");
+                    out.println("                    <a href=\"login.html\"><i class=\"fa fa-times-rectangle\"></i> <span class=\"nav-label\">Cerrar sesion</span></a>");
+                    out.println("                </li>");
+                    out.println("            </ul>");
+                    out.println("");
+                    out.println("        </div>");
+                    out.println("    </nav>");
+                    out.println("        <div id=\"page-wrapper\" class=\"gray-bg\">");
+                    out.println("        <div class=\"row border-bottom\">");
+                    out.println("        <nav class=\"navbar navbar-static-top  \" role=\"navigation\" style=\"margin-bottom: 0\">");
+                    out.println("        <div class=\"navbar-header\">");
+                    out.println("            <a class=\"navbar-minimalize minimalize-styl-2 btn btn-primary \" href=\"#\"><i class=\"fa fa-bars\"></i> </a>");
+                    out.println("            <form role=\"search\" class=\"navbar-form-custom\" action=\"search_results.html\">");
+                    out.println("                <div class=\"form-group\">");
+                    out.println("                    <input type=\"text\" placeholder=\"Search for something...\" class=\"form-control\" name=\"top-search\" id=\"top-search\">");
+                    out.println("                </div>");
+                    out.println("            </form>");
+                    out.println("        </div>");
+                    out.println("");
+                    out.println("        </nav>");
+                    out.println("        </div>");
+                    out.println("            <div class=\"row wrapper border-bottom white-bg page-heading\">");
+                    out.println("                <div class=\"col-sm-4\">");
+                    out.println("                    <h2>Bienvenido profesor: <b>" + usuario + "</b></h2>");
+                    out.println("                </div>");
+                    out.println("            </div>");
+
+                    out.println("<br />");
+                    out.println("<br />");
+                    out.println("            <div class=\"wrapper  wrapper-content animated fadeInRight\">");
+
+                    out.println("                    <div class=\"row\">");
+                    out.println("                <div class=\"col-lg-12\">");
+
+                    //tabla
+                    out.println("                <div align='center'>");
+                    out.println("                    <div class=\"row\">");
+            out.println("                <div class=\"col-lg-12\">");
+            out.println("                    <div class=\"ibox float-e-margins\">");
+            out.println("                        <div class=\"ibox-title\">");
                     out.println("<form action='modificarAudioInstruccion' method='post'>");
-                    out.println("<h6>Archivo audio instruccion actual: " + audioInstruccionM + "</h6>");
+                    out.println("<h2><b>Archivo audio instruccion actual: " + audioInstruccionM.substring(2) + "</b></h2>");
 //                        out.println("<input type='hidden' name='nombreArchivo' value='"+audioInstruccionM+"'>");
 //                        out.println("<input type='hidden' name='tipoModificar' value='1'>");
-                    out.println("<input type='submit' value='Modificar Audio Instruccion'>");
+                    out.println("<input type='submit' value='Modificar Audio Instruccion' class=\"btn btn-w-m btn-default\">");
                     out.println("</form>");
+                    
 
                     out.println("<form action='modificarImagen' method='post'>");
-                    out.println("<h6>Archivo imagen actual: " + imagenM + "</h6>");
+                    out.println("<h2><b>Archivo imagen actual: " + imagenM.substring(2) + "</b></h2>");
 //                        out.println("<input type='hidden' name='nombreArchivo' value='"+imagenM+"'>");
 //                        out.println("<input type='hidden' name='tipoModificar' value='2'>");
-                    out.println("<input type='submit' value='Modificar Imagen'>");
+                    out.println("<input type='submit' value='Modificar Imagen' class=\"btn btn-w-m btn-default\">");
                     out.println("</form>");
 
                     out.println("<form action='modificarAudioImagen' method='post'>");
-                    out.println("<h6>Archivo audio imagen actual: " + audioImagenM + "</h6>");
+                    out.println("<h2><b>Archivo audio imagen actual: " + audioImagenM.substring(2) + "</b></h2>");
 //                        out.println("<input type='hidden' name='nombreArchivo' value='"+audioImagenM+"'>");
 //                        out.println("<input type='hidden' name='tipoModificar' value='3'>");
-                    out.println("<input type='submit' value='Modificar Audio Imagen'>");
+                    out.println("<input type='submit' value='Modificar Audio Imagen' class=\"btn btn-w-m btn-default\">");
                     out.println("</form>");
 
                     out.println("<form action='modifyExercise' method='get'>");
-                    out.println("<h6>Nombre:</h6> <input id='nombre' type='text' value='" + nombreM + "' name='nombreNuevo' required/><br />");
-                    out.println("<h6>Instruccion:</h6> <input id='instruccion' type='text' value='" + instruccionM + "' name='instruccionNuevo' required/><br />");
-                    //out.println("<h6>Audio instruccion:</h6> <input id='audioInstruccion' type='text' value='"+audioInstruccionM+"' name='audioInstruccionNuevo' required/><br />");
-                    //out.println("<h6>Imagen:</h6> <input id='imagen' type='text' value='"+imagenM+"' name='imagenNuevo' required/><br />");
-                    //out.println("<h6>Audio imagen:</h6> <input id='audioImagen' type='text' value='"+audioImagenM+"' name='audioImagenNuevo' required/><br />");
-                    out.println("<h6>Pista:</h6> <input id='pista' type='text' value='" + pistaM + "' name='pistaNuevo' required/><br />");
-                    out.println("<h6>Respuesta correcta:</h6> <input id='respuestaCorrecta' type='text' value='" + respuestaCorrectaM + "' name='respuestaCorrectaNuevo' required/><br />");
-                    out.println("<h6>Respuesta incorrecta 1:</h6> <input id='respuestaIncorrecta1' type='text' value='" + respuestaIncorrecta1M + "' name='respuestaIncorrecta1Nuevo' required/><br />");
-                    out.println("<h6>Respuesta incorrecta 2:</h6> <input id='respuestaIncorrecta2' type='text' value='" + respuestaIncorrecta2M + "' name='respuestaIncorrecta2Nuevo' required/><br />");
+                    out.println("<h2><b>Nombre:</b></h2> <h3><input id='nombre' type='text' value='" + nombreM + "' name='nombreNuevo' required/></h3><br />");
+                    out.println("<h2><b>Instruccion:</b></h2> <h3><input id='instruccion' type='text' value='" + instruccionM + "' name='instruccionNuevo' required/></h3><br />");
+                    //out.println("<h2>Audio instruccion:</h2> <input id='audioInstruccion' type='text' value='"+audioInstruccionM+"' name='audioInstruccionNuevo' required/><br />");
+                    //out.println("<h2>Imagen:</h2> <input id='imagen' type='text' value='"+imagenM+"' name='imagenNuevo' required/><br />");
+                    //out.println("<h2>Audio imagen:</h2> <input id='audioImagen' type='text' value='"+audioImagenM+"' name='audioImagenNuevo' required/><br />");
+                    out.println("<h2><b>Pista:</b></h2> <h3><input id='pista' type='text' value='" + pistaM + "' name='pistaNuevo' required/></h3><br />");
+                    out.println("<h2><b>Respuesta correcta:</b></h2> <h3><input id='respuestaCorrecta' type='text' value='" + respuestaCorrectaM + "' name='respuestaCorrectaNuevo' required/></h3><br />");
+                    out.println("<h2><b>Respuesta incorrecta 1:</b></h2> <h3><input id='respuestaIncorrecta1' type='text' value='" + respuestaIncorrecta1M + "' name='respuestaIncorrecta1Nuevo' required/></h3><br />");
+                    out.println("<h2><b>Respuesta incorrecta 2:</b></h2> <h3><input id='respuestaIncorrecta2' type='text' value='" + respuestaIncorrecta2M + "' name='respuestaIncorrecta2Nuevo' required/></h3><br />");
 
                     out.println("<br />");
                     out.println("<br />");
-                    out.println("<input type='submit' value='Modificar ejercicio'>");
+                    out.println("<input type='submit' value='Modificar ejercicio' class=\"btn btn-sm btn-primary\">");
                     out.println("</form>");
+
+                    out.println("<br />");
+                    out.println("<br />");
+
+                    out.println("<form action='adminEjercicios' method='get'>");
+                    out.println("<input type='submit' value='Cancelar' class=\"btn btn-sm btn-danger\">");
+                    out.println("</form>");
+                    out.println("                </div>");
+
+                    out.println("");
+                    out.println("                        </div>");
+                    out.println("                    </div>");
+                    out.println("                </div>");
+
+                    out.println("            </div>");
+                    out.println("                        </div>");
+                    out.println("                    </div>");
+                    out.println("                </div>");
+
+                    out.println("            </div>");
+
+                    out.println("                </div>");
+                    out.println("            </div>");
+                    out.println("        </div>");
+                    out.println("        </div>");
+                    out.println("");
+                    out.println("    <script src=\"js/jquery-3.1.1.min.js\"></script>");
+                    out.println("    <script src=\"js/bootstrap.min.js\"></script>");
+                    out.println("    <script src=\"js/plugins/metisMenu/jquery.metisMenu.js\"></script>");
+                    out.println("    <script src=\"js/plugins/slimscroll/jquery.slimscroll.min.js\"></script>");
+                    out.println("    <script src=\"js/inspinia.js\"></script>");
+                    out.println("    <script src=\"js/plugins/pace/pace.min.js\"></script>");
+                    out.println("</body>");
+                    out.println("</html>");
+                    out.println("");
 
                 }
 
             }
 
-            out.println("<br />");
-            out.println("<br />");
-
-            out.println("<form action='adminEjercicios' method='get'>");
-            out.println("<input type='submit' value='Cancelar'>");
-            out.println("</form>");
-
-            out.println("</body>");
-            out.println("</html>");
         } catch (JDOMException e) {
         }
 
