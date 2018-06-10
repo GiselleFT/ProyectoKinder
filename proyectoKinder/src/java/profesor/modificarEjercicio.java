@@ -62,7 +62,6 @@ public class modificarEjercicio extends HttpServlet {
                 //Se obtiene el elemento raiz del xml
                 Element raiz = doc.getRootElement();
                 //Lista de nodos almacenados, lo que esta contenido entre las etiquetas de raiz
-//                List lista = raiz.getChildren();
                 List lista = raiz.getChildren("EJERCICIO");
                 
                 out.println("<!DOCTYPE html>");
@@ -104,12 +103,35 @@ public class modificarEjercicio extends HttpServlet {
                         String respuestaIncorrecta1M = respuestaIncorrecta1.getValue();
                         String respuestaIncorrecta2M = respuestaIncorrecta2.getValue();
                         
+                        //Modificar archivos multimedia
+                        out.println("<form action='modificarAudioInstruccion' method='post'>");
+                        out.println("<h6>Archivo audio instruccion: "+audioInstruccionM+"</h6>");
+//                        out.println("<input type='hidden' name='nombreArchivo' value='"+audioInstruccionM+"'>");
+//                        out.println("<input type='hidden' name='tipoModificar' value='1'>");
+                        out.println("<input type='submit' value='Modificar Audio Instruccion'>");
+                        out.println("</form>");
+                        
+                        out.println("<form action='modificarImagen' method='post'>");
+                        out.println("<h6>Archivo imagen: "+imagenM+"</h6>");
+//                        out.println("<input type='hidden' name='nombreArchivo' value='"+imagenM+"'>");
+//                        out.println("<input type='hidden' name='tipoModificar' value='2'>");
+                        out.println("<input type='submit' value='Modificar Imagen'>");
+                        out.println("</form>");
+                        
+                        out.println("<form action='modificarAudioImagen' method='post'>");
+                        out.println("<h6>Archivo audio imagen: "+audioImagenM+"</h6>");
+//                        out.println("<input type='hidden' name='nombreArchivo' value='"+audioImagenM+"'>");
+//                        out.println("<input type='hidden' name='tipoModificar' value='3'>");
+                        out.println("<input type='submit' value='Modificar Audio Imagen'>");
+                        out.println("</form>");
+                        
+                        
                         out.println("<form action='modifyExercise' method='get'>");
                         out.println("<h6>Nombre:</h6> <input id='nombre' type='text' value='"+nombreM+"' name='nombreNuevo' required/><br />");
                         out.println("<h6>Instruccion:</h6> <input id='instruccion' type='text' value='"+instruccionM+"' name='instruccionNuevo' required/><br />");
-                        out.println("<h6>Audio instruccion:</h6> <input id='audioInstruccion' type='text' value='"+audioInstruccionM+"' name='audioInstruccionNuevo' required/><br />");
-                        out.println("<h6>Imagen:</h6> <input id='imagen' type='text' value='"+imagenM+"' name='imagenNuevo' required/><br />");
-                        out.println("<h6>Audio imagen:</h6> <input id='audioImagen' type='text' value='"+audioImagenM+"' name='audioImagenNuevo' required/><br />");
+                        //out.println("<h6>Audio instruccion:</h6> <input id='audioInstruccion' type='text' value='"+audioInstruccionM+"' name='audioInstruccionNuevo' required/><br />");
+                        //out.println("<h6>Imagen:</h6> <input id='imagen' type='text' value='"+imagenM+"' name='imagenNuevo' required/><br />");
+                        //out.println("<h6>Audio imagen:</h6> <input id='audioImagen' type='text' value='"+audioImagenM+"' name='audioImagenNuevo' required/><br />");
                         out.println("<h6>Pista:</h6> <input id='pista' type='text' value='"+pistaM+"' name='pistaNuevo' required/><br />");
                         out.println("<h6>Respuesta correcta:</h6> <input id='respuestaCorrecta' type='text' value='"+respuestaCorrectaM+"' name='respuestaCorrectaNuevo' required/><br />");
                         out.println("<h6>Respuesta incorrecta 1:</h6> <input id='respuestaIncorrecta1' type='text' value='"+respuestaIncorrecta1M+"' name='respuestaIncorrecta1Nuevo' required/><br />");

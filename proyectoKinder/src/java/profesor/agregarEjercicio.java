@@ -39,7 +39,7 @@ public class agregarEjercicio extends HttpServlet {
             out.println("<link rel='stylesheet' href='css/estilos.css'>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Agregar Ejercicio</h1>");
+            out.println("<h1>Agregar Ejercicio Paso 1/4</h1>");
             
             out.println("<form action='dragAndDropInstruccion' class='dropzone' method='POST'>");
             out.println("<h6>Nombre:</h6> <input id='nombre' type='text' name='nombreNuevo' required/><br />");
@@ -56,7 +56,7 @@ public class agregarEjercicio extends HttpServlet {
             out.println("<br />");
             
             
-            out.println("<input type='submit' value='Agregar ejercicio'>");
+            out.println("<input type='submit' value='Paso 1/4'>");
             out.println("</form>");
             
             

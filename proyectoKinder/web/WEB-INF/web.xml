@@ -116,6 +116,14 @@
         <servlet-name>dragAndDropAudioImagen</servlet-name>
         <servlet-class>profesor.dragAndDropAudioImagen</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>verEjercicio</servlet-name>
+        <servlet-class>profesor.verEjercicio</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modificarAudioInstruccion</servlet-name>
+        <servlet-class>profesor.modificarAudioInstruccion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>formInicioSesion</servlet-name>
         <url-pattern>/formInicioSesion</url-pattern>
@@ -231,6 +239,14 @@
     <servlet-mapping>
         <servlet-name>dragAndDropAudioImagen</servlet-name>
         <url-pattern>/dragAndDropAudioImagen</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>verEjercicio</servlet-name>
+        <url-pattern>/verEjercicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modificarAudioInstruccion</servlet-name>
+        <url-pattern>/modificarAudioInstruccion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

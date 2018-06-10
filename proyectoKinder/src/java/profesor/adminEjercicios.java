@@ -57,7 +57,6 @@ public class adminEjercicios extends HttpServlet {
                 //Se obtiene el elemento raiz del xml
                 Element raiz = doc.getRootElement();
                 //Lista de nodos almacenados, lo que esta contenido entre las etiquetas de raiz
-//                List lista = raiz.getChildren();
                 List lista = raiz.getChildren("EJERCICIO");
                 
                 out.println("<!DOCTYPE html>");
@@ -75,24 +74,19 @@ public class adminEjercicios extends HttpServlet {
                 out.println("<input type='submit' value='Crear Ejercicio'>");
                 out.println("</form>");
                 
-                
-                //out.println("</div>");
-                
                 out.println("<br />");
                 out.println("<br />");
                 
                 //Mostrar tabla de usuarios registrados
                 out.println("<table border='3'>");
-                    //Columnas
-                    out.println("<tr>");
-                    out.println("<th>ID</th>");
-                    out.println("<th>Nombre</th>");
-                    out.println("<th>Modificar</th>"); 
-                    out.println("<th>Eliminar</th>"); 
-                    out.println("</tr>");
-
-               
-                
+                //Columnas
+                out.println("<tr>");
+                out.println("<th>ID</th>");
+                out.println("<th>Nombre</th>");
+                out.println("<th>Ver</th>");
+                out.println("<th>Modificar</th>"); 
+                out.println("<th>Eliminar</th>"); 
+                out.println("</tr>");
                 //Para recorrer el arbol de nodos
                 for(int i=0;i<lista.size();i++){//Por cada elemento  
                     //Se procesa un elemento de la lista
@@ -115,15 +109,22 @@ public class adminEjercicios extends HttpServlet {
                             out.println("<td>");
                             out.println(nombre.getText());
                             out.println("</td>");
+                            //Por medio del id, se localiza al ejercicio por ver
                             out.println("<td>");
-                            //Por medio del id, se localiza al usuario por modificar
+                            out.println("<form action='verEjercicio' method='post'>");
+                            out.println("<input type='hidden' name='id' value="+id.getValue()+">");//Del ejercicio
+                            out.println("<input type='submit' value='Ver'>");
+                            out.println("</form>");
+                            out.println("</td>");
+                            //Por medio del id, se localiza al ejercicio por modificar
+                            out.println("<td>");
                             out.println("<form action='modificarEjercicio' method='post'>");
                             out.println("<input type='hidden' name='id' value="+id.getValue()+">");//Del ejercicio
                             out.println("<input type='submit' value='Modificar'>");
                             out.println("</form>");
                             out.println("</td>");
-                            out.println("<td>");
                             //Por medio del id, se localiza al ejercicio por eliminar
+                            out.println("<td>");
                             out.println("<form action='eliminarEjercicio' method='post'>");
                             out.println("<input type='hidden' name='id' value="+id.getValue()+">");//Del ejercicio
                             out.println("<input type='submit' value='Eliminar'>");

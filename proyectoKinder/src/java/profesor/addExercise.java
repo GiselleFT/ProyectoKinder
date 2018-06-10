@@ -29,21 +29,36 @@ public class addExercise extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
+        String idUsuario = (String) session.getAttribute("idUsuario");
+        
         String nombreNuevo = (String)session.getAttribute("nombreNuevo");
         String instruccionNuevo = (String)session.getAttribute("instruccionNuevo");
-        String audioInstruccionNuevo = (String)session.getAttribute("audioInstruccionNuevo");
-        String imagenNuevo = (String)session.getAttribute("imagenNuevo");
-        String audioImagenNuevo = (String)session.getAttribute("audioImagenNuevo");
+        String audioInstruccionNuevo = idUsuario+"_"+(String)session.getAttribute("audioInstruccionNuevo");
+        String imagenNuevo = idUsuario+"_"+(String)session.getAttribute("imagenNuevo");
+        String audioImagenNuevo = idUsuario+"_"+(String)session.getAttribute("audioImagenNuevo");
         String pistaNuevo = (String)session.getAttribute("pistaNuevo");
         String respuestaCorrectaNuevo = (String)session.getAttribute("respuestaCorrectaNuevo");
         String respuestaIncorrecta1Nuevo = (String)session.getAttribute("respuestaIncorrecta1Nuevo");
-        String respuestaIncorrecta2Nuevo = (String) request.getParameter("respuestaIncorrecta2Nuevo");
+        String respuestaIncorrecta2Nuevo = (String)session.getAttribute("respuestaIncorrecta2Nuevo");
 
+        System.out.println("INICIO VALORES PARA AÑADIR EJERCICIO");
+        System.out.println(nombreNuevo);
+        System.out.println(instruccionNuevo);
+        System.out.println(audioInstruccionNuevo);
+        System.out.println(imagenNuevo);
+        System.out.println(audioImagenNuevo);
+        System.out.println(pistaNuevo);
+        System.out.println(respuestaCorrectaNuevo);
+        System.out.println(respuestaIncorrecta1Nuevo);
+        System.out.println(respuestaIncorrecta2Nuevo);
+        System.out.println("FIN VALORES PARA AÑADIR EJERCICIO");
+        
+        
+        
         String usuario = (String) session.getAttribute("usuario");//Del administrador
         String contrasena = (String) session.getAttribute("contrasena");//Del administrador
         String tipoAtt = (String) session.getAttribute("tipo");
         //session.setAttribute("tipo", tipoAtt);//conservar sesion del administrador con su tipo
-        String idUsuario = (String) session.getAttribute("idUsuario");
         PrintWriter out = response.getWriter();
 
         //info del profesor
