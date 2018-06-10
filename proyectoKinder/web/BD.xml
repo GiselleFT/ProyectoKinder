@@ -63,13 +63,13 @@
   <EJERCICIO id="2" idProfesor="2">
     <nombre>ejercicio test2</nombre>
     <instruccion>Elige la opcion correcta</instruccion>
-    <audioInstruccion>audio.mp3</audioInstruccion>
-    <imagen>imagen.jpg</imagen>
-    <audioImagen>audio.mp3</audioImagen>
-    <pista>la respuesta es la 1 jeje</pista>
-    <respuestaCorrecta>Respuesta correcta</respuestaCorrecta>
-    <respuestaIncorrecta>Respuesta falsa1</respuestaIncorrecta>
-    <respuestaIncorrecta>Respuesta falsa2</respuestaIncorrecta>
+    <audioInstruccion>2_instruccion1.mp3</audioInstruccion>
+    <imagen>2_perritos.jpg</imagen>
+    <audioImagen>2_campana.mp3</audioImagen>
+    <pista>Ladra, a veces... jejetl</pista>
+    <respuestaCorrecta>Perritos</respuestaCorrecta>
+    <respuestaIncorrecta>Peces</respuestaIncorrecta>
+    <respuestaIncorrecta>Gallinas</respuestaIncorrecta>
   </EJERCICIO>
   <EJERCICIO id="3" idProfesor="6">
     <nombre>ejercicio test3</nombre>
@@ -106,24 +106,41 @@
     <idAlumno>3</idAlumno>
     <idAlumno>4</idAlumno>
   </GRUPO>
-  <EJERCICIO id="4" idProfesor="2">
-    <nombre>n</nombre>
-    <instruccion>n</instruccion>
-    <audioInstruccion>2_instruccion2.mp3</audioInstruccion>
-    <imagen>2_perritos.jpg</imagen>
-    <audioImagen>2_campana.mp3</audioImagen>
-    <pista>n</pista>
-    <respuestaCorrecta>n</respuestaCorrecta>
-    <respuestaIncorrecta>n</respuestaIncorrecta>
-    <respuestaIncorrecta>n</respuestaIncorrecta>
-  </EJERCICIO>
   <GRUPO id="7">
-    <grupo>x</grupo>
+    <grupo>qqq</grupo>
     <idProfesor>2</idProfesor>
     <nombreProfesor>profesor</nombreProfesor>
-    <inscritos>2</inscritos>
+    <inscritos>1</inscritos>
     <idAlumno>3</idAlumno>
-    <idAlumno>4</idAlumno>
   </GRUPO>
+  <GRUPO id="8">
+    <grupo>wewew</grupo>
+    <idProfesor>2</idProfesor>
+    <nombreProfesor>profesor</nombreProfesor>
+    <inscritos>1</inscritos>
+    <idAlumno>3</idAlumno>
+  </GRUPO>
+  <EJERCICIO id="5" idProfesor="2">
+    <nombre>ssamm</nombre>
+    <instruccion>s</instruccion>
+    <audioInstruccion>2_sam</audioInstruccion>
+    <imagen>2_sam</imagen>
+    <audioImagen>2_sam</audioImagen>
+    <pista>s</pista>
+    <respuestaCorrecta>s</respuestaCorrecta>
+    <respuestaIncorrecta>s</respuestaIncorrecta>
+    <respuestaIncorrecta>sam</respuestaIncorrecta>
+  </EJERCICIO>
+  <EJERCICIO id="6" idProfesor="2">
+    <nombre>oso</nombre>
+    <instruccion>oso</instruccion>
+    <audioInstruccion>2_</audioInstruccion>
+    <imagen>2_</imagen>
+    <audioImagen>2_</audioImagen>
+    <pista>oso</pista>
+    <respuestaCorrecta>oso</respuestaCorrecta>
+    <respuestaIncorrecta>oso</respuestaIncorrecta>
+    <respuestaIncorrecta>oso2</respuestaIncorrecta>
+  </EJERCICIO>
 </raiz>
 

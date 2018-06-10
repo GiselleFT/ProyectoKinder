@@ -1,39 +1,59 @@
 package profesor;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.jdom.Attribute;
+import org.jdom.Document;
+import org.jdom.Element;
+import org.jdom.JDOMException;
+import org.jdom.input.SAXBuilder;
 
-public class agregarEjercicio extends HttpServlet {
+public class modificarImagen extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
+        //Se recuperan los parametros del formulario y se suben a sesion 
+//            String audioInstruccionM = (String)request.getParameter("audioInstruccionM");//Del registro del nuevo ejercicioNuevo
+//            session.setAttribute("audioInstruccionM", audioInstruccionM);
+
         String usuario = (String) session.getAttribute("usuario");
         String tipoAtt = (String) session.getAttribute("tipo");
         String idUsuario = (String) session.getAttribute("idUsuario");
+        String idEjercicio = (String) session.getAttribute("id");
         PrintWriter out = response.getWriter();
 
         //info del profesor
-//            System.out.println("menuProfesor");
-//            System.out.println("prof= "+usuario);
-//            System.out.println("prof= "+contrasena);
-//            System.out.println("prof= "+tipoAtt);
+        //            System.out.println("menuProfesor");
+        //            System.out.println("prof= "+usuario);
+        //            System.out.println("prof= "+contrasena);
+        System.out.println("prof= " + tipoAtt);
+
         //********Valida Tipo Usuario****************//
         if (!tipoAtt.equals("2")) {
             response.sendRedirect("login.html");
         }
         //*******************************************//
+        session.setAttribute("banderaModificar", 2);
 
+        //Bloque drag and drop
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
+
+        out.println("<title>Agregar Ejercicio Paso 2/4</title>");
+        out.println("<script src='js/dropzone.js'></script>");
+        out.println("<link rel='stylesheet' href='css/estilos.css'>");
+        out.println("<link rel='stylesheet' href='css/dropzone.css'>");
         out.println("    <meta charset=\"utf-8\">");
         out.println("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
         out.println("    <title>INSPINIA | Empty Page</title>");
@@ -100,29 +120,21 @@ public class agregarEjercicio extends HttpServlet {
         out.println("                    <div class=\"ibox float-e-margins\">");
         out.println("                        <div class=\"ibox-title\">");
         //EMPIEZA EL DESMA DENTRO DEL CUADRO BLANCO
-        out.println("<form action='dragAndDropInstruccion' class='dropzone' method='POST'>");
-        out.println("<h2>Nombre:</h2> <input id='nombre' type='text' name='nombreNuevo' required/><br />");
-        out.println("<h2>Instruccion:</h2> <input id='instruccion' type='text' name='instruccionNuevo' required/><br />");
-        //out.println("<h2>Audio Instruccion:</h2> <input id='audioInstruccion' type='text' name='audioInstruccionNuevo' required/><br />");
-        //out.println("<h2>Imagen:</h2> <input id='imagen' type='text' name='imagenNuevo' required/><br />");
-        //out.println("<h2>Audio Imagen:</h2> <input id='audioImagen' type='text' name='audioImagenNuevo' required/><br />");
-        out.println("<h2>Pista:</h2> <input id='pista' type='text' name='pistaNuevo' required/><br />");
-        out.println("<h2>Respuesta correcta:</h2> <input id='respuestaCorrecta' type='text' name='respuestaCorrectaNuevo' required/><br />");
-        out.println("<h2>Respuesta incorrecta 1:</h2> <input id='respuestaIncorrecta1' type='text' name='respuestaIncorrecta1Nuevo' required/><br />");
-        out.println("<h2>Respuesta incorrecta 2:</h2> <input id='respuestaIncorrecta2' type='text' name='respuestaIncorrecta2Nuevo' required/><br />");
-        out.println("<br />");
-        out.println("<br />");
-        out.println("<h3><b>Paso 1/4</b></h3>");
-        out.println("<h3><input type='submit' class=\"btn btn-w-m btn-primary\" value='Continuar'></h3>");
+        out.println("<h2>Modificar - Selecciona o arrastra un archivo .jpeg</h2>");
+        //Se sube archivo
+        out.println("<form id='dd2' action='uploadFiles' class='dropzone' method='POST' enctype = 'multipart/form-data'>");
+        out.println("<input name='file' type='file' style='color:transparent'/>");
         out.println("</form>");
+        //Para continuar con la creacion del ejercicio
+        out.println("<br />");
 
         out.println("<br />");
         out.println("<br />");
         //Agregar Usuario
 
-        out.println("<form action='adminEjercicios' method='get'>");
-        out.println("<h3><input type='submit' value='Cancelar' class=\"btn btn-sm btn-danger\"></h3>");
-        out.println("</form>");
+        out.println("<a href=\"http://localhost:29201/proyectoKinder/modificarEjercicio?id="+session.getAttribute("id")+"&first=2\" >\n" +
+"                                <button  class=\"btn btn-w-m btn-danger\" type=\"submit\">Regresar</button>\n" +
+"                            </a>");
         out.println("                </div>");
 
         out.println("");
@@ -148,9 +160,31 @@ public class agregarEjercicio extends HttpServlet {
         out.println("    <script src=\"js/plugins/slimscroll/jquery.slimscroll.min.js\"></script>");
         out.println("    <script src=\"js/inspinia.js\"></script>");
         out.println("    <script src=\"js/plugins/pace/pace.min.js\"></script>");
+        //Para restringir tipos de archivos
+        out.println("<script>\n"
+                + "            Dropzone.options.dd2 = {\n"
+                + "                maxFiles: 1,\n"
+                + "                addRemoveLinks: true,\n"
+                + "                acceptedFiles: '.jpg',\n"
+                + "                dictDefaultMessage: 'Arrastra archivo .jpg en este drop',\n"
+                + "                init: function() {\n"
+                + "                    var self = this;\n"
+                + "                    self.options.addRemoveLinks = true;\n"
+                + "                    self.options.dictRemoveFile = 'Delete';\n"
+                + "                    this.on('complete', function (file) {\n"
+                + "                        setTimeout(3000);\n"
+                + "                        swal('Añadido correctamente','Da click en el boton','success').then((value) => {                                    \n"
+                + "                            setTimeout(1000);\n"
+                + "                            this.removeFile(file); \n"
+                + "                        });\n"
+                + "                    });\n"
+                + "                }    \n"
+                + "            };\n"
+                + "        </script>");
         out.println("</body>");
         out.println("</html>");
-        out.println("");
+        
+        
     }
 
 }

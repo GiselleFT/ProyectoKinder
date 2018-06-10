@@ -38,7 +38,10 @@ public class adminGrupos extends HttpServlet {
             out.println("<title>Servlet adminGrupos</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet adminGrupos at " + request.getContextPath() + "</h1>");
+            out.println("<div align='center'>");
+            out.println("<h1>ALGÚN DÍA TRABAJAREMOS EN ELLO...</h1>");
+            out.println("<image src='archivos/404.jpg' width='800' height='500'/>");
+            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
         }

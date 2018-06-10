@@ -21,6 +21,7 @@ public class uploadFiles extends HttpServlet {
         HttpSession session = request.getSession();
         String idUsuario = (String) session.getAttribute("idUsuario");
         int banderaArchivo = (Integer) session.getAttribute("banderaArchivo");
+        int banderaModificar = (Integer) session.getAttribute("banderaModificar");
 
         /* Se checa si se tiene una peticion de subida de archivo multiparte
         Al momento de envío de informacion por parte del cliente al 
@@ -46,6 +47,7 @@ public class uploadFiles extends HttpServlet {
         
         
         try {
+            
             //Parsea la solicitud para obtener los elementos de tipo archivo
             List<FileItem> items = uploadHandler.parseRequest(request);
             //Se iteran los archivos
@@ -61,7 +63,7 @@ public class uploadFiles extends HttpServlet {
                     Se checa que el tipo de archivo segun el paso sea el indicado
                     */
                     System.out.println("Bandera= " + banderaArchivo);
-                    if(banderaArchivo == 1){ 
+                    if(banderaArchivo == 1||banderaModificar == 1){ 
                         if(item.getContentType().contentEquals("audio/mp3")){
                             item.write(file);//Se escribe el archivo
                             System.out.println("Archivo subido");
@@ -73,7 +75,7 @@ public class uploadFiles extends HttpServlet {
                             out.println("<br />");
                         }
                     } 
-                    else if(banderaArchivo == 2){
+                    else if(banderaArchivo == 2||banderaModificar == 2){
                         if(item.getContentType().contentEquals("image/jpeg")) {
                             item.write(file);//Se escribe el archivo
                             System.out.println("Archivo subido");
@@ -85,7 +87,7 @@ public class uploadFiles extends HttpServlet {
                             out.println("<br />");
                         }
                     } 
-                    else if(banderaArchivo == 3){
+                    else if(banderaArchivo == 3||banderaModificar == 3){
                         if(item.getContentType().contentEquals("audio/mp3")){
                             item.write(file);//Se escribe el archivo
                             System.out.println("Archivo subido");

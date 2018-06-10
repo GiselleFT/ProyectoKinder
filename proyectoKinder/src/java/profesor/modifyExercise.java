@@ -27,9 +27,9 @@ public class modifyExercise extends HttpServlet {
             HttpSession session = request.getSession();
             String nombreNuevo = request.getParameter("nombreNuevo");//Del registro del nuevo ejercicioNuevo
             String instruccionNuevo = request.getParameter("instruccionNuevo");
-            String audioInstruccionNuevo = request.getParameter("audioInstruccionNuevo");
-            String imagenNuevo = request.getParameter("imagenNuevo");
-            String audioImagenNuevo = request.getParameter("audioImagenNuevo");
+            String audioInstruccionNuevo = (String)session.getAttribute("audioInstruccionNuevo");
+            String imagenNuevo = (String)session.getAttribute("imagenNuevo");
+            String audioImagenNuevo = (String)session.getAttribute("audioImagenNuevo");
             String pistaNuevo = request.getParameter("pistaNuevo");
             String respuestaCorrectaNuevo = request.getParameter("respuestaCorrectaNuevo");
             String respuestaIncorrecta1Nuevo = request.getParameter("respuestaIncorrecta1Nuevo");

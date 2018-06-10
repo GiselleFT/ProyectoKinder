@@ -125,8 +125,12 @@
         <servlet-class>profesor.modificarAudioInstruccion</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AutocompletadoServlet</servlet-name>
-        <servlet-class>general.AutocompletadoServlet</servlet-class>
+        <servlet-name>modificarImagen</servlet-name>
+        <servlet-class>profesor.modificarImagen</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modificarAudioImagen</servlet-name>
+        <servlet-class>profesor.modificarAudioImagen</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>formInicioSesion</servlet-name>
@@ -253,8 +257,12 @@
         <url-pattern>/modificarAudioInstruccion</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AutocompletadoServlet</servlet-name>
-        <url-pattern>/AutocompletadoServlet</url-pattern>
+        <servlet-name>modificarImagen</servlet-name>
+        <url-pattern>/modificarImagen</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modificarAudioImagen</servlet-name>
+        <url-pattern>/modificarAudioImagen</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
