@@ -15,7 +15,7 @@ import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 
-public class modificarAudioInstruccion extends HttpServlet {
+public class modificarImagen extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -25,6 +25,7 @@ public class modificarAudioInstruccion extends HttpServlet {
         //Se recuperan los parametros del formulario y se suben a sesion 
 //            String audioInstruccionM = (String)request.getParameter("audioInstruccionM");//Del registro del nuevo ejercicioNuevo
 //            session.setAttribute("audioInstruccionM", audioInstruccionM);
+
         String usuario = (String) session.getAttribute("usuario");
         String tipoAtt = (String) session.getAttribute("tipo");
         String idUsuario = (String) session.getAttribute("idUsuario");
@@ -42,7 +43,7 @@ public class modificarAudioInstruccion extends HttpServlet {
             response.sendRedirect("login.html");
         }
         //*******************************************//
-        session.setAttribute("banderaModificar", 1);
+        session.setAttribute("banderaModificar", 2);
 
         //Bloque drag and drop
         out.println("<!DOCTYPE html>");
@@ -92,9 +93,11 @@ public class modificarAudioInstruccion extends HttpServlet {
 
         out.println("<br />");
         out.println("<br />");
+
         out.println("<a href=\"http://localhost:29201/proyectoKinder/modificarEjercicio?id="+session.getAttribute("id")+"&first=2\" >\n" +
 "                                <button  type=\"submit\">Regresar</button>\n" +
 "                            </a>");
+        
         out.println("<script>\n" +
 "            Dropzone.options.dd1 = {\n" +
 "                maxFiles: 1,\n" +

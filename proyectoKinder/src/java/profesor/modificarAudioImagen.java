@@ -15,7 +15,7 @@ import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 
-public class modificarAudioInstruccion extends HttpServlet {
+public class modificarAudioImagen extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -25,6 +25,7 @@ public class modificarAudioInstruccion extends HttpServlet {
         //Se recuperan los parametros del formulario y se suben a sesion 
 //            String audioInstruccionM = (String)request.getParameter("audioInstruccionM");//Del registro del nuevo ejercicioNuevo
 //            session.setAttribute("audioInstruccionM", audioInstruccionM);
+
         String usuario = (String) session.getAttribute("usuario");
         String tipoAtt = (String) session.getAttribute("tipo");
         String idUsuario = (String) session.getAttribute("idUsuario");
@@ -42,7 +43,7 @@ public class modificarAudioInstruccion extends HttpServlet {
             response.sendRedirect("login.html");
         }
         //*******************************************//
-        session.setAttribute("banderaModificar", 1);
+        session.setAttribute("banderaModificar", 3);
 
         //Bloque drag and drop
         out.println("<!DOCTYPE html>");
@@ -63,7 +64,6 @@ public class modificarAudioInstruccion extends HttpServlet {
 
         out.println("<br />");
         out.println("<br />");
-
 
         out.println("</body>");
         out.println("</html>");
@@ -92,29 +92,30 @@ public class modificarAudioInstruccion extends HttpServlet {
 
         out.println("<br />");
         out.println("<br />");
+
         out.println("<a href=\"http://localhost:29201/proyectoKinder/modificarEjercicio?id="+session.getAttribute("id")+"&first=2\" >\n" +
 "                                <button  type=\"submit\">Regresar</button>\n" +
 "                            </a>");
-        out.println("<script>\n" +
-"            Dropzone.options.dd1 = {\n" +
-"                maxFiles: 1,\n" +
-"                addRemoveLinks: true,\n" +
-"                acceptedFiles: '.mp3',\n" +
-"                dictDefaultMessage: 'Arrastra archivo .mp3 en este drop',\n" +
-"                init: function() {\n" +
-"                    var self = this;\n" +
-"                    self.options.addRemoveLinks = true;\n" +
-"                    self.options.dictRemoveFile = 'Delete';\n" +
-"                    this.on('complete', function (file) {\n" +
-"                        setTimeout(3000);\n" +
-"                        swal('Añadido correctamente','Da click en el boton','success').then((value) => {                                    \n" +
-"                            setTimeout(1000);\n" +
-"                            this.removeFile(file); \n" +
-"                        });\n" +
-"                    });\n" +
-"                }    \n" +
-"            };\n" +
-"        </script>");
+        out.println("<script>\n"
+                + "            Dropzone.options.dd1 = {\n"
+                + "                maxFiles: 1,\n"
+                + "                addRemoveLinks: true,\n"
+                + "                acceptedFiles: '.mp3',\n"
+                + "                dictDefaultMessage: 'Arrastra archivo .mp3 en este drop',\n"
+                + "                init: function() {\n"
+                + "                    var self = this;\n"
+                + "                    self.options.addRemoveLinks = true;\n"
+                + "                    self.options.dictRemoveFile = 'Delete';\n"
+                + "                    this.on('complete', function (file) {\n"
+                + "                        setTimeout(3000);\n"
+                + "                        swal('Añadido correctamente','Da click en el boton','success').then((value) => {                                    \n"
+                + "                            setTimeout(1000);\n"
+                + "                            this.removeFile(file); \n"
+                + "                        });\n"
+                + "                    });\n"
+                + "                }    \n"
+                + "            };\n"
+                + "        </script>");
         out.println("</body>");
         out.println("</html>");
     }

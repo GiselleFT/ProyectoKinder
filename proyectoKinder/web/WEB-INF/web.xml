@@ -124,6 +124,14 @@
         <servlet-name>modificarAudioInstruccion</servlet-name>
         <servlet-class>profesor.modificarAudioInstruccion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>modificarImagen</servlet-name>
+        <servlet-class>profesor.modificarImagen</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modificarAudioImagen</servlet-name>
+        <servlet-class>profesor.modificarAudioImagen</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>formInicioSesion</servlet-name>
         <url-pattern>/formInicioSesion</url-pattern>
@@ -247,6 +255,14 @@
     <servlet-mapping>
         <servlet-name>modificarAudioInstruccion</servlet-name>
         <url-pattern>/modificarAudioInstruccion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modificarImagen</servlet-name>
+        <url-pattern>/modificarImagen</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modificarAudioImagen</servlet-name>
+        <url-pattern>/modificarAudioImagen</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

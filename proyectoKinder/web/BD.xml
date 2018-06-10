@@ -61,15 +61,15 @@
     <respuestaIncorrecta>Respuesta falsa2</respuestaIncorrecta>
   </EJERCICIO>
   <EJERCICIO id="2" idProfesor="2">
-    <nombre>ejercicio test2</nombre>
+    <nombre>ejercicio test22</nombre>
     <instruccion>Elige la opcion correcta</instruccion>
-    <audioInstruccion>audio.mp3</audioInstruccion>
-    <imagen>imagen.jpg</imagen>
-    <audioImagen>audio.mp3</audioImagen>
+    <audioInstruccion />
+    <imagen />
+    <audioImagen />
     <pista>la respuesta es la 1 jeje</pista>
     <respuestaCorrecta>Respuesta correcta</respuestaCorrecta>
     <respuestaIncorrecta>Respuesta falsa1</respuestaIncorrecta>
-    <respuestaIncorrecta>Respuesta falsa2</respuestaIncorrecta>
+    <respuestaIncorrecta>Respuesta falsa2 gg</respuestaIncorrecta>
   </EJERCICIO>
   <EJERCICIO id="3" idProfesor="6">
     <nombre>ejercicio test3</nombre>
@@ -121,13 +121,13 @@
     <idAlumno>3</idAlumno>
   </GRUPO>
   <EJERCICIO id="4" idProfesor="2">
-    <nombre>n</nombre>
+    <nombre>n5</nombre>
     <instruccion>n</instruccion>
-    <audioInstruccion>2_instruccion2.mp3</audioInstruccion>
-    <imagen>2_perritos.jpg</imagen>
-    <audioImagen>2_campana.mp3</audioImagen>
+    <audioInstruccion />
+    <imagen />
+    <audioImagen />
     <pista>n</pista>
-    <respuestaCorrecta>n</respuestaCorrecta>
+    <respuestaCorrecta>pos a ver</respuestaCorrecta>
     <respuestaIncorrecta>n</respuestaIncorrecta>
     <respuestaIncorrecta>n</respuestaIncorrecta>
   </EJERCICIO>
