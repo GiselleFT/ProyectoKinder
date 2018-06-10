@@ -124,6 +124,10 @@
         <servlet-name>modificarAudioInstruccion</servlet-name>
         <servlet-class>profesor.modificarAudioInstruccion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AutocompletadoServlet</servlet-name>
+        <servlet-class>general.AutocompletadoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>formInicioSesion</servlet-name>
         <url-pattern>/formInicioSesion</url-pattern>
@@ -247,6 +251,10 @@
     <servlet-mapping>
         <servlet-name>modificarAudioInstruccion</servlet-name>
         <url-pattern>/modificarAudioInstruccion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AutocompletadoServlet</servlet-name>
+        <url-pattern>/AutocompletadoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
