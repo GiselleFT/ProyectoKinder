@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The XMLHttpRequest Object</h1>
+
+Buscar: <input type='text' id='names' onkeyup='loadDoc(this.value)'>
+
+<br><br>
+<table id='miTabla' border='3'></table>
+
+<script>
+    function loadDoc(nombreProfesor){
+        if(document.getElementById("names").value.length > 0){
+        var xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function(){
+                        if(xhttp.readyState == 4 && xhttp.status == 200) {
+                            cargarTabla(xhttp, nombreProfesor);
+                        }
+            };
+            xhttp.open("GET", "BD.xml", true);
+            xhttp.send();
+        }
+    }
+    
+    function cargarTabla(xml, nombreProfesor){
+        var i, j;
+        var xmlDoc = xml.responseXML;
+        var table = "<tr><th>Nombre</th><th>Usuario</th><th>Tipo</th><th>Modificar</th><th>Eliminar</th></tr>";
+                var x = xmlDoc.getElementsByTagName("USUARIO");
+                    for (i = 0; i < x.length; i++) {
+                        //Contiene el nombre del profesor
+                        var elemento = x[i].getElementsByTagName('nombre')[0].childNodes[0].nodeValue;
+                        //Extraer del nombre del profesor la cadena del tamaño del prefijo a comparar
+                        var aux = elemento.substring(0,nombreProfesor.length);
+                        //Si el prefijo coincide con el prefijo del profesor lo muestra en la tabla
+                        if(nombreProfesor === aux){
+                            table += "<tr><td>" +
+                            x[i].getElementsByTagName('nombre')[0].childNodes[0].nodeValue +
+                            "</td><td>"+
+                            x[i].getElementsByTagName('usuario')[0].childNodes[0].nodeValue + 
+                            "</td><td>";
+                            if(x[i].attributes[0].value === "1"){
+                                table += "Administrador";
+                            }
+                            else if(x[i].attributes[0].value === '2'){
+                                table += "Profesor";
+                            }
+                            else if(x[i].attributes[0].value === '3'){
+                                table += "Alumno";
+                            }
+                            table +="</td><td>"+
+                            "<form action='modificarGrupo' method='post'>"+
+                            "<input type='hidden' name='idGrupo' value='"+x[i].getAttribute('id')+"'>"+
+                            "<input type='submit' value='Modificar'>"+
+                            "</form>"+
+                            "</td><td>"+
+                            "<form action='eliminarGrupo' method='post'>"+
+                            "<input type='hidden' name='idGrupo' value='"+x[i].getAttribute('id')+"'>"+
+                            "<input type='submit' value='Eliminar'>"+
+                            "</form>"+
+                            "</td></tr>";
+                        }
+                }
+                document.getElementById("miTabla").innerHTML = table;
+            }        
+</script>
+
+</body>
+</html>
