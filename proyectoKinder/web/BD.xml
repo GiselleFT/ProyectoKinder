@@ -63,7 +63,7 @@
   <EJERCICIO id="2" idProfesor="2">
     <nombre>ejercicio test2</nombre>
     <instruccion>Elige la opcion correcta</instruccion>
-    <audioInstruccion>2_instruccion1.mp3</audioInstruccion>
+    <audioInstruccion>2_take_on_me_chida.mp3</audioInstruccion>
     <imagen>2_perritos.jpg</imagen>
     <audioImagen>2_campana.mp3</audioImagen>
     <pista>Ladra, a veces... jejetl</pista>

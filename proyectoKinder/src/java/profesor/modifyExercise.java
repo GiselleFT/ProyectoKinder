@@ -105,9 +105,9 @@ public class modifyExercise extends HttpServlet {
                         
                         nombre.setText(nombreNuevo);
                         instruccion.setText(instruccionNuevo);
-                        audioInstruccion.setText(audioInstruccionNuevo);
-                        imagen.setText(imagenNuevo);
-                        audioImagen.setText(audioImagenNuevo);
+                        audioInstruccion.setText(id+"_"+audioInstruccionNuevo);
+                        imagen.setText(id+"_"+imagenNuevo);
+                        audioImagen.setText(id+"_"+audioImagenNuevo);
                         pista.setText(pistaNuevo);
                         respuestaCorrecta.setText(respuestaCorrectaNuevo);
                         respuestaIncorrecta1.setText(respuestaIncorrecta1Nuevo);

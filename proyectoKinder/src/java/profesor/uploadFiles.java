@@ -72,9 +72,6 @@ public class uploadFiles extends HttpServlet {
                             item.write(file);//Se escribe el archivo
                             System.out.println("Archivo subido");
                             session.setAttribute("audioInstruccionNuevo", item.getName());
-                            if (banderaModificar==1) {
-                                session.setAttribute("audioInstruccionNuevo", idUsuario+"_"+item.getName());
-                            }
                         }
                         else{
                             System.out.println("No se pudo");
@@ -87,9 +84,6 @@ public class uploadFiles extends HttpServlet {
                             item.write(file);//Se escribe el archivo
                             System.out.println("Archivo subido");
                             session.setAttribute("imagenNuevo", item.getName());
-                            if (banderaModificar==2) {
-                                session.setAttribute("audioInstruccionNuevo", idUsuario+"_"+item.getName());
-                            }
                         }
                         else{
                             System.out.println("No se pudo");
@@ -103,9 +97,7 @@ public class uploadFiles extends HttpServlet {
                             System.out.println("Archivo subido");
                             session.setAttribute("audioImagenNuevo", item.getName());
                             session.setAttribute("banderaArchivo", 1);
-                            if (banderaModificar==3) {
-                                session.setAttribute("audioInstruccionNuevo", idUsuario+"_"+item.getName());
-                            }
+                            session.setAttribute("banderaModificar", 1);
                         }
                         else{
                             System.out.println("No se pudo");

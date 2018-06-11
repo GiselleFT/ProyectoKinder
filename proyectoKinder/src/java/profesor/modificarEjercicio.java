@@ -86,9 +86,9 @@ public class modificarEjercicio extends HttpServlet {
 
                         session.setAttribute("nombreNuevo", nombre.getText());
                         session.setAttribute("instruccionNuevo", instruccion.getText());
-                        session.setAttribute("audioInstruccionNuevo", audioInstruccion.getText());
-                        session.setAttribute("imagenNuevo", imagen.getText());
-                        session.setAttribute("audioImagenNuevo", audioImagen.getText());
+                        session.setAttribute("audioInstruccionNuevo", audioInstruccion.getText().substring(2));
+                        session.setAttribute("imagenNuevo", imagen.getText().substring(2));
+                        session.setAttribute("audioImagenNuevo", audioImagen.getText().substring(2));
                         session.setAttribute("pistaNuevo", pista.getText());
                         session.setAttribute("respuestaCorrectaNuevo", respuestaCorrecta.getText());
                         session.setAttribute("respuestaIncorrecta1Nuevo", respuestaIncorrecta1.getText());
