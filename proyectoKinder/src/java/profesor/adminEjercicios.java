@@ -100,11 +100,7 @@ public class adminEjercicios extends HttpServlet {
             out.println("        <nav class=\"navbar navbar-static-top  \" role=\"navigation\" style=\"margin-bottom: 0\">");
             out.println("        <div class=\"navbar-header\">");
             out.println("            <a class=\"navbar-minimalize minimalize-styl-2 btn btn-primary \" href=\"#\"><i class=\"fa fa-bars\"></i> </a>");
-            out.println("            <form role=\"search\" class=\"navbar-form-custom\" action=\"search_results.html\">");
-            out.println("                <div class=\"form-group\">");
-            out.println("                    <input type=\"text\" placeholder=\"Search for something...\" class=\"form-control\" name=\"top-search\" id=\"top-search\">");
-            out.println("                </div>");
-            out.println("            </form>");
+            
             out.println("        </div>");
             out.println("");
             out.println("        </nav>");

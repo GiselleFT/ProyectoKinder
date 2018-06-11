@@ -97,22 +97,21 @@ public class administrarUsuario extends HttpServlet {
             out.println("        <nav class=\"navbar navbar-static-top  \" role=\"navigation\" style=\"margin-bottom: 0\">");
             out.println("        <div class=\"navbar-header\">");
             out.println("            <a class=\"navbar-minimalize minimalize-styl-2 btn btn-primary \" href=\"#\"><i class=\"fa fa-bars\"></i> </a>");
-            out.println("            <form role=\"search\" class=\"navbar-form-custom\" action=\"search_results.html\">");
-            out.println("                <div class=\"form-group\">");
-            out.println("                    <input type=\"text\" placeholder=\"Search for something...\" class=\"form-control\" name=\"top-search\" id=\"top-search\">");
-            out.println("                </div>");
-            out.println("            </form>");
+            
             out.println("        </div>");
             out.println("");
             out.println("        </nav>");
             out.println("        </div>");
             out.println("            <div class=\"row wrapper border-bottom white-bg page-heading\">");
             out.println("                <div class=\"col-sm-4\">");
-            out.println("                    <h2>Bienvenido administrador: </h2>");
+            out.println("                    <h2>Bienvenido administrador: " + usuario + "</h2>");
             out.println("                </div>");
             out.println("            </div>");
+            
+            out.println("<br />");
+            out.println("<br />");
             out.println("<form action='agregarUsuario' method='post'>");
-            out.println("<input type='submit' value='Crear Usuario'>");
+            out.println("<input type='submit' value='Crear Usuario' align='center' class=\"btn btn-w-m btn-success\">");
             out.println("</form>");
 
             out.println("<br />");
@@ -123,7 +122,7 @@ public class administrarUsuario extends HttpServlet {
             out.println("                <div class=\"col-lg-12\">");
             out.println("                    <div class=\"ibox float-e-margins\">");
             out.println("                        <div class=\"ibox-title\">");
-            out.println("                            <h5>Custom rnsive table </h5>");
+            out.println("                            <h5>Usuarios </h5>");
             out.println("                            <div class=\"ibox-tools\">");
             out.println("                                <a class=\"collapse-link\">");
             out.println("                                    <i class=\"fa fa-chevron-up\"></i>");
@@ -188,8 +187,8 @@ public class administrarUsuario extends HttpServlet {
                 out.println("                                        <td>" + type + "</td>");
                 out.println("                                        <td>");
                 out.println("<form action='modificarUsuario' method='post'>");
-                out.println("<input type='hidden' name='id' value=" + id.getValue() + ">");//Del administrador
-                out.println("<input type='submit' value='Modificar'>");
+                out.println("<input type='hidden' name='id' value=" + id.getValue() + " >");//Del administrador
+                out.println("<input type='submit' value='Modificar' class=\"btn btn-w-m btn-default\">");
                 out.println("</form>");
 
                 out.println("                                        </td>");
@@ -197,7 +196,7 @@ public class administrarUsuario extends HttpServlet {
                 out.println("<form action='eliminarUsuario' method='post'>");
 
                 out.println("<input type='hidden' name='id' value=" + id.getValue() + ">");//Del administrador
-                out.println("<input type='submit' value='Eliminar'>");
+                out.println("<input type='submit' value='Eliminar' class=\"btn btn-w-m btn-danger\">");
                 out.println("</form>");
                 out.println("                                        </td>");
                 out.println("                                    </tr>");
@@ -209,6 +208,29 @@ public class administrarUsuario extends HttpServlet {
                 out.println("<br />");
                 
                 //Tabla dinamica conforme a busqueda
+                
+                
+                out.println("                            </div>");
+                out.println("<form action='menuAdministrador' method='get'>");
+            out.println("<input type='submit' value='Menu Administrador' class=\"btn btn-sm btn-warning\">");
+            out.println("</form>");
+                out.println("");
+                out.println("                        </div>");
+                out.println("                    </div>");
+                out.println("                </div>");
+                out.println("");
+                out.println("            </div>");
+                out.println("                </div>");
+                out.println("            </div>");
+                out.println("        </div>");
+                out.println("        </div>");
+                out.println("");
+                out.println("    <script src=\"js/jquery-3.1.1.min.js\"></script>");
+                out.println("    <script src=\"js/bootstrap.min.js\"></script>");
+                out.println("    <script src=\"js/plugins/metisMenu/jquery.metisMenu.js\"></script>");
+                out.println("    <script src=\"js/plugins/slimscroll/jquery.slimscroll.min.js\"></script>");
+                out.println("    <script src=\"js/inspinia.js\"></script>");
+                out.println("    <script src=\"js/plugins/pace/pace.min.js\"></script>");
                 out.println("<script>");
                 out.println("function loadDoc(nombreProfesor){\n"
                     + "        if(document.getElementById(\"names\").value.length > 0){\n"
@@ -251,12 +273,12 @@ public class administrarUsuario extends HttpServlet {
                     + "                            table +=\"</td><td>\"+\n"
                     + "                            \"<form action='modificarGrupo' method='post'>\"+\n"
                     + "                            \"<input type='hidden' name='idGrupo' value='\"+x[i].getAttribute('id')+\"'>\"+\n"
-                    + "                            \"<input type='submit' value='Modificar'>\"+\n"
+                    + "                            \"<input type='submit' value='Modificar' >\"+\n"
                     + "                            \"</form>\"+\n"
                     + "                            \"</td><td>\"+\n"
                     + "                            \"<form action='eliminarGrupo' method='post'>\"+\n"
                     + "                            \"<input type='hidden' name='idGrupo' value='\"+x[i].getAttribute('id')+\"'>\"+\n"
-                    + "                            \"<input type='submit' value='Eliminar'>\"+\n"
+                    + "                            \"<input type='submit' value='Eliminar' >\"+\n"
                     + "                            \"</form>\"+\n"
                     + "                            \"</td></tr>\";\n"
                     + "                        }\n"
@@ -265,28 +287,6 @@ public class administrarUsuario extends HttpServlet {
                     + "                document.getElementById(\"miTabla\").innerHTML = table;\n"
                     + "            }        ");
                 out.println("</script>");
-                
-                out.println("                            </div>");
-                out.println("<form action='menuAdministrador' method='get'>");
-            out.println("<input type='submit' value='Menu Administrador'>");
-            out.println("</form>");
-                out.println("");
-                out.println("                        </div>");
-                out.println("                    </div>");
-                out.println("                </div>");
-                out.println("");
-                out.println("            </div>");
-                out.println("                </div>");
-                out.println("            </div>");
-                out.println("        </div>");
-                out.println("        </div>");
-                out.println("");
-                out.println("    <script src=\"js/jquery-3.1.1.min.js\"></script>");
-                out.println("    <script src=\"js/bootstrap.min.js\"></script>");
-                out.println("    <script src=\"js/plugins/metisMenu/jquery.metisMenu.js\"></script>");
-                out.println("    <script src=\"js/plugins/slimscroll/jquery.slimscroll.min.js\"></script>");
-                out.println("    <script src=\"js/inspinia.js\"></script>");
-                out.println("    <script src=\"js/plugins/pace/pace.min.js\"></script>");
                 out.println("</body>");
                 out.println("</html>");
                 out.println("");

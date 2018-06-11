@@ -153,5 +153,10 @@
     <respuestaIncorrecta>CHIDO</respuestaIncorrecta>
     <respuestaIncorrecta>CHIDO</respuestaIncorrecta>
   </EJERCICIO>
+  <USUARIO id="7" tipo="3">
+    <nombre>alumno3</nombre>
+    <usuario>alumno3@gmail.com</usuario>
+    <contrasena>alumno3</contrasena>
+  </USUARIO>
 </raiz>
 
