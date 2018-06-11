@@ -41,6 +41,8 @@ public class adminEjercicios extends HttpServlet {
             response.sendRedirect("login.html");
         }
         //*******************************************//
+        session.setAttribute("banderaArchivo", 0);
+        session.setAttribute("banderaModificar", 0);
 
         try {
             //Contruye un documento JDOM usando SAX, para procesar xml

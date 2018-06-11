@@ -47,11 +47,6 @@ public class uploadFiles extends HttpServlet {
         
         
         try {
-            if (banderaModificar==1) {
-                System.out.println("*"
-                        + "*"
-                        + "*\n*\n*\n*\n*\n*\n*\n*\n*\n*\n*\n*\n*");
-            }
             //Parsea la solicitud para obtener los elementos de tipo archivo
             List<FileItem> items = uploadHandler.parseRequest(request);
             //Se iteran los archivos
@@ -68,42 +63,33 @@ public class uploadFiles extends HttpServlet {
                     */
                     System.out.println("Bandera= " + banderaArchivo);
                     if(banderaArchivo == 1||banderaModificar == 1){ 
-                        if(item.getContentType().contentEquals("audio/mp3")){
                             item.write(file);//Se escribe el archivo
                             System.out.println("Archivo subido");
-                            session.setAttribute("audioInstruccionNuevo", item.getName());
-                        }
-                        else{
-                            System.out.println("No se pudo");
-                            out.println("<h3>Solo se aceptan archivos .mp3</h3>");
-                            out.println("<br />");
-                        }
+                            session.setAttribute("audioInstruccionNuevo", idUsuario+"_"+item.getName());
+                            System.out.println("*"
+                        + "*"
+                        + "*\n*\n*\n*\n*\n*\n*\n*\n*SAM1"+banderaArchivo+"\n*\n*\n*\n*"+session.getAttribute("audioInstruccionNuevo")+"*\n*\n*\n*\n*\n*\n*\n*\n*\n*\n*\n*\n*");
+                        session.setAttribute("banderaArchivo", 0);
+                        session.setAttribute("banderaModificar", 0);
+                        
                     } 
                     else if(banderaArchivo == 2||banderaModificar == 2){
-                        if(item.getContentType().contentEquals("image/jpeg")) {
                             item.write(file);//Se escribe el archivo
                             System.out.println("Archivo subido");
-                            session.setAttribute("imagenNuevo", item.getName());
-                        }
-                        else{
-                            System.out.println("No se pudo");
-                            out.println("<h3>Solo se aceptan archivos .jpeg</h3>");
-                            out.println("<br />");
-                        }
+                            session.setAttribute("imagenNuevo", idUsuario+"_"+item.getName());
+                            System.out.println("*"
+                        + "*"
+                        + "*\n*\n*\n*\n*\n*\n*\n*\n*SAM2\n*\n*\n*\n*"+session.getAttribute("imagenNuevo")+"*\n*\n*\n*\n*\n*\n*\n*\n*\n*\n*\n*\n*");
+                        session.setAttribute("banderaArchivo", 0);
+                        session.setAttribute("banderaModificar", 0);
                     } 
                     else if(banderaArchivo == 3||banderaModificar == 3){
-                        if(item.getContentType().contentEquals("audio/mp3")){
                             item.write(file);//Se escribe el archivo
                             System.out.println("Archivo subido");
-                            session.setAttribute("audioImagenNuevo", item.getName());
-                            session.setAttribute("banderaArchivo", 1);
-                            session.setAttribute("banderaModificar", 1);
-                        }
-                        else{
-                            System.out.println("No se pudo");
-                            out.println("<h3>Solo se aceptan archivos .mp3</h3>");
-                            out.println("<br />");
-                        }
+                            session.setAttribute("audioImagenNuevo", idUsuario+"_"+item.getName());
+                            session.setAttribute("banderaArchivo", 0);
+                            session.setAttribute("banderaModificar", 0);
+                        
                     }
                 }
                 

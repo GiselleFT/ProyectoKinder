@@ -33,9 +33,9 @@ public class addExercise extends HttpServlet {
         
         String nombreNuevo = (String)session.getAttribute("nombreNuevo");
         String instruccionNuevo = (String)session.getAttribute("instruccionNuevo");
-        String audioInstruccionNuevo = idUsuario+"_"+(String)session.getAttribute("audioInstruccionNuevo");
-        String imagenNuevo = idUsuario+"_"+(String)session.getAttribute("imagenNuevo");
-        String audioImagenNuevo = idUsuario+"_"+(String)session.getAttribute("audioImagenNuevo");
+        String audioInstruccionNuevo = (String)session.getAttribute("audioInstruccionNuevo");
+        String imagenNuevo = (String)session.getAttribute("imagenNuevo");
+        String audioImagenNuevo = (String)session.getAttribute("audioImagenNuevo");
         String pistaNuevo = (String)session.getAttribute("pistaNuevo");
         String respuestaCorrectaNuevo = (String)session.getAttribute("respuestaCorrectaNuevo");
         String respuestaIncorrecta1Nuevo = (String)session.getAttribute("respuestaIncorrecta1Nuevo");

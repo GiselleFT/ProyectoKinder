@@ -52,9 +52,9 @@
   <EJERCICIO id="1" idProfesor="2">
     <nombre>ejercicio test</nombre>
     <instruccion>Elige la opcion correcta</instruccion>
-    <audioInstruccion>audio.mp3</audioInstruccion>
-    <imagen>imagen.jpg</imagen>
-    <audioImagen>audio.mp3</audioImagen>
+    <audioInstruccion>2_take_on_me_chida.mp3</audioInstruccion>
+    <imagen>2_agen.jpg</imagen>
+    <audioImagen>2_dio.mp3</audioImagen>
     <pista>la respuesta es la 1 jeje</pista>
     <respuestaCorrecta>Respuesta correcta</respuestaCorrecta>
     <respuestaIncorrecta>Respuesta falsa1</respuestaIncorrecta>
@@ -131,17 +131,6 @@
     <respuestaIncorrecta>s</respuestaIncorrecta>
     <respuestaIncorrecta>sam</respuestaIncorrecta>
   </EJERCICIO>
-  <EJERCICIO id="6" idProfesor="2">
-    <nombre>a</nombre>
-    <instruccion>a</instruccion>
-    <audioInstruccion>2_take_on_me_chida.mp3</audioInstruccion>
-    <imagen>2_20160412_102429.jpg</imagen>
-    <audioImagen>2_take_on_me.mp3</audioImagen>
-    <pista>a</pista>
-    <respuestaCorrecta>a</respuestaCorrecta>
-    <respuestaIncorrecta>a</respuestaIncorrecta>
-    <respuestaIncorrecta>a</respuestaIncorrecta>
-  </EJERCICIO>
   <EJERCICIO id="7" idProfesor="2">
     <nombre>panky</nombre>
     <instruccion>panky</instruccion>
@@ -152,6 +141,17 @@
     <respuestaCorrecta>pankybonito</respuestaCorrecta>
     <respuestaIncorrecta>panqueque</respuestaIncorrecta>
     <respuestaIncorrecta>panka</respuestaIncorrecta>
+  </EJERCICIO>
+  <EJERCICIO id="8" idProfesor="2">
+    <nombre>CHIDO</nombre>
+    <instruccion>CHIDO</instruccion>
+    <audioInstruccion>2_take_on_me_chida.mp3</audioInstruccion>
+    <imagen>2_20160414_085203.jpg</imagen>
+    <audioImagen>2_take_on_me_chida.mp3</audioImagen>
+    <pista>CHIDO</pista>
+    <respuestaCorrecta>CHIDO</respuestaCorrecta>
+    <respuestaIncorrecta>CHIDO</respuestaIncorrecta>
+    <respuestaIncorrecta>CHIDO</respuestaIncorrecta>
   </EJERCICIO>
 </raiz>
 

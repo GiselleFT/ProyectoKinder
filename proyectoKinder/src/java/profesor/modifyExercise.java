@@ -34,7 +34,7 @@ public class modifyExercise extends HttpServlet {
             String respuestaCorrectaNuevo = request.getParameter("respuestaCorrectaNuevo");
             String respuestaIncorrecta1Nuevo = request.getParameter("respuestaIncorrecta1Nuevo");
             String respuestaIncorrecta2Nuevo = request.getParameter("respuestaIncorrecta2Nuevo");
-            
+            String idUsuario = (String) session.getAttribute("idUsuario");
             
             //info del usuario a modificar
             String id = (String)session.getAttribute("id");//id del ejercicio a modificar
@@ -105,9 +105,9 @@ public class modifyExercise extends HttpServlet {
                         
                         nombre.setText(nombreNuevo);
                         instruccion.setText(instruccionNuevo);
-                        audioInstruccion.setText(id+"_"+audioInstruccionNuevo);
-                        imagen.setText(id+"_"+imagenNuevo);
-                        audioImagen.setText(id+"_"+audioImagenNuevo);
+                        audioInstruccion.setText(audioInstruccionNuevo);
+                        imagen.setText(imagenNuevo);
+                        audioImagen.setText(audioImagenNuevo);
                         pista.setText(pistaNuevo);
                         respuestaCorrecta.setText(respuestaCorrectaNuevo);
                         respuestaIncorrecta1.setText(respuestaIncorrecta1Nuevo);
