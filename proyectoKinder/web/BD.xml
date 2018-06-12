@@ -6,106 +6,15 @@
     <contrasena>root</contrasena>
   </USUARIO>
   <USUARIO id="2" tipo="2">
-    <nombre>profesor</nombre>
-    <usuario>profesor@gmail.com</usuario>
-    <contrasena>profesor</contrasena>
-  </USUARIO>
-  <USUARIO id="3" tipo="3">
-    <nombre>alumno</nombre>
-    <usuario>alumno</usuario>
-    <contrasena>alumno</contrasena>
-  </USUARIO>
-  <USUARIO id="4" tipo="3">
-    <nombre>alumno2</nombre>
-    <usuario>alumno2</usuario>
-    <contrasena>alumno2</contrasena>
-  </USUARIO>
-  <USUARIO id="6" tipo="2">
-    <nombre>profesor2</nombre>
-    <usuario>profesor2</usuario>
-    <contrasena>profesor2</contrasena>
+    <nombre>Ian Mendoza</nombre>
+    <usuario>ian@gmail.com</usuario>
+    <contrasena>ian</contrasena>
   </USUARIO>
   <USUARIO id="7" tipo="3">
-    <nombre>alumno3</nombre>
-    <usuario>alumno3@gmail.com</usuario>
-    <contrasena>alumno3</contrasena>
+    <nombre>Elioth Monroy</nombre>
+    <usuario>elioth@gmail.com</usuario>
+    <contrasena>elioth</contrasena>
   </USUARIO>
-  <GRUPO id="1">
-    <grupo>1cm1</grupo>
-    <idProfesor>2</idProfesor>
-    <nombreProfesor>profesor</nombreProfesor>
-    <inscritos>2</inscritos>
-    <idAlumno>3</idAlumno>
-    <idAlumno>4</idAlumno>
-  </GRUPO>
-  <GRUPO id="2">
-    <grupo>1cm2</grupo>
-    <idProfesor>6</idProfesor>
-    <nombreProfesor>profesor2</nombreProfesor>
-    <inscritos>2</inscritos>
-    <idAlumno>3</idAlumno>
-    <idAlumno>4</idAlumno>
-  </GRUPO>
-  <GRUPO id="3">
-    <grupo>2cm3</grupo>
-    <idProfesor>2</idProfesor>
-    <nombreProfesor>profesor</nombreProfesor>
-    <inscritos>2</inscritos>
-    <idAlumno>3</idAlumno>
-    <idAlumno>4</idAlumno>
-  </GRUPO>
-  <EJERCICIO id="1" idProfesor="2">
-    <nombre>ejercicio test</nombre>
-    <instruccion>Elige la opcion correcta</instruccion>
-    <audioInstruccion>2_take_on_me_chida.mp3</audioInstruccion>
-    <imagen>2_agen.jpg</imagen>
-    <audioImagen>2_dio.mp3</audioImagen>
-    <pista>la respuesta es la 1 jejetl</pista>
-    <respuestaCorrecta>Respuesta correcta</respuestaCorrecta>
-    <respuestaIncorrecta>Respuesta falsa1</respuestaIncorrecta>
-    <respuestaIncorrecta>Respuesta falsa2</respuestaIncorrecta>
-  </EJERCICIO>
-  <EJERCICIO id="2" idProfesor="2">
-    <nombre>ejercicio test2</nombre>
-    <instruccion>Elige la opcion correcta</instruccion>
-    <audioInstruccion>2_take_on_me_chida.mp3</audioInstruccion>
-    <imagen>2_perritos.jpg</imagen>
-    <audioImagen>2_campana.mp3</audioImagen>
-    <pista>Ladra, a veces... jejetl</pista>
-    <respuestaCorrecta>Perritos</respuestaCorrecta>
-    <respuestaIncorrecta>Peces</respuestaIncorrecta>
-    <respuestaIncorrecta>Gallinas</respuestaIncorrecta>
-  </EJERCICIO>
-  <GRUPO id="5">
-    <grupo>grupo3</grupo>
-    <idProfesor>6</idProfesor>
-    <nombreProfesor>profesor2</nombreProfesor>
-    <inscritos>2</inscritos>
-    <idAlumno>3</idAlumno>
-    <idAlumno>4</idAlumno>
-  </GRUPO>
-  <GRUPO id="6">
-    <grupo>grupo9</grupo>
-    <idProfesor>2</idProfesor>
-    <nombreProfesor>profesor</nombreProfesor>
-    <inscritos>2</inscritos>
-    <idAlumno>3</idAlumno>
-    <idAlumno>4</idAlumno>
-  </GRUPO>
-  <GRUPO id="7">
-    <grupo>qqq</grupo>
-    <idProfesor>2</idProfesor>
-    <nombreProfesor>profesor</nombreProfesor>
-    <inscritos>1</inscritos>
-    <idAlumno>3</idAlumno>
-  </GRUPO>
-  <GRUPO id="8">
-    <grupo>wewew</grupo>
-    <idProfesor>2</idProfesor>
-    <nombreProfesor>profesor</nombreProfesor>
-    <inscritos>1</inscritos>
-    <idAlumno>3</idAlumno>
-  </GRUPO>
   <EJERCICIO id="5" idProfesor="2">
     <nombre>ssamm</nombre>
     <instruccion>s</instruccion>
@@ -139,35 +48,11 @@
     <respuestaIncorrecta>CHIDO</respuestaIncorrecta>
     <respuestaIncorrecta>CHIDO</respuestaIncorrecta>
   </EJERCICIO>
-  <GRUPO id="11">
-    <grupo>3CM11</grupo>
-    <idProfesor>2</idProfesor>
-    <nombreProfesor>profesor</nombreProfesor>
-    <inscritos>2</inscritos>
-    <idAlumno>3</idAlumno>
-    <idAlumno>4</idAlumno>
-  </GRUPO>
-  <GRUPO id="13">
-    <grupo>marrano</grupo>
-    <idProfesor>6</idProfesor>
-    <nombreProfesor>profesor2</nombreProfesor>
-    <inscritos>1</inscritos>
-    <idAlumno>4</idAlumno>
-  </GRUPO>
-  <USUARIO id="8" tipo="1">
-    <nombre>Tona</nombre>
+  <USUARIO id="8" tipo="2">
+    <nombre>Tona Barrera</nombre>
     <usuario>tona@gmail.com</usuario>
     <contrasena>tona</contrasena>
   </USUARIO>
-  <GRUPO id="14">
-    <grupo>mojado</grupo>
-    <idProfesor>2</idProfesor>
-    <nombreProfesor>profesor</nombreProfesor>
-    <inscritos>3</inscritos>
-    <idAlumno>3</idAlumno>
-    <idAlumno>4</idAlumno>
-    <idAlumno>7</idAlumno>
-  </GRUPO>
   <EJERCICIO id="10" idProfesor="2">
     <nombre>PM</nombre>
     <instruccion>PM</instruccion>
@@ -180,21 +65,10 @@
     <respuestaIncorrecta>PM</respuestaIncorrecta>
   </EJERCICIO>
   <USUARIO id="9" tipo="2">
-    <nombre>Andres</nombre>
+    <nombre>Andres Saldana</nombre>
     <usuario>andres@gmail.com</usuario>
     <contrasena>andres</contrasena>
   </USUARIO>
-  <EJERCICIO id="11" idProfesor="2">
-    <nombre>ejercicio_prueba</nombre>
-    <instruccion>completa todo</instruccion>
-    <audioInstruccion>2_instruccionComienzaSonido.mp3</audioInstruccion>
-    <imagen>2_arcoiris.jpg</imagen>
-    <audioImagen>2_arcoiris.mp3</audioImagen>
-    <pista>la respuesta esta en tu corazon</pista>
-    <respuestaCorrecta>ar</respuestaCorrecta>
-    <respuestaIncorrecta>er</respuestaIncorrecta>
-    <respuestaIncorrecta>im</respuestaIncorrecta>
-  </EJERCICIO>
   <EJERCICIO id="12" idProfesor="2">
     <nombre>p</nombre>
     <instruccion>p</instruccion>
@@ -205,6 +79,86 @@
     <respuestaCorrecta>p</respuestaCorrecta>
     <respuestaIncorrecta>p</respuestaIncorrecta>
     <respuestaIncorrecta>p</respuestaIncorrecta>
+  </EJERCICIO>
+  <USUARIO id="10" tipo="1">
+    <nombre>Giselle Flores</nombre>
+    <usuario>gis@gmail.com</usuario>
+    <contrasena>gis</contrasena>
+  </USUARIO>
+  <USUARIO id="11" tipo="3">
+    <nombre>Samuel Arteaga</nombre>
+    <usuario>sam@gmail.com</usuario>
+    <contrasena>sam</contrasena>
+  </USUARIO>
+  <USUARIO id="12" tipo="3">
+    <nombre>Esli Osorio</nombre>
+    <usuario>esli@gmail.com</usuario>
+    <contrasena>esli</contrasena>
+  </USUARIO>
+  <USUARIO id="13" tipo="3">
+    <nombre>Mario Aburto</nombre>
+    <usuario>mario@gmail.com</usuario>
+    <contrasena>mario</contrasena>
+  </USUARIO>
+  <GRUPO id="1">
+    <grupo>1CM1</grupo>
+    <idProfesor>8</idProfesor>
+    <nombreProfesor>Tona Barrera</nombreProfesor>
+    <inscritos>2</inscritos>
+    <idAlumno>7</idAlumno>
+    <idAlumno>11</idAlumno>
+  </GRUPO>
+  <GRUPO id="2">
+    <grupo>1CM2</grupo>
+    <idProfesor>2</idProfesor>
+    <nombreProfesor>Ian Mendoza</nombreProfesor>
+    <inscritos>2</inscritos>
+    <idAlumno>12</idAlumno>
+    <idAlumno>13</idAlumno>
+  </GRUPO>
+  <EJERCICIO id="13" idProfesor="8">
+    <nombre>Ejercicio 1</nombre>
+    <instruccion>?Con que sonido comienza la palabra?</instruccion>
+    <audioInstruccion>8_instruccionComienzaSonido.mp3</audioInstruccion>
+    <imagen>8_arcoiris.jpg</imagen>
+    <audioImagen>8_arcoiris.mp3</audioImagen>
+    <pista>Con el mismo que arbol</pista>
+    <respuestaCorrecta>Ar</respuestaCorrecta>
+    <respuestaIncorrecta>Er</respuestaIncorrecta>
+    <respuestaIncorrecta>Ir</respuestaIncorrecta>
+  </EJERCICIO>
+  <EJERCICIO id="14" idProfesor="8">
+    <nombre>Ejercicio 2</nombre>
+    <instruccion>Complete la palabra que corresponde a la imagen. P E . . .</instruccion>
+    <audioInstruccion>8_instruccionComplete.mp3</audioInstruccion>
+    <imagen>8_perro2.jpg</imagen>
+    <audioImagen>8_perro.mp3</audioImagen>
+    <pista>ladra</pista>
+    <respuestaCorrecta>rro</respuestaCorrecta>
+    <respuestaIncorrecta>gro</respuestaIncorrecta>
+    <respuestaIncorrecta>tro</respuestaIncorrecta>
+  </EJERCICIO>
+  <EJERCICIO id="15" idProfesor="8">
+    <nombre>Ejercicio 3</nombre>
+    <instruccion>Que palabra corresponde a la imagen</instruccion>
+    <audioInstruccion>8_instruccionCorresponde.mp3</audioInstruccion>
+    <imagen>8_conejo.jpg</imagen>
+    <audioImagen>8_conejo.mp3</audioImagen>
+    <pista>Come zanahorias</pista>
+    <respuestaCorrecta>Conejo</respuestaCorrecta>
+    <respuestaIncorrecta>Cuyo</respuestaIncorrecta>
+    <respuestaIncorrecta>Hamster</respuestaIncorrecta>
+  </EJERCICIO>
+  <EJERCICIO id="16" idProfesor="8">
+    <nombre>Ejercicio video</nombre>
+    <instruccion>Te gusto el video</instruccion>
+    <audioInstruccion>8_instruccionComienzaSonido.mp3</audioInstruccion>
+    <imagen>8_BPKW3252.MP4</imagen>
+    <audioImagen />
+    <pista>si</pista>
+    <respuestaCorrecta>si</respuestaCorrecta>
+    <respuestaIncorrecta>no</respuestaIncorrecta>
+    <respuestaIncorrecta>tal vez</respuestaIncorrecta>
   </EJERCICIO>
 </raiz>
 

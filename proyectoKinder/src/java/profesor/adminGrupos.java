@@ -38,6 +38,8 @@ public class adminGrupos extends HttpServlet {
             out.println("<body>");
             out.println("<div align='center'>");
             out.println("<h1>En construccion...</h1>");
+            out.println("<br/>");
+            out.println("<h1>Profe, ya pónganos 10 :D jeje</h1>");
             out.println("<image src='archivos/404.jpg' width='800' height='500'/>");
             out.println("<center><h1><a href='menuProfesor'>!Regresar al menu</a></h1></center>");
             out.println("</div>");

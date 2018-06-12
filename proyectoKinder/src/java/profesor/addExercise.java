@@ -53,7 +53,7 @@ public class addExercise extends HttpServlet {
         System.out.println(respuestaIncorrecta2Nuevo);
         System.out.println("FIN VALORES PARA AÑADIR EJERCICIO");
 
-        if (imagenNuevo.length() < 1 || audioInstruccionNuevo.length() < 1 || audioImagenNuevo.length() < 1) {
+        if (imagenNuevo.length() < 1 || audioInstruccionNuevo.length() < 1 || (imagenNuevo.endsWith(".jpg") && audioImagenNuevo.length() < 1)) {
             response.sendRedirect("adminEjercicios?error=0");
         } else {
 
@@ -104,10 +104,14 @@ public class addExercise extends HttpServlet {
                 String id = "";
                 int id2;
                 //Obtiene informacion del último elemento añadido, para asignar ID
-                Element e = (Element) lista.get(lista.size() - 1);
-                id = e.getAttributeValue("id");
-                id2 = Integer.parseInt(id) + 1;
-                id = "" + id2;//para ultimo id
+                if (lista.size() == 0) {
+                    id = "1";
+                } else {
+                    Element e = (Element) lista.get(lista.size() - 1);
+                    id = e.getAttributeValue("id");
+                    id2 = Integer.parseInt(id) + 1;
+                    id = "" + id2;//para ultimo id
+                }
 
                 ejercicioP.setAttribute("id", id);
                 ejercicioP.setAttribute("idProfesor", idUsuario);

@@ -25,6 +25,7 @@ public class administrarUsuario extends HttpServlet {
         //Recuperamos la sesion
         HttpSession session = request.getSession();
         String usuario = (String) session.getAttribute("usuario");
+        String idUsuario = (String) session.getAttribute("idUsuario");
         String tipoAtt = (String) session.getAttribute("tipo");
         PrintWriter out = response.getWriter();
 
@@ -188,7 +189,7 @@ public class administrarUsuario extends HttpServlet {
                 Element usuario2 = (Element) lista2.get(1);
                 //Se recupera tipo de usuario
                 Attribute tipo = element.getAttribute("tipo");
-
+                
                 if (tipo.getValue().matches("1")) {
                     type = "Administrador";
                 } else if (tipo.getValue().matches("2")) {
@@ -201,6 +202,9 @@ public class administrarUsuario extends HttpServlet {
 
                 //Se recupera id de usuario
                 Attribute id = element.getAttribute("id");
+                if (!id.getValue().equals(idUsuario)) {
+                    
+                
                 //out.println("                                    <tbody>"); //ESTO
                 out.println("                                    <tr>");
                 out.println("                                        <td>" + nombre.getValue() + "</td>");
@@ -221,6 +225,7 @@ public class administrarUsuario extends HttpServlet {
                 out.println("</form>");
                 out.println("                                        </td>");
                 out.println("                                    </tr>");
+                }
                 //out.println("                                    </tbody>"); //ESTO
             }
                 out.println("                                </table>");
