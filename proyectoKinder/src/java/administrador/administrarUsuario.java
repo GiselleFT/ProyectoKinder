@@ -144,7 +144,7 @@ public class administrarUsuario extends HttpServlet {
             out.println("                            </div>");
             out.println("                            <div class=\"table-responsive\">");
             out.println("                                <table id='miTabla' class=\"footable table table-stripped\" data-page-size=\"32\" data-filter=#filter>");
-            out.println("                                    <thead>");
+            //out.println("                                    <thead>");//ESTO
             out.println("                                    <tr>");
             out.println("<th>Usuario</th>");
             out.println("<th>Nombre</th>");
@@ -152,7 +152,7 @@ public class administrarUsuario extends HttpServlet {
             out.println("<th>Modificar</th>");
             out.println("<th>Eliminar</th>");
             out.println("                                    </tr>");
-            out.println("                                    </thead>");
+            //out.println("                                    </thead>");//ESTO
             String type = "";
 
             //Para recorrer el arbol de nodos
@@ -180,7 +180,7 @@ public class administrarUsuario extends HttpServlet {
 
                 //Se recupera id de usuario
                 Attribute id = element.getAttribute("id");
-                out.println("                                    <tbody>");
+                //out.println("                                    <tbody>"); //ESTO
                 out.println("                                    <tr>");
                 out.println("                                        <td>" + nombre.getValue() + "</td>");
                 out.println("                                        <td>" + usuario2.getValue() + "</td>");
@@ -200,7 +200,7 @@ public class administrarUsuario extends HttpServlet {
                 out.println("</form>");
                 out.println("                                        </td>");
                 out.println("                                    </tr>");
-                out.println("                                    </tbody>");
+                //out.println("                                    </tbody>"); //ESTO
             }
                 out.println("                                </table>");
                 
@@ -248,6 +248,7 @@ public class administrarUsuario extends HttpServlet {
                     + "        var i, j;\n"
                     + "        var xmlDoc = xml.responseXML;\n"
                     + "        var table = \"<tr><th>Nombre</th><th>Usuario</th><th>Tipo</th><th>Modificar</th><th>Eliminar</th></tr>\";\n"
+                     + "               var t = \"\"; \n"                   
                     + "                var x = xmlDoc.getElementsByTagName(\"USUARIO\");\n"
                     + "                    for (i = 0; i < x.length; i++) {\n"
                     + "                        //Contiene el nombre del profesor\n"
@@ -262,15 +263,15 @@ public class administrarUsuario extends HttpServlet {
                     + "                            x[i].getElementsByTagName('usuario')[0].childNodes[0].nodeValue + \n"
                     + "                            \"</td><td>\";\n"
                     + "                            if(x[i].attributes[0].value === \"1\"){\n"
-                    + "                                table += \"Administrador\";\n"
+                    + "                                t += \"Administrador\";\n"
                     + "                            }\n"
                     + "                            else if(x[i].attributes[0].value === '2'){\n"
-                    + "                                table += \"Profesor\";\n"
+                    + "                                t += \"Profesor\";\n"
                     + "                            }\n"
                     + "                            else if(x[i].attributes[0].value === '3'){\n"
-                    + "                                table += \"Alumno\";\n"
+                    + "                                t += \"Alumno\";\n"
                     + "                            }\n"
-                    + "                            table +=\"</td><td>\"+\n"
+                    + "                            table += t + \"</td><td>\" +\n"
                     + "                            \"<form action='modificarGrupo' method='post'>\"+\n"
                     + "                            \"<input type='hidden' name='idGrupo' value='\"+x[i].getAttribute('id')+\"'>\"+\n"
                     + "                            \"<input type='submit' value='Modificar' >\"+\n"
