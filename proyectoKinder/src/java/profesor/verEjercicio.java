@@ -165,26 +165,29 @@ public class verEjercicio extends HttpServlet {
 
         //tabla
         out.println("                    <div class=\"row\">");
-            out.println("                <div class=\"col-lg-12\">");
-            out.println("                    <div class=\"ibox float-e-margins\">");
-            out.println("                        <div class=\"ibox-title\">");
-        
-        out.println("<!DOCTYPE html>");//es un texto enviado por el canal de comunicacion 
-        out.println("<html>");//nodo raiz, ahi comienza
-        out.println("<head>");//comienza el encabezado 
-        out.println("<title>Servlet Servlet1</title>"); //Aqui dentro van las hojas de estilo y funcionalidad (javascript)
-        out.println("</head>");//termina el encabezado
-        out.println("<body>");
+        out.println("                <div class=\"col-lg-12\">");
+        out.println("                    <div class=\"ibox float-e-margins\">");
+        out.println("                        <div id='audio' class=\"ibox-title\">");
+
+       
         //out.println("<h1>" + nombreM + "</h1>");//contenido que se va a desplegar dentro de la pagina web
         out.println("<h1><b>" + instruccionM + "</b></h1>");
         out.println("<audio  src='archivos/" + audioInstruccionM + "' controls ></audio>");
         out.println("<br/>");
         out.println("<br/>");
         out.println("<br/>");
+        if (imagenM.endsWith(".jpg")) {
+            out.println("<image onclick='reproducir()' src='archivos/" + imagenM + "' width='400' height='270'/>");
+            out.println("<br/>");
+            out.println("<center>");
+            out.println("<h3>Haz click en la imagen para escuchar!</h3>");
+            out.println("</center>");
+            //out.println("<audio src='archivos/" + audioImagenM + "'></audio><a>   </a>");
+        } else {
+            out.println("<video controls><source src='archivos/" + imagenM + "' type=\"video/mp4\"></video>");
+        }
         out.println("<br/>");
-        out.println("<image src='archivos/" + imagenM + "' width='400' height='270'/>");
         out.println("<br/>");
-        out.println("<audio  src='archivos/" +  audioImagenM + "' controls></audio><a>   </a>");
         out.println("<button onclick='myFunction()' class=\"btn btn-w-m btn-info\"><h4>Pista!</h4></button>");
         out.println("<br/>");
         out.println("<br/>");
@@ -207,8 +210,15 @@ public class verEjercicio extends HttpServlet {
                 + "  document.getElementById(\"demo\").innerHTML = '" + pistaM + "';\n"
                 + "}\n"
                 + "</script>");
+        out.println("<script>\n"
+                + "function reproducir() {\n"
+                + "var x = document.createElement(\"audio\");\n"
+                + "x.setAttribute(\"src\",'archivos/" + audioImagenM + "');\n"
+                + "document.getElementById(\"audio\").appendChild(x);"
+                + "x.autoplay = true;\n"
+                + "}\n"
+                + "</script>");
 
-        
         out.println("                </div>");
         out.println("                </div>");
         out.println("                        </div>");
@@ -216,13 +226,12 @@ public class verEjercicio extends HttpServlet {
         out.println("                </div>");
         out.println("                </div>");
         out.println("<form action='adminEjercicios' method='get'>");
-            out.println("<input type='submit' value='Regresar' class=\"btn btn-sm btn-warning\">");
-            out.println("</form>");
+        out.println("<input type='submit' value='Regresar' class=\"btn btn-sm btn-warning\">");
+        out.println("</form>");
         out.println("                        </div>");
-        
+
         out.println("                    </div>");
         out.println("                </div>");
-        
 
         out.println("            </div>");
 

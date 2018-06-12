@@ -105,7 +105,7 @@ public class dragAndDropImagen extends HttpServlet {
         out.println("                    <div class=\"ibox float-e-margins\">");
         out.println("                        <div class=\"ibox-title\">");
         //EMPIEZA EL DESMA DENTRO DEL CUADRO BLANCO
-        out.println("<h2>Selecciona o arrastra un archivo .jpeg</h2>");
+        out.println("<h2>Selecciona o arrastra un archivo .jpeg o .mp4</h2>");
         //Se sube archivo
         out.println("<form id='dd2' action='uploadFiles' class='dropzone' method='POST' enctype = 'multipart/form-data'>");
         out.println("<input name='file' type='file' style='color:transparent'/>");
@@ -154,7 +154,7 @@ public class dragAndDropImagen extends HttpServlet {
                 + "            Dropzone.options.dd2 = {\n"
                 + "                maxFiles: 1,\n"
                 + "                addRemoveLinks: true,\n"
-                + "                acceptedFiles: '.jpg',\n"
+                + "                acceptedFiles: '.jpg,.mp4',\n"
                 + "                dictDefaultMessage: 'Arrastra archivo .jpg en este drop',\n"
                 + "                init: function() {\n"
                 + "                    var self = this;\n"

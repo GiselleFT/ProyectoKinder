@@ -165,7 +165,7 @@ public class modificarImagen extends HttpServlet {
                 + "            Dropzone.options.dd2 = {\n"
                 + "                maxFiles: 1,\n"
                 + "                addRemoveLinks: true,\n"
-                + "                acceptedFiles: '.jpg',\n"
+                + "                acceptedFiles: '.jpg,.mp4',\n"
                 + "                dictDefaultMessage: 'Arrastra archivo .jpg en este drop',\n"
                 + "                init: function() {\n"
                 + "                    var self = this;\n"
