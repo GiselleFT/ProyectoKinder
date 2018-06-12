@@ -42,7 +42,6 @@ public class addUser extends HttpServlet {
             
             
             String usuario = (String)session.getAttribute("usuario");//Del administrador
-            String contrasena = (String)session.getAttribute("contrasena");//Del administrador
             String tipoAtt = (String)request.getParameter("tipo");//Del administrador
             session.setAttribute("tipo", tipoAtt);//conservar sesion del administrador con su tipo
             PrintWriter out = response.getWriter();
@@ -68,14 +67,6 @@ public class addUser extends HttpServlet {
             try{
                 //Contruye un documento JDOM usando SAX, para procesar xml
                 SAXBuilder builder = new SAXBuilder();
-                //Para obtener la ruta absoluta del proyecto
-//                String rutaAbsoluta = request.getSession().getServletContext().getRealPath("/");
-//                rutaAbsoluta = rutaAbsoluta.replaceAll("'\'", "'\\'");
-//                System.out.println("RUTA ABSOLUTA= "+rutaAbsoluta);
-                //Ruta absoluta del archivo BD.xml
-//                File BD = new File("C:\\Users\\Giselle\\Documents\\GitHub\\ProyectoKinder\\proyectoKinder\\web\\BD.xml");
-//                System.out.println("addUser ruta:" + rutaAbsoluta);
-//                File BD = new File(rutaAbsoluta+"\\BD.xml");
                 //Para obtener la ruta absoluta del proyecto
                 String rutaAbsoluta = request.getSession().getServletContext().getRealPath("/");
                 rutaAbsoluta = rutaAbsoluta.replace("\\", "/");

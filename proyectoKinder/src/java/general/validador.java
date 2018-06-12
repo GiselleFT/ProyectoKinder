@@ -151,10 +151,3 @@ public class validador {
     return esValido && esBienFormado;
     }
 }
-
-/*
- y del lado del servlet recuperar 
-los mensajes de error para mostrarlos en pantalla con el formato adecuado 
-y que pueda regresar al menu
-
-*/

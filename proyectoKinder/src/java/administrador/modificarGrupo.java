@@ -23,7 +23,6 @@ public class modificarGrupo extends HttpServlet {
             response.setContentType("text/html;charset=UTF-8");
             HttpSession session = request.getSession();
             String usuario = (String)session.getAttribute("usuario");
-            String contrasena = (String)session.getAttribute("contrasena");
             String tipoAtt = (String)session.getAttribute("tipo");
             
             PrintWriter out = response.getWriter();
@@ -93,7 +92,7 @@ public class modificarGrupo extends HttpServlet {
             out.println("                    </ul>");
             out.println("                </li>");
             out.println("                <li class=\"special_link\">");
-            out.println("                    <a href=\"login.html\"><i class=\"fa fa-times-rectangle\"></i> <span class=\"nav-label\">Cerrar sesion</span></a>");
+            out.println("                    <a href=\"cerrarSesion\"><i class=\"fa fa-times-rectangle\"></i> <span class=\"nav-label\">Cerrar sesion</span></a>");
             out.println("                </li>");
             out.println("            </ul>");
             out.println("");

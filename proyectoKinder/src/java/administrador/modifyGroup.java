@@ -35,7 +35,6 @@ public class modifyGroup extends HttpServlet {
             
             
             String usuario = (String)session.getAttribute("usuario");//Del administrador
-            String contrasena = (String)session.getAttribute("contrasena");//Del administrador
             String tipoAtt = (String)request.getParameter("tipo");//Del administrador
             session.setAttribute("tipo", tipoAtt);//conservar sesion del administrador con su tipo
             PrintWriter out = response.getWriter();
@@ -124,7 +123,6 @@ public class modifyGroup extends HttpServlet {
                         XMLOutputter xmlo =new XMLOutputter();
 
                         //validar que si escriba bien el archivo, guardar los cambios al archivo
-        //                try (FileWriter fw = new FileWriter(rutaAbsoluta+"\\BD.xml")){
                         try (FileWriter fw = new FileWriter(rutaAbsoluta)){
                             xmlo.setFormat(Format.getPrettyFormat());//Formato de salida al xml
                             xmlo.output(doc, fw);//se escribe en el archivo
