@@ -138,8 +138,9 @@ public class administrarUsuario extends HttpServlet {
             out.println("                        <div class=\"ibox-content\">");
             out.println("                            <div class=\"row\">");
             out.println("<div class=\"col-sm-200\">");
-            out.println("<div class=\"input-group\"><input type=\"text\" id='names' onkeyup='loadDoc(this.value)' placeholder=\"Search\" class=\"input-sm form-control\"> <span class=\"input-group-btn\">");
-            out.println("<button type=\"button\" class=\"btn btn-sm btn-primary\"> Go!</button> </span></div>");
+            out.println("<div class=\"input-group\"><input type=\"text\" id='names' onkeyup='loadDoc(this.value)' placeholder=\"Buscar...\" class=\"input-sm form-control\"> </div>");
+            out.println("                                <br />");
+            
             out.println("                                </div>");
             out.println("                            </div>");
             out.println("                            <div class=\"table-responsive\">");
