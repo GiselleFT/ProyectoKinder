@@ -123,7 +123,7 @@ public class modifyExercise extends HttpServlet {
                             xmlo.output(doc, fw);//se escribe en el archivo
                             fw.flush();
                         }
-                        response.sendRedirect("adminEjercicios");
+                        response.sendRedirect("adminEjercicios?mod=1");
                     }
                     
                 } 

@@ -127,7 +127,7 @@ public class addUser extends HttpServlet {
                     xmlo.output(doc, fw);//se escribe en el archivo
                     fw.flush();
                 }
-                response.sendRedirect("administrarUsuario");
+                response.sendRedirect("administrarUsuario?addUsuario=1");
                 
                 
                 

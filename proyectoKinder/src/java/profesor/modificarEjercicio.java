@@ -214,6 +214,7 @@ public class modificarEjercicio extends HttpServlet {
                     out.println("<br />");
 
                     out.println("<form action='adminEjercicios' method='get'>");
+                    out.println("<input type='hidden' name='cancelMod' value='1'>");
                     out.println("<input type='submit' value='Cancelar' class=\"btn btn-sm btn-danger\">");
                     out.println("</form>");
                     out.println("                </div>");

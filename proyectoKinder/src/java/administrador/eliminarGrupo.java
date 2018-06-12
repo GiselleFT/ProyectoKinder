@@ -93,7 +93,7 @@ public class eliminarGrupo extends HttpServlet {
                             xmlo.output(doc, fw);//se escribe en el archivo
                             fw.flush();
                         }
-                        response.sendRedirect("administrarGrupos");
+                        response.sendRedirect("administrarGrupos?eliminado=1");
                     }
                     
                 }

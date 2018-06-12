@@ -19,6 +19,7 @@ public class agregarEjercicio extends HttpServlet {
         String tipoAtt = (String) session.getAttribute("tipo");
         String idUsuario = (String) session.getAttribute("idUsuario");
         PrintWriter out = response.getWriter();
+        
 
         //info del profesor
 //            System.out.println("menuProfesor");
@@ -100,7 +101,7 @@ public class agregarEjercicio extends HttpServlet {
         out.println("                    <div class=\"ibox float-e-margins\">");
         out.println("                        <div class=\"ibox-title\">");
         //EMPIEZA EL DESMA DENTRO DEL CUADRO BLANCO
-        out.println("<form action='dragAndDropInstruccion' class='dropzone' method='POST'>");
+        out.println("<form action='dragAndDropInstruccion' class='dropzone' method='post'>");
         out.println("<h2>Nombre:</h2> <input id='nombre' type='text' name='nombreNuevo' required/><br />");
         out.println("<h2>Instruccion:</h2> <input id='instruccion' type='text' name='instruccionNuevo' required/><br />");
         //out.println("<h2>Audio Instruccion:</h2> <input id='audioInstruccion' type='text' name='audioInstruccionNuevo' required/><br />");

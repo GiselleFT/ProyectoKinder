@@ -104,9 +104,9 @@ public class agregarUsuario extends HttpServlet {
 
         
         out.println("<form action='addUser' method='get'>");
-        out.println("<h2>Nombre:</h2> <input id='nombre' type='text' name='nombreNuevo' required/><br />");
-        out.println("<h2>Usuario:</h2> <input id='usuario' type='text' name='usuarioNuevo' required/><br />");
-        out.println("<h2>Contrasena:</h2> <input id='contrasena' type='password' name='contrasenaNuevo' required/><br />");
+        out.println("<h2>Nombre:</h2> <input id='nombre' type='text' name='nombreNuevo' placeholder=\"Nombre\" required/><br />");
+        out.println("<h2>Usuario:</h2> <input id='usuario' type='email' name='usuarioNuevo'  placeholder=\"Usuario\" required/><br />");
+        out.println("<h2>Contrasena:</h2> <input id='contrasena' type='password' name='contrasenaNuevo' placeholder=\"Contraseña\" required/><br />");
         out.println("<h2>Tipo:</h2> <select id='tipo' name='tipoNuevo'/>"//Combobox
                 + "<option>Administrador</option>"
                 + "<option>Profesor</option>"
@@ -126,6 +126,7 @@ public class agregarUsuario extends HttpServlet {
 
         
         out.println("<form action='administrarUsuario' method='get'>");
+        out.println("<input type='hidden' name='cancelAddUsuario' value='1'>");
         out.println("<h3><input type='submit' value='Cancelar' class=\"btn btn-sm btn-danger\"></h3>");
         out.println("</form>");
         out.println("                </div>");

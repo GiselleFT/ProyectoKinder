@@ -109,6 +109,26 @@ public class administrarGrupos extends HttpServlet {
 
             out.println("<br />");
             out.println("<br />");
+            if (request.getParameter("eliminado")!=null) {
+                out.println("<div class=\"alert alert-danger\" role=\"alert\"><H4>REGISTRO ELIMINADO</H4></div>");
+                
+            }
+            if (request.getParameter("cancelAddGrupo")!=null) {
+                out.println("<div class=\"alert alert-danger\" role=\"alert\"><H4>OPERACIÓN CANCELADA</H4></div>");
+                
+            }
+            if (request.getParameter("addGrupo")!=null) {
+                out.println("<div class=\"alert alert-success\" role=\"alert\"><H4>REGISTRO EXITOSO!</H4></div>");
+                
+            }
+            if (request.getParameter("cancelModGrupo")!=null) {
+                out.println("<div class=\"alert alert-danger\" role=\"alert\"><H4>MODIFICACIÓN CANCELADA</H4></div>");
+                
+            }
+            if (request.getParameter("modGrupo")!=null) {
+                out.println("<div class=\"alert alert-success\" role=\"alert\"><H4>MODIFICACIÓN EXITOSA!</H4></div>");
+                
+            }
             out.println("<form action='agregarGrupo' method='post'>");
             out.println("<input type='submit' value='Crear Grupo' align='center' class=\"btn btn-w-m btn-success\">");
             out.println("</form>");

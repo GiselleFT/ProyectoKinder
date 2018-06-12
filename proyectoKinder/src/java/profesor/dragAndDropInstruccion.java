@@ -107,11 +107,7 @@ public class dragAndDropInstruccion extends HttpServlet {
         out.println("        <nav class=\"navbar navbar-static-top  \" role=\"navigation\" style=\"margin-bottom: 0\">");
         out.println("        <div class=\"navbar-header\">");
         out.println("            <a class=\"navbar-minimalize minimalize-styl-2 btn btn-primary \" href=\"#\"><i class=\"fa fa-bars\"></i> </a>");
-        out.println("            <form role=\"search\" class=\"navbar-form-custom\" action=\"search_results.html\">");
-        out.println("                <div class=\"form-group\">");
-        out.println("                    <input type=\"text\" placeholder=\"Search for something...\" class=\"form-control\" name=\"top-search\" id=\"top-search\">");
-        out.println("                </div>");
-        out.println("            </form>");
+        
         out.println("        </div>");
         out.println("");
         out.println("        </nav>");
@@ -145,7 +141,7 @@ public class dragAndDropInstruccion extends HttpServlet {
         out.println("<br />");
         out.println("<h3><b>Paso 2/4</b></h3>");
         out.println("<form action='dragAndDropImagen' method='POST'>");
-        out.println("<input type='submit' class=\"btn btn-w-m btn-primary\" value='Continuar'/>");
+        out.println("<input  type='submit' class=\"btn btn-w-m btn-primary\" value='Continuar'/>");
         out.println("</form>");
 
         out.println("<br />");
@@ -201,9 +197,10 @@ public class dragAndDropInstruccion extends HttpServlet {
                 + "                }    \n"
                 + "            };\n"
                 + "        </script>");
+        
+        
         out.println("</body>");
         out.println("</html>");
-
     }
 
 }

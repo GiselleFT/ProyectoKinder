@@ -72,6 +72,7 @@ public class uploadFiles extends HttpServlet {
                         session.setAttribute("banderaArchivo", 0);
                         session.setAttribute("banderaModificar", 0);
                         
+                        
                     } 
                     else if(banderaArchivo == 2||banderaModificar == 2){
                             item.write(file);//Se escribe el archivo

@@ -128,7 +128,7 @@ public class modifyUser extends HttpServlet {
                             xmlo.output(doc, fw);//se escribe en el archivo
                             fw.flush();
                         }
-                        response.sendRedirect("administrarUsuario");
+                        response.sendRedirect("administrarUsuario?modUsuario=1");
                     }
                     
                 } 

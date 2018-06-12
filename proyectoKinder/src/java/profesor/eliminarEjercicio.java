@@ -83,7 +83,7 @@ public class eliminarEjercicio extends HttpServlet {
                             xmlo.output(doc, fw);//se escribe en el archivo
                             fw.flush();
                         }
-                        response.sendRedirect("adminEjercicios");
+                        response.sendRedirect("adminEjercicios?eliminado=1");
                     }
                     
                 }

@@ -101,7 +101,7 @@ public class eliminarUsuario extends HttpServlet {
                             xmlo.output(doc, fw);//se escribe en el archivo
                             fw.flush();
                         }
-                        response.sendRedirect("administrarUsuario");
+                        response.sendRedirect("administrarUsuario?eliminado=1");
                     }
                     
                 }

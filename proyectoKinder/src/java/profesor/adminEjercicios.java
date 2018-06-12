@@ -109,10 +109,27 @@ public class adminEjercicios extends HttpServlet {
             out.println("                    <h2>Bienvenido profesor: " + usuario + "</h2>");
             out.println("                </div>");
             out.println("            </div>");
-            
-
             out.println("<br />");
-            out.println("<br />");
+            if (request.getParameter("eliminado")!=null) {
+                out.println("<div class=\"alert alert-danger\" role=\"alert\"><H4>REGISTRO ELIMINADO</H4></div>");
+                
+            }
+            if (request.getParameter("error")!=null) {
+                out.println("<div class=\"alert alert-danger\" role=\"alert\"><H4>NO FUE POSIBLE CREAR EL EJERCICIO - ARCHIVOS FALTANTES</H4></div>");
+                
+            }
+            if (request.getParameter("listo")!=null) {
+                out.println("<div class=\"alert alert-success\" role=\"alert\"><H4>REGISTRO EXITOSO!</H4></div>");
+                
+            }
+            if (request.getParameter("cancelMod")!=null) {
+                out.println("<div class=\"alert alert-danger\" role=\"alert\"><H4>MODIFICACIÓN CANCELADA</H4></div>");
+                
+            }
+            if (request.getParameter("mod")!=null) {
+                out.println("<div class=\"alert alert-success\" role=\"alert\"><H4>MODIFICACIÓN EXITOSA!</H4></div>");
+                
+            }
             out.println("<form action='agregarEjercicio' method='post'>");
             out.println("<input type='submit' value='Crear Ejercicio' align='center' class=\"btn btn-w-m btn-success\">");
             out.println("</form>");

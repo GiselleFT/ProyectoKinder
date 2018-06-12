@@ -40,6 +40,7 @@ public class administrarUsuario extends HttpServlet {
         }
         //*******************************************//
 
+        
         try {
             //Contruye un documento JDOM usando SAX, para procesar xml
             SAXBuilder builder = new SAXBuilder();
@@ -110,6 +111,26 @@ public class administrarUsuario extends HttpServlet {
             
             out.println("<br />");
             out.println("<br />");
+            if (request.getParameter("eliminado")!=null) {
+                out.println("<div class=\"alert alert-danger\" role=\"alert\"><H4>REGISTRO ELIMINADO</H4></div>");
+                
+            }
+            if (request.getParameter("cancelAddUsuario")!=null) {
+                out.println("<div class=\"alert alert-danger\" role=\"alert\"><H4>OPERACIÓN CANCELADA</H4></div>");
+                
+            }
+            if (request.getParameter("addUsuario")!=null) {
+                out.println("<div class=\"alert alert-success\" role=\"alert\"><H4>REGISTRO EXITOSO!</H4></div>");
+                
+            }
+            if (request.getParameter("cancelModUsuario")!=null) {
+                out.println("<div class=\"alert alert-danger\" role=\"alert\"><H4>MODIFICACIÓN CANCELADA</H4></div>");
+                
+            }
+            if (request.getParameter("modUsuario")!=null) {
+                out.println("<div class=\"alert alert-success\" role=\"alert\"><H4>MODIFICACIÓN EXITOSA!</H4></div>");
+                
+            }
             out.println("<form action='agregarUsuario' method='post'>");
             out.println("<input type='submit' value='Crear Usuario' align='center' class=\"btn btn-w-m btn-success\">");
             out.println("</form>");
@@ -147,8 +168,8 @@ public class administrarUsuario extends HttpServlet {
             out.println("                                <table id='miTabla' class=\"footable table table-stripped\" data-page-size=\"32\" data-filter=#filter>");
             //out.println("                                    <thead>");//ESTO
             out.println("                                    <tr>");
-            out.println("<th>Usuario</th>");
             out.println("<th>Nombre</th>");
+            out.println("<th>Usuario</th>");
             out.println("<th>Tipo</th>");
             out.println("<th>Modificar</th>");
             out.println("<th>Eliminar</th>");

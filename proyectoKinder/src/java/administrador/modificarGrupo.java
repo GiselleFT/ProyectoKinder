@@ -229,6 +229,7 @@ public class modificarGrupo extends HttpServlet {
             //Agregar Usuario
 
             out.println("<form action='administrarGrupos' method='get'>");
+            out.println("<input type='hidden' name='cancelModGrupo' value='1'>");
             out.println("<h3><input type='submit' value='Cancelar' class=\"btn btn-sm btn-danger\"></h3>");
             out.println("</form>");
             out.println("                </div>");
