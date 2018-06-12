@@ -56,7 +56,6 @@ public class addExercise extends HttpServlet {
         
         
         String usuario = (String) session.getAttribute("usuario");//Del administrador
-        String contrasena = (String) session.getAttribute("contrasena");//Del administrador
         String tipoAtt = (String) session.getAttribute("tipo");
         //session.setAttribute("tipo", tipoAtt);//conservar sesion del administrador con su tipo
         PrintWriter out = response.getWriter();

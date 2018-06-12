@@ -25,7 +25,6 @@ public class adminEjercicios extends HttpServlet {
         //Recuperamos la sesion
         HttpSession session = request.getSession();
         String usuario = (String) session.getAttribute("usuario");
-        String contrasena = (String) session.getAttribute("contrasena");
         String tipoAtt = (String) session.getAttribute("tipo");
         String idUsuario = (String) session.getAttribute("idUsuario");
         System.out.println("ID DE USUARIO! " + idUsuario);
@@ -89,7 +88,7 @@ public class adminEjercicios extends HttpServlet {
             out.println("                    </ul>");
             out.println("                </li>");
             out.println("                <li class=\"special_link\">");
-            out.println("                    <a href=\"login.html\"><i class=\"fa fa-times-rectangle\"></i> <span class=\"nav-label\">Cerrar sesion</span></a>");
+            out.println("                    <a href=\"cerrarSesion\"><i class=\"fa fa-times-rectangle\"></i> <span class=\"nav-label\">Cerrar sesion</span></a>");
             out.println("                </li>");
             out.println("            </ul>");
             out.println("");
@@ -144,12 +143,12 @@ public class adminEjercicios extends HttpServlet {
             out.println("                        <div class=\"ibox-content\">");
             out.println("                            <div class=\"row\">");
             out.println("<div class=\"col-sm-200\">");
-            out.println("<div class=\"input-group\"><input type=\"text\" placeholder=\"Search\" class=\"input-sm form-control\"> <span class=\"input-group-btn\">");
-            out.println("<button type=\"button\" class=\"btn btn-sm btn-primary\"> Go!</button> </span></div>");
+            out.println("<div class=\"input-group\"><input type=\"text\" id='names' onkeyup='loadDoc(this.value)' placeholder=\"Search\" class=\"input-sm form-control\"> <span class=\"input-group-btn\">");
+            out.println("</span></div>");
             out.println("                                </div>");
             out.println("                            </div>");
             out.println("                            <div class=\"table-responsive\">");
-            out.println("                                <table class=\"footable table table-stripped\" data-page-size=\"32\" data-filter=#filter>");
+            out.println("                                <table id='miTabla' class=\"footable table table-stripped\" data-page-size=\"32\" data-filter=#filter>");
             out.println("                                    <thead>");
             out.println("                                    <tr>");
             out.println("<th>ID</th>");
@@ -159,7 +158,7 @@ public class adminEjercicios extends HttpServlet {
             out.println("<th>Eliminar</th>");
             out.println("                                    </tr>");
             out.println("                                    </thead>");
-            String type = "";
+            
 
             //Para recorrer el arbol de nodos
             for (int i = 0; i < lista.size(); i++) {//Por cada elemento  
@@ -213,6 +212,62 @@ public class adminEjercicios extends HttpServlet {
 
             //----------------------
             out.println("                                </table>");
+            
+            
+            //Tabla dinamica conforme a busqueda
+                out.println("<script>");
+                out.println("function loadDoc(nombreProfesor){\n"
+                    + "        if(document.getElementById(\"names\").value.length > 0){\n"
+                    + "        var xhttp = new XMLHttpRequest();\n"
+                    + "                        xhttp.onreadystatechange = function(){\n"
+                    + "                        if(xhttp.readyState == 4 && xhttp.status == 200) {\n"
+                    + "                            cargarTabla(xhttp, nombreProfesor);\n"
+                    + "                        }\n"
+                    + "            };\n"
+                    + "            xhttp.open(\"GET\", \"BD.xml\", true);\n"
+                    + "            xhttp.send();\n"
+                    + "        }\n"
+                    + "    }");
+                out.println("function cargarTabla(xml, nombreProfesor){\n"
+                    + "        var i, j;\n"
+                    + "        var xmlDoc = xml.responseXML;\n"
+                    + "        var table = \"<tr><th>ID</th><th>Nombre</th><th>Ver</th><th>Modificar</th><th>Eliminar</th></tr>\";\n"
+                    + "                var x = xmlDoc.getElementsByTagName(\"EJERCICIO\");\n"
+                    + "                    for (i = 0; i < x.length; i++) {\n"
+                    + "                        //Contiene el nombre del profesor\n"
+                    + "                        var elemento = x[i].getElementsByTagName('nombre')[0].childNodes[0].nodeValue;\n"
+                    + "                        //Extraer del nombre del profesor la cadena del tamaño del prefijo a comparar\n"
+                    + "                        var aux = elemento.substring(0,nombreProfesor.length);\n"
+                    + "                        //Si el prefijo coincide con el prefijo del profesor lo muestra en la tabla\n"
+                    + "                        if(nombreProfesor === aux){\n"
+                    + "                            table += \"<tr><td>\" +\n"
+                    + "                            x[i].getAttribute('id') +\n"
+                    + "                            \"</td><td>\"+\n"
+                    + "                            x[i].getElementsByTagName('nombre')[0].childNodes[0].nodeValue + \n"
+                    + "                            \"</td><td>\"+\n"
+                    + "                            \"<form action='verEjercicio' method='post'>\"+\n"
+                    + "                            \"<input type='hidden' name='id' value='\"+x[i].getAttribute('id')+\"'>\"+\n"
+                    + "                            \"<input type='submit' value='Ver'>\"+\n"
+                    + "                            \"</form>\"+\n"
+                    + "                            \"</td><td>\"+\n"
+                    + "                            \"<form action='modificarEjercicio' method='post'>\"+\n"
+                    + "                            \"<input type='hidden' name='id' value='\"+x[i].getAttribute('id')+\"'>\"+\n"
+                    + "                            \"<input type='hidden' name='first' value='1'>\"+\n"
+                    + "                            \"<input type='submit' value='Modificar'>\"+\n"
+                    + "                            \"</form>\"+\n"
+                    + "                            \"</td><td>\"+\n"
+                    + "                            \"<form action='eliminarEjercicio' method='post'>\"+\n"
+                    + "                            \"<input type='hidden' name='id' value='\"+x[i].getAttribute('id')+\"'>\"+\n"
+                    + "                            \"<input type='submit' value='Eliminar'>\"+\n"
+                    + "                            \"</form>\"+\n"
+                    + "                            \"</td></tr>\";\n"
+                    + "                        }\n"
+                    + "                }\n"
+                    + "                document.getElementById(\"miTabla\").innerHTML = table;\n"
+                    + "            }        ");
+                out.println("</script>");
+            
+            
             out.println("                            </div>");
             
             out.println("");

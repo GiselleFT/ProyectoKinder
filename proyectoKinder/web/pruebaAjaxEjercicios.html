@@ -26,9 +26,8 @@ Buscar: <input type='text' id='names' onkeyup='loadDoc(this.value)'>
     function cargarTabla(xml, nombreProfesor){
         var i, j;
         var xmlDoc = xml.responseXML;
-        var table = "<tr><th>Nombre</th><th>Usuario</th><th>Tipo</th><th>Modificar</th><th>Eliminar</th></tr>";
-        var t = "";
-                var x = xmlDoc.getElementsByTagName("USUARIO");
+        var table = "<tr><th>ID</th><th>Nombre</th><th>Ver</th><th>Modificar</th><th>Eliminar</th></tr>";
+                var x = xmlDoc.getElementsByTagName("EJERCICIO");
                     for (i = 0; i < x.length; i++) {
                         //Contiene el nombre del profesor
                         var elemento = x[i].getElementsByTagName('nombre')[0].childNodes[0].nodeValue;
@@ -37,30 +36,23 @@ Buscar: <input type='text' id='names' onkeyup='loadDoc(this.value)'>
                         //Si el prefijo coincide con el prefijo del profesor lo muestra en la tabla
                         if(nombreProfesor === aux){
                             table += "<tr><td>" +
-                            x[i].getElementsByTagName('nombre')[0].childNodes[0].nodeValue +
+                            x[i].getAttribute('id') +
                             "</td><td>"+
-                            x[i].getElementsByTagName('usuario')[0].childNodes[0].nodeValue + 
-                            "</td><td>";
-                            if(x[i].attributes[0].value === "1"){
-                                t ="Administrador";
-                                //table += "Administrador";
-                            }
-                            else if(x[i].attributes[0].value === '2'){
-                                t ="Profesor";
-                                //table += "Profesor";
-                            }
-                            else if(x[i].attributes[0].value === '3'){
-                                t ="Alumno";
-                                //table += "Alumno";
-                            }
-                            table += t +"</td><td>"+
-                            "<form action='modificarGrupo' method='post'>"+
-                            "<input type='hidden' name='idGrupo' value='"+x[i].getAttribute('id')+"'>"+
+                            x[i].getElementsByTagName('nombre')[0].childNodes[0].nodeValue + 
+                            "</td><td>"+
+                            "<form action='verEjercicio' method='post'>"+
+                            "<input type='hidden' name='id' value='"+x[i].getAttribute('id')+"'>"+
+                            "<input type='submit' value='Ver'>"+
+                            "</form>"+
+                            "</td><td>"+
+                            "<form action='modificarEjercicio' method='post'>"+
+                            "<input type='hidden' name='id' value='"+x[i].getAttribute('id')+"'>"+
+                            "<input type='hidden' name='first' value='1'>"+
                             "<input type='submit' value='Modificar'>"+
                             "</form>"+
                             "</td><td>"+
-                            "<form action='eliminarGrupo' method='post'>"+
-                            "<input type='hidden' name='idGrupo' value='"+x[i].getAttribute('id')+"'>"+
+                            "<form action='eliminarEjercicio' method='post'>"+
+                            "<input type='hidden' name='id' value='"+x[i].getAttribute('id')+"'>"+
                             "<input type='submit' value='Eliminar'>"+
                             "</form>"+
                             "</td></tr>";

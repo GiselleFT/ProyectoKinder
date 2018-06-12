@@ -20,7 +20,6 @@ public class dragAndDropImagen extends HttpServlet {
         session.setAttribute("banderaArchivo", 2);
 
         String usuario = (String) session.getAttribute("usuario");//Del administrador
-        String contrasena = (String) session.getAttribute("contrasena");//Del administrador
         String tipoAtt = (String) session.getAttribute("tipo");
         //session.setAttribute("tipo", tipoAtt);//conservar sesion del administrador con su tipo
         String idUsuario = (String) session.getAttribute("idUsuario");
@@ -70,7 +69,7 @@ public class dragAndDropImagen extends HttpServlet {
         out.println("                    </ul>");
         out.println("                </li>");
         out.println("                <li class=\"special_link\">");
-        out.println("                    <a href=\"login.html\"><i class=\"fa fa-times-rectangle\"></i> <span class=\"nav-label\">Cerrar sesion</span></a>");
+        out.println("                    <a href=\"cerrarSesion\"><i class=\"fa fa-times-rectangle\"></i> <span class=\"nav-label\">Cerrar sesion</span></a>");
         out.println("                </li>");
         out.println("            </ul>");
         out.println("");

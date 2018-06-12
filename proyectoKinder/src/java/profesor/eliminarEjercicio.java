@@ -27,7 +27,6 @@ public class eliminarEjercicio extends HttpServlet {
             response.setContentType("text/html;charset=UTF-8");
             HttpSession session = request.getSession();
             String usuario = (String)session.getAttribute("usuario");
-            String contrasena = (String)session.getAttribute("contrasena");
             String tipoAtt = (String)session.getAttribute("tipo");
             
             PrintWriter out = response.getWriter();

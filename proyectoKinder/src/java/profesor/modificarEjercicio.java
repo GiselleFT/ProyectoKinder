@@ -24,7 +24,6 @@ public class modificarEjercicio extends HttpServlet {
         //Recuperamos la sesion
         HttpSession session = request.getSession();
         String usuario = (String) session.getAttribute("usuario");
-        String contrasena = (String) session.getAttribute("contrasena");
         String tipoAtt = (String) session.getAttribute("tipo");
         String idUsuario = (String) session.getAttribute("idUsuario");
         System.out.println("ID DE USUARIO! " + idUsuario);
@@ -134,7 +133,7 @@ public class modificarEjercicio extends HttpServlet {
                     out.println("                    </ul>");
                     out.println("                </li>");
                     out.println("                <li class=\"special_link\">");
-                    out.println("                    <a href=\"login.html\"><i class=\"fa fa-times-rectangle\"></i> <span class=\"nav-label\">Cerrar sesion</span></a>");
+                    out.println("                    <a href=\"cerrarSesion\"><i class=\"fa fa-times-rectangle\"></i> <span class=\"nav-label\">Cerrar sesion</span></a>");
                     out.println("                </li>");
                     out.println("            </ul>");
                     out.println("");
