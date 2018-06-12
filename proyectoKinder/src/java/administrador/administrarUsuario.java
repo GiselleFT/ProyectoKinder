@@ -97,22 +97,21 @@ public class administrarUsuario extends HttpServlet {
             out.println("        <nav class=\"navbar navbar-static-top  \" role=\"navigation\" style=\"margin-bottom: 0\">");
             out.println("        <div class=\"navbar-header\">");
             out.println("            <a class=\"navbar-minimalize minimalize-styl-2 btn btn-primary \" href=\"#\"><i class=\"fa fa-bars\"></i> </a>");
-            out.println("            <form role=\"search\" class=\"navbar-form-custom\" action=\"search_results.html\">");
-            out.println("                <div class=\"form-group\">");
-            out.println("                    <input type=\"text\" placeholder=\"Search for something...\" class=\"form-control\" name=\"top-search\" id=\"top-search\">");
-            out.println("                </div>");
-            out.println("            </form>");
+            
             out.println("        </div>");
             out.println("");
             out.println("        </nav>");
             out.println("        </div>");
             out.println("            <div class=\"row wrapper border-bottom white-bg page-heading\">");
             out.println("                <div class=\"col-sm-4\">");
-            out.println("                    <h2>Bienvenido administrador: </h2>");
+            out.println("                    <h2>Bienvenido administrador: " + usuario + "</h2>");
             out.println("                </div>");
             out.println("            </div>");
+            
+            out.println("<br />");
+            out.println("<br />");
             out.println("<form action='agregarUsuario' method='post'>");
-            out.println("<input type='submit' value='Crear Usuario'>");
+            out.println("<input type='submit' value='Crear Usuario' align='center' class=\"btn btn-w-m btn-success\">");
             out.println("</form>");
 
             out.println("<br />");
@@ -123,7 +122,7 @@ public class administrarUsuario extends HttpServlet {
             out.println("                <div class=\"col-lg-12\">");
             out.println("                    <div class=\"ibox float-e-margins\">");
             out.println("                        <div class=\"ibox-title\">");
-            out.println("                            <h5>Custom rnsive table </h5>");
+            out.println("                            <h5>Usuarios </h5>");
             out.println("                            <div class=\"ibox-tools\">");
             out.println("                                <a class=\"collapse-link\">");
             out.println("                                    <i class=\"fa fa-chevron-up\"></i>");
@@ -139,13 +138,14 @@ public class administrarUsuario extends HttpServlet {
             out.println("                        <div class=\"ibox-content\">");
             out.println("                            <div class=\"row\">");
             out.println("<div class=\"col-sm-200\">");
-            out.println("<div class=\"input-group\"><input type=\"text\" id='names' onkeyup='loadDoc(this.value)' placeholder=\"Search\" class=\"input-sm form-control\"> <span class=\"input-group-btn\">");
-            out.println("<button type=\"button\" class=\"btn btn-sm btn-primary\"> Go!</button> </span></div>");
+            out.println("<div class=\"input-group\"><input type=\"text\" id='names' onkeyup='loadDoc(this.value)' placeholder=\"Buscar...\" class=\"input-sm form-control\"> </div>");
+            out.println("                                <br />");
+            
             out.println("                                </div>");
             out.println("                            </div>");
             out.println("                            <div class=\"table-responsive\">");
             out.println("                                <table id='miTabla' class=\"footable table table-stripped\" data-page-size=\"32\" data-filter=#filter>");
-            out.println("                                    <thead>");
+            //out.println("                                    <thead>");//ESTO
             out.println("                                    <tr>");
             out.println("<th>Usuario</th>");
             out.println("<th>Nombre</th>");
@@ -153,7 +153,7 @@ public class administrarUsuario extends HttpServlet {
             out.println("<th>Modificar</th>");
             out.println("<th>Eliminar</th>");
             out.println("                                    </tr>");
-            out.println("                                    </thead>");
+            //out.println("                                    </thead>");//ESTO
             String type = "";
 
             //Para recorrer el arbol de nodos
@@ -181,15 +181,15 @@ public class administrarUsuario extends HttpServlet {
 
                 //Se recupera id de usuario
                 Attribute id = element.getAttribute("id");
-                out.println("                                    <tbody>");
+                //out.println("                                    <tbody>"); //ESTO
                 out.println("                                    <tr>");
                 out.println("                                        <td>" + nombre.getValue() + "</td>");
                 out.println("                                        <td>" + usuario2.getValue() + "</td>");
                 out.println("                                        <td>" + type + "</td>");
                 out.println("                                        <td>");
                 out.println("<form action='modificarUsuario' method='post'>");
-                out.println("<input type='hidden' name='id' value=" + id.getValue() + ">");//Del administrador
-                out.println("<input type='submit' value='Modificar'>");
+                out.println("<input type='hidden' name='id' value=" + id.getValue() + " >");//Del administrador
+                out.println("<input type='submit' value='Modificar' class=\"btn btn-w-m btn-default\">");
                 out.println("</form>");
 
                 out.println("                                        </td>");
@@ -197,11 +197,11 @@ public class administrarUsuario extends HttpServlet {
                 out.println("<form action='eliminarUsuario' method='post'>");
 
                 out.println("<input type='hidden' name='id' value=" + id.getValue() + ">");//Del administrador
-                out.println("<input type='submit' value='Eliminar'>");
+                out.println("<input type='submit' value='Eliminar' class=\"btn btn-w-m btn-danger\">");
                 out.println("</form>");
                 out.println("                                        </td>");
                 out.println("                                    </tr>");
-                out.println("                                    </tbody>");
+                //out.println("                                    </tbody>"); //ESTO
             }
                 out.println("                                </table>");
                 
@@ -209,66 +209,11 @@ public class administrarUsuario extends HttpServlet {
                 out.println("<br />");
                 
                 //Tabla dinamica conforme a busqueda
-                out.println("<script>");
-                out.println("function loadDoc(nombreProfesor){\n"
-                    + "        if(document.getElementById(\"names\").value.length > 0){\n"
-                    + "        var xhttp = new XMLHttpRequest();\n"
-                    + "                        xhttp.onreadystatechange = function(){\n"
-                    + "                        if(xhttp.readyState == 4 && xhttp.status == 200) {\n"
-                    + "                            cargarTabla(xhttp, nombreProfesor);\n"
-                    + "                        }\n"
-                    + "            };\n"
-                    + "            xhttp.open(\"GET\", \"BD.xml\", true);\n"
-                    + "            xhttp.send();\n"
-                    + "        }\n"
-                    + "    }");
-                out.println("function cargarTabla(xml, nombreProfesor){\n"
-                    + "        var i, j;\n"
-                    + "        var xmlDoc = xml.responseXML;\n"
-                    + "        var table = \"<tr><th>Nombre</th><th>Usuario</th><th>Tipo</th><th>Modificar</th><th>Eliminar</th></tr>\";\n"
-                    + "                var x = xmlDoc.getElementsByTagName(\"USUARIO\");\n"
-                    + "                    for (i = 0; i < x.length; i++) {\n"
-                    + "                        //Contiene el nombre del profesor\n"
-                    + "                        var elemento = x[i].getElementsByTagName('nombre')[0].childNodes[0].nodeValue;\n"
-                    + "                        //Extraer del nombre del profesor la cadena del tamaño del prefijo a comparar\n"
-                    + "                        var aux = elemento.substring(0,nombreProfesor.length);\n"
-                    + "                        //Si el prefijo coincide con el prefijo del profesor lo muestra en la tabla\n"
-                    + "                        if(nombreProfesor === aux){\n"
-                    + "                            table += \"<tr><td>\" +\n"
-                    + "                            x[i].getElementsByTagName('nombre')[0].childNodes[0].nodeValue +\n"
-                    + "                            \"</td><td>\"+\n"
-                    + "                            x[i].getElementsByTagName('usuario')[0].childNodes[0].nodeValue + \n"
-                    + "                            \"</td><td>\";\n"
-                    + "                            if(x[i].attributes[0].value === \"1\"){\n"
-                    + "                                table += \"Administrador\";\n"
-                    + "                            }\n"
-                    + "                            else if(x[i].attributes[0].value === '2'){\n"
-                    + "                                table += \"Profesor\";\n"
-                    + "                            }\n"
-                    + "                            else if(x[i].attributes[0].value === '3'){\n"
-                    + "                                table += \"Alumno\";\n"
-                    + "                            }\n"
-                    + "                            table +=\"</td><td>\"+\n"
-                    + "                            \"<form action='modificarGrupo' method='post'>\"+\n"
-                    + "                            \"<input type='hidden' name='idGrupo' value='\"+x[i].getAttribute('id')+\"'>\"+\n"
-                    + "                            \"<input type='submit' value='Modificar'>\"+\n"
-                    + "                            \"</form>\"+\n"
-                    + "                            \"</td><td>\"+\n"
-                    + "                            \"<form action='eliminarGrupo' method='post'>\"+\n"
-                    + "                            \"<input type='hidden' name='idGrupo' value='\"+x[i].getAttribute('id')+\"'>\"+\n"
-                    + "                            \"<input type='submit' value='Eliminar'>\"+\n"
-                    + "                            \"</form>\"+\n"
-                    + "                            \"</td></tr>\";\n"
-                    + "                        }\n"
-                    + "                }"
-                        + "\n"
-                    + "                document.getElementById(\"miTabla\").innerHTML = table;\n"
-                    + "            }        ");
-                out.println("</script>");
+                
                 
                 out.println("                            </div>");
                 out.println("<form action='menuAdministrador' method='get'>");
-            out.println("<input type='submit' value='Menu Administrador'>");
+            out.println("<input type='submit' value='Menu Administrador' class=\"btn btn-sm btn-warning\">");
             out.println("</form>");
                 out.println("");
                 out.println("                        </div>");
@@ -287,6 +232,63 @@ public class administrarUsuario extends HttpServlet {
                 out.println("    <script src=\"js/plugins/slimscroll/jquery.slimscroll.min.js\"></script>");
                 out.println("    <script src=\"js/inspinia.js\"></script>");
                 out.println("    <script src=\"js/plugins/pace/pace.min.js\"></script>");
+                out.println("<script>");
+                out.println("function loadDoc(nombreProfesor){\n"
+                    + "        if(document.getElementById(\"names\").value.length > 0){\n"
+                    + "        var xhttp = new XMLHttpRequest();\n"
+                    + "                        xhttp.onreadystatechange = function(){\n"
+                    + "                        if(xhttp.readyState == 4 && xhttp.status == 200) {\n"
+                    + "                            cargarTabla(xhttp, nombreProfesor);\n"
+                    + "                        }\n"
+                    + "            };\n"
+                    + "            xhttp.open(\"GET\", \"BD.xml\", true);\n"
+                    + "            xhttp.send();\n"
+                    + "        }\n"
+                    + "    }");
+                out.println("function cargarTabla(xml, nombreProfesor){\n"
+                    + "        var i, j;\n"
+                    + "        var xmlDoc = xml.responseXML;\n"
+                    + "        var table = \"<tr><th>Nombre</th><th>Usuario</th><th>Tipo</th><th>Modificar</th><th>Eliminar</th></tr>\";\n"
+                     + "               var t = \"\"; \n"                   
+                    + "                var x = xmlDoc.getElementsByTagName(\"USUARIO\");\n"
+                    + "                    for (i = 0; i < x.length; i++) {\n"
+                    + "                        //Contiene el nombre del profesor\n"
+                    + "                        var elemento = x[i].getElementsByTagName('nombre')[0].childNodes[0].nodeValue;\n"
+                    + "                        //Extraer del nombre del profesor la cadena del tamaño del prefijo a comparar\n"
+                    + "                        var aux = elemento.substring(0,nombreProfesor.length);\n"
+                    + "                        //Si el prefijo coincide con el prefijo del profesor lo muestra en la tabla\n"
+                    + "                        if(nombreProfesor === aux){\n"
+                    + "                            table += \"<tr><td>\" +\n"
+                    + "                            x[i].getElementsByTagName('nombre')[0].childNodes[0].nodeValue +\n"
+                    + "                            \"</td><td>\"+\n"
+                    + "                            x[i].getElementsByTagName('usuario')[0].childNodes[0].nodeValue + \n"
+                    + "                            \"</td><td>\";\n"
+                    + "                            if(x[i].attributes[0].value === \"1\"){\n"
+                    + "                                t += \"Administrador\";\n"
+                    + "                            }\n"
+                    + "                            else if(x[i].attributes[0].value === '2'){\n"
+                    + "                                t += \"Profesor\";\n"
+                    + "                            }\n"
+                    + "                            else if(x[i].attributes[0].value === '3'){\n"
+                    + "                                t += \"Alumno\";\n"
+                    + "                            }\n"
+                    + "                            table += t + \"</td><td>\" +\n"
+                    + "                            \"<form action='modificarGrupo' method='post'>\"+\n"
+                    + "                            \"<input type='hidden' name='idGrupo' value='\"+x[i].getAttribute('id')+\"'>\"+\n"
+                    + "                            \"<input type='submit' value='Modificar' >\"+\n"
+                    + "                            \"</form>\"+\n"
+                    + "                            \"</td><td>\"+\n"
+                    + "                            \"<form action='eliminarGrupo' method='post'>\"+\n"
+                    + "                            \"<input type='hidden' name='idGrupo' value='\"+x[i].getAttribute('id')+\"'>\"+\n"
+                    + "                            \"<input type='submit' value='Eliminar' >\"+\n"
+                    + "                            \"</form>\"+\n"
+                    + "                            \"</td></tr>\";\n"
+                    + "                        }\n"
+                    + "                }"
+                        + "\n"
+                    + "                document.getElementById(\"miTabla\").innerHTML = table;\n"
+                    + "            }        ");
+                out.println("</script>");
                 out.println("</body>");
                 out.println("</html>");
                 out.println("");

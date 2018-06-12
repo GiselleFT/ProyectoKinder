@@ -25,6 +25,11 @@
     <usuario>profesor2</usuario>
     <contrasena>profesor2</contrasena>
   </USUARIO>
+  <USUARIO id="7" tipo="3">
+    <nombre>alumno3</nombre>
+    <usuario>alumno3@gmail.com</usuario>
+    <contrasena>alumno3</contrasena>
+  </USUARIO>
   <GRUPO id="1">
     <grupo>1cm1</grupo>
     <idProfesor>2</idProfesor>
@@ -82,14 +87,6 @@
     <respuestaIncorrecta>Respuesta falsa1</respuestaIncorrecta>
     <respuestaIncorrecta>Respuesta falsa2</respuestaIncorrecta>
   </EJERCICIO>
-  <GRUPO id="4">
-    <grupo>3CM12</grupo>
-    <idProfesor>7</idProfesor>
-    <nombreProfesor>Tona</nombreProfesor>
-    <inscritos>2</inscritos>
-    <idAlumno>3</idAlumno>
-    <idAlumno>4</idAlumno>
-  </GRUPO>
   <GRUPO id="5">
     <grupo>grupo3</grupo>
     <idProfesor>6</idProfesor>
@@ -153,5 +150,34 @@
     <respuestaIncorrecta>CHIDO</respuestaIncorrecta>
     <respuestaIncorrecta>CHIDO</respuestaIncorrecta>
   </EJERCICIO>
+  <GRUPO id="11">
+    <grupo>3CM11</grupo>
+    <idProfesor>2</idProfesor>
+    <nombreProfesor>profesor</nombreProfesor>
+    <inscritos>2</inscritos>
+    <idAlumno>3</idAlumno>
+    <idAlumno>4</idAlumno>
+  </GRUPO>
+  <GRUPO id="13">
+    <grupo>marrano</grupo>
+    <idProfesor>6</idProfesor>
+    <nombreProfesor>profesor2</nombreProfesor>
+    <inscritos>1</inscritos>
+    <idAlumno>4</idAlumno>
+  </GRUPO>
+  <USUARIO id="8" tipo="2">
+    <nombre>Tona</nombre>
+    <usuario>tona@gmail.com</usuario>
+    <contrasena>tona</contrasena>
+  </USUARIO>
+  <GRUPO id="14">
+    <grupo>mojado</grupo>
+    <idProfesor>2</idProfesor>
+    <nombreProfesor>profesor</nombreProfesor>
+    <inscritos>3</inscritos>
+    <idAlumno>3</idAlumno>
+    <idAlumno>4</idAlumno>
+    <idAlumno>7</idAlumno>
+  </GRUPO>
 </raiz>
 

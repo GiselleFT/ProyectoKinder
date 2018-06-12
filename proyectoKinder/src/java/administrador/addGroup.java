@@ -142,11 +142,12 @@ public class addGroup extends HttpServlet {
                     xmlo.output(doc, fw);//se escribe en el archivo
                     fw.flush();
                 }
-                
+                response.sendRedirect("administrarGrupos");
             }
             catch(Exception e){
                 e.printStackTrace();
             }
+            
     }
             
             
