@@ -33,7 +33,6 @@ public class deleteUser extends HttpServlet {
             
             
             String usuario = (String)session.getAttribute("usuario");//Del administrador
-            String contrasena = (String)session.getAttribute("contrasena");//Del administrador
             String tipoAtt = (String)session.getAttribute("tipo");
 //            String tipoAtt = (String)request.getParameter("tipo");//Del administrador
             session.setAttribute("tipo", tipoAtt);//conservar sesion del administrador con su tipo
@@ -61,13 +60,6 @@ public class deleteUser extends HttpServlet {
                 //Contruye un documento JDOM usando SAX, para procesar xml
                 SAXBuilder builder = new SAXBuilder();
                 //Para obtener la ruta absoluta del proyecto
-//                String rutaAbsoluta = request.getSession().getServletContext().getRealPath("/");
-//                rutaAbsoluta = rutaAbsoluta.replaceAll("'\'", "'\\'");
-//                System.out.println("RUTA ABSOLUTA= "+rutaAbsoluta);
-                //Ruta absoluta del archivo BD.xml
-//                File BD = new File("C:\\Users\\Giselle\\Documents\\GitHub\\ProyectoKinder\\proyectoKinder\\web\\BD.xml");
-//                System.out.println("addUser ruta:" + rutaAbsoluta);
-//                File BD = new File(rutaAbsoluta+"\\BD.xml");
                 String rutaAbsoluta = request.getSession().getServletContext().getRealPath("/");
                 rutaAbsoluta = rutaAbsoluta.replace("\\", "/");
                 rutaAbsoluta = rutaAbsoluta.replaceAll("/build", "");
@@ -89,14 +81,11 @@ public class deleteUser extends HttpServlet {
                     //encontrar el elemento con el id capturado
                     Attribute idElement = element.getAttribute("id");
                     if(idElement.getValue().matches(id)){//se ha encontrado usuario con id a modificar
-//                        element.getParentElement().removeChild(element.getName());
-//                        element.getParent().removeContent(element);
                         raiz.removeContent(raiz.getContent(i));
                         //Se crea serializador xml (para guardar en el xml)
                         XMLOutputter xmlo =new XMLOutputter();
 
                         //validar que si escriba bien el archivo, guardar los cambios al archivo
-        //                try (FileWriter fw = new FileWriter(rutaAbsoluta+"\\BD.xml")){
                         try (FileWriter fw = new FileWriter(rutaAbsoluta)){
                             xmlo.setFormat(Format.getPrettyFormat());//Formato de salida al xml
                             xmlo.output(doc, fw);//se escribe en el archivo

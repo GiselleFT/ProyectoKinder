@@ -48,12 +48,6 @@ public class modificarUsuario extends HttpServlet {
             //Contruye un documento JDOM usando SAX, para procesar xml
             SAXBuilder builder = new SAXBuilder();
             //Para obtener la ruta absoluta del proyecto
-//                String rutaAbsoluta = request.getSession().getServletContext().getRealPath("/");
-//                rutaAbsoluta = rutaAbsoluta.replaceAll("'\'", "'\\'");
-//                System.out.println("formInicioSesion ruta:" + rutaAbsoluta);
-//                System.out.println("RUTA ABSOLUTA= "+rutaAbsoluta);
-            //Ruta absoluta del archivo BD.xml
-//                File BD = new File("C:\\Users\\Giselle\\Documents\\GitHub\\ProyectoKinder\\proyectoKinder\\web\\BD.xml"); 
             String rutaAbsoluta = request.getSession().getServletContext().getRealPath("/");
             rutaAbsoluta = rutaAbsoluta.replace("\\", "/");
             rutaAbsoluta = rutaAbsoluta.replaceAll("/build", "");
@@ -64,7 +58,6 @@ public class modificarUsuario extends HttpServlet {
             //Se obtiene el elemento raiz del xml
             Element raiz = doc.getRootElement();
             //Lista de nodos almacenados, lo que esta contenido entre las etiquetas de raiz
-//                List lista = raiz.getChildren();
             List lista = raiz.getChildren("USUARIO");
 
             //Para recorrer el arbol de nodos
@@ -102,7 +95,7 @@ public class modificarUsuario extends HttpServlet {
             out.println("                    </ul>");
             out.println("                </li>");
             out.println("                <li class=\"special_link\">");
-            out.println("                    <a href=\"login.html\"><i class=\"fa fa-times-rectangle\"></i> <span class=\"nav-label\">Cerrar sesion</span></a>");
+            out.println("                    <a href=\"cerrarSesion\"><i class=\"fa fa-times-rectangle\"></i> <span class=\"nav-label\">Cerrar sesion</span></a>");
             out.println("                </li>");
             out.println("            </ul>");
             out.println("");

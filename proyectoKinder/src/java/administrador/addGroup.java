@@ -36,7 +36,6 @@ public class addGroup extends HttpServlet {
             
             
             String usuario = (String)session.getAttribute("usuario");//Del administrador
-            String contrasena = (String)session.getAttribute("contrasena");//Del administrador
             String tipoAtt = (String)request.getParameter("tipo");//Del administrador
             session.setAttribute("tipo", tipoAtt);//conservar sesion del administrador con su tipo
             PrintWriter out = response.getWriter();
