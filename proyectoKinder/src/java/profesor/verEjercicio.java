@@ -169,7 +169,6 @@ public class verEjercicio extends HttpServlet {
         out.println("                    <div class=\"ibox float-e-margins\">");
         out.println("                        <div id='audio' class=\"ibox-title\">");
 
-       
         //out.println("<h1>" + nombreM + "</h1>");//contenido que se va a desplegar dentro de la pagina web
         out.println("<h1><b>" + instruccionM + "</b></h1>");
         out.println("<audio  src='archivos/" + audioInstruccionM + "' controls ></audio>");
@@ -192,6 +191,7 @@ public class verEjercicio extends HttpServlet {
         out.println("<br/>");
         out.println("<br/>");
         out.println("<b><h2 id='demo'></h2></b>");
+        out.println("<b><h2 id='ganar'></h2></b>");
         out.println("<br/>");
         out.println("<br/>");
 
@@ -201,9 +201,49 @@ public class verEjercicio extends HttpServlet {
         respuestas.add(respuestaIncorrecta1M);
         respuestas.add(respuestaIncorrecta2M);
 
-        out.println("<button onclick='myFunction()' class=\"btn btn-w-m btn-primary\"><h2>" + respuestas.get(numero) + "</h2></button>");
-        out.println("<button onclick='myFunction()' class=\"btn btn-w-m btn-primary\"><h2>" + respuestas.get((numero + 1) % 3) + "</h2></button>");
-        out.println("<button onclick='myFunction()' class=\"btn btn-w-m btn-primary\"><h2>" + respuestas.get((numero + 2) % 3) + "</h2></button>");
+        out.println("<button onclick='myFunction2()' id='r1' class=\"btn btn-w-m btn-primary\"><h2 >" + respuestas.get(numero) + "</h2></button>");
+        out.println("<button onclick='myFunction3()' id='r2' class=\"btn btn-w-m btn-primary\"><h2 >" + respuestas.get((numero + 1) % 3) + "</h2></button>");
+        out.println("<button onclick='myFunction4()' id='r3' class=\"btn btn-w-m btn-primary\"><h2 >" + respuestas.get((numero + 2) % 3) + "</h2></button>");
+
+        out.println("<script>\n"
+                + "function myFunction2() {\n"
+                + "  if(" + respuestas.get(numero).equals(respuestaCorrectaM) + "){"
+                + "var x = document.getElementById(\"r1\");"
+                + "x.setAttribute(\"class\",'btn btn-w-m btn-success');"
+                + "  document.getElementById(\"ganar\").innerHTML = 'GANASTE!!!';\n"
+                + "}\n"
+                + "else{"
+                + "var x = document.getElementById(\"r1\");"
+                + "x.setAttribute(\"class\",'btn btn-w-m btn-danger');"
+                + "}"
+                + "}\n"
+                + "</script>");
+        out.println("<script>\n"
+                + "function myFunction3() {\n"
+                + "  if(" + respuestas.get((numero + 1) % 3).equals(respuestaCorrectaM) + "){"
+                + "var x = document.getElementById(\"r2\");"
+                + "x.setAttribute(\"class\",'btn btn-w-m btn-success');"
+                + "  document.getElementById(\"ganar\").innerHTML = 'GANASTE!!!';\n"
+                + "}\n"
+                + "else{"
+                + "var x = document.getElementById(\"r2\");"
+                + "x.setAttribute(\"class\",'btn btn-w-m btn-danger');"
+                + "}"
+                + "}\n"
+                + "</script>");
+        out.println("<script>\n"
+                + "function myFunction4() {\n"
+                + "  if(" + respuestas.get((numero + 2) % 3).equals(respuestaCorrectaM) + "){"
+                + "var x = document.getElementById(\"r3\");"
+                + "x.setAttribute(\"class\",'btn btn-w-m btn-success');"
+                + "  document.getElementById(\"ganar\").innerHTML = 'GANASTE!!!';\n"
+                + "}\n"
+                + "else{"
+                + "var x = document.getElementById(\"r3\");"
+                + "x.setAttribute(\"class\",'btn btn-w-m btn-danger');"
+                + "}"
+                + "}\n"
+                + "</script>");
 
         out.println("<script>\n"
                 + "function myFunction() {\n"
