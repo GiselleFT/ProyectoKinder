@@ -1,6 +1,7 @@
 package profesor;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -14,6 +15,8 @@ import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
+import org.jdom.output.Format;
+import org.jdom.output.XMLOutputter;
 
 public class adminGpo extends HttpServlet {
     
@@ -86,9 +89,9 @@ public class adminGpo extends HttpServlet {
             out.println("</div>");
             out.println("</li>");
             out.println("                <li>");
-            out.println("                    <a href=\"#\"><i class=\"fa fa-user-circle\"></i> <span class=\"nav-label\">Menu administrador</span><span class=\"fa arrow\"></span></a>");
+            out.println("                    <a href=\"#\"><i class=\"fa fa-user-circle\"></i> <span class=\"nav-label\">Menu profesor</span><span class=\"fa arrow\"></span></a>");
             out.println("                    <ul class=\"nav nav-second-level collapse\">");
-            out.println("                        <li><a href=\"adminEjercicios\">Administrar Usuarios</a></li>");
+            out.println("                        <li><a href=\"adminEjercicios\">Administrar Ejercicios</a></li>");
             out.println("                        <li><a href=\"adminGrupos\">Administrar Grupos</a></li>");
             out.println("                    </ul>");
             out.println("                </li>");
@@ -129,6 +132,8 @@ public class adminGpo extends HttpServlet {
             out.println("                    <div class=\"ibox float-e-margins\">");
             out.println("                        <div class=\"ibox-title\">");
             
+            out.println("<h3>Ejercicios</h3>");
+            out.println("<form action='modifyGpo' method='post'>");
             //Lista de nodos almacenados, lo que esta contenido entre las etiquetas de raiz
             List listaEjerciciosGrupo = raiz.getChildren("EJERCICIOS_GRUPO");
             boolean existe = false;
@@ -170,19 +175,58 @@ public class adminGpo extends HttpServlet {
                             }
                         } 
                     }
-                        
-                    out.println("<input type='hidden' name='tipo' value=" + tipoAtt + ">");//Del administrador
-                    out.println("<br />");
-                    out.println("<br />");
-                    out.println("<br />");
-                    out.println("<br />");
-                    out.println("</h3><h3><input type='submit' class=\"btn btn-w-m btn-primary\" value='Modificar Grupo'></h3>");
-                    out.println("</form>");
-                        
+                }
+                
+                //Si no existen ejercicios para ese grupo se tiene que crear el nodo
+                if(!existe){
+                    //Crea los elementos que conforman a un EJERCICIOS_GRUPO
+                    Element ejerciciosGrupo = new Element("EJERCICIOS_GRUPO");
+                    //Element idEjercicio = new Element("idEjercicio");
+                    
+                    ejerciciosGrupo.setAttribute("idGrupo",idGrupo);
+                    ejerciciosGrupo.setAttribute("idProfesor", idUsuario);
+                    
+                    //idEjercicio.setText("");
+                    //ejerciciosGrupo.addContent(idEjercicio);
+                    
+                    raiz.addContent(ejerciciosGrupo);
+                    
+                    //Se crea serializador xml (para guardar en el xml)
+                    XMLOutputter xmlo =new XMLOutputter();
+                
+                    //validar que si escriba bien el archivo, guardar los cambios al archivo
+                    try (FileWriter fw = new FileWriter(rutaAbsoluta)) {
+                        xmlo.setFormat(Format.getPrettyFormat());//Formato de salida al xml
+                        xmlo.output(doc, fw);//se escribe en el archivo
+                        fw.flush();
                     }
                     
+                    List listaEjercicios = raiz.getChildren("EJERCICIO");
+                    for (int j = 0; j < listaEjercicios.size(); j++) {
+                            //DE TODOS LOS EJERCICIOS
+                            Element ejercicio = (Element)listaEjercicios.get(j);//1 ejercicio
+                            List infoUnEjercicio = ejercicio.getChildren();
+                            Element nombreEjercicio = (Element)infoUnEjercicio.get(0);
+                            Attribute idEjProfesor = ejercicio.getAttribute("idProfesor");
+                            Attribute idEj = ejercicio.getAttribute("id");
+                            //Solo los ejercicios que crea el profesor
+                            if(idUsuario.matches(idEjProfesor.getValue())){
+                                out.println("<input type='checkbox' id='ejercicioSeleccionado' name='ejercicioSeleccionado' value='"+idEj.getValue()+"'>"+nombreEjercicio.getText()+"<br>");
+                            }
+                    }
+                    
+                    
+                }
                 
+                out.println("<input type='hidden' name='tipo' value=" + tipoAtt + ">");//Del administrador
+                out.println("<br />");
+                out.println("<br />");
+                out.println("<br />");
+                out.println("<br />");
+                out.println("</h3><h3><input type='submit' class=\"btn btn-w-m btn-primary\" value='Modificar Grupo'></h3>");
+                out.println("</form>");
                 
+                    
                 out.println("<br />");
             out.println("<br />");
             //Agregar Usuario
@@ -224,4 +268,3 @@ public class adminGpo extends HttpServlet {
                         
 }
 }
-
