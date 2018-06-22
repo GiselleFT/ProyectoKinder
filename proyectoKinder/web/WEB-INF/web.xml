@@ -136,6 +136,10 @@
         <servlet-name>cerrarSesion</servlet-name>
         <servlet-class>general.cerrarSesion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>adminGpo</servlet-name>
+        <servlet-class>profesor.adminGpo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>formInicioSesion</servlet-name>
         <url-pattern>/formInicioSesion</url-pattern>
@@ -271,6 +275,10 @@
     <servlet-mapping>
         <servlet-name>cerrarSesion</servlet-name>
         <url-pattern>/cerrarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminGpo</servlet-name>
+        <url-pattern>/adminGpo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
