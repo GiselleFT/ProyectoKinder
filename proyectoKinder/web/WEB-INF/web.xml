@@ -136,6 +136,14 @@
         <servlet-name>cerrarSesion</servlet-name>
         <servlet-class>general.cerrarSesion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>resolverEjercicios</servlet-name>
+        <servlet-class>alumno.resolverEjercicios</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>verCalificaciones</servlet-name>
+        <servlet-class>alumno.verCalificaciones</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>formInicioSesion</servlet-name>
         <url-pattern>/formInicioSesion</url-pattern>
@@ -271,6 +279,14 @@
     <servlet-mapping>
         <servlet-name>cerrarSesion</servlet-name>
         <url-pattern>/cerrarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>resolverEjercicios</servlet-name>
+        <url-pattern>/resolverEjercicios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>verCalificaciones</servlet-name>
+        <url-pattern>/verCalificaciones</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
