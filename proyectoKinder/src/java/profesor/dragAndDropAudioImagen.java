@@ -72,7 +72,7 @@ public class dragAndDropAudioImagen extends HttpServlet {
         out.println("                    </div>");
         out.println("                </li>");
         out.println("                <li>");
-        out.println("                    <a href=\"#\"><i class=\"fa fa-user-circle\"></i> <span class=\"nav-label\">Menu administrador</span><span class=\"fa arrow\"></span></a>");
+        out.println("                    <a href=\"#\"><i class=\"fa fa-user-circle\"></i> <span class=\"nav-label\">Menu profesor</span><span class=\"fa arrow\"></span></a>");
         out.println("                    <ul class=\"nav nav-second-level collapse\">");
         out.println("                        <li><a href=\"adminEjercicios\">Administrar Ejercicios</a></li>");
         out.println("                        <li><a href=\"adminGrupos\">Administrar Grupos</a></li>");
