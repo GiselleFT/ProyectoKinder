@@ -191,7 +191,6 @@ public class verEjercicio extends HttpServlet {
         out.println("<br/>");
         out.println("<br/>");
         out.println("<b><h2 id='demo'></h2></b>");
-        out.println("<b><h2 id='ganar'></h2></b>");
         out.println("<br/>");
         out.println("<br/>");
 
@@ -204,17 +203,24 @@ public class verEjercicio extends HttpServlet {
         out.println("<button onclick='myFunction2()' id='r1' class=\"btn btn-w-m btn-primary\"><h2 >" + respuestas.get(numero) + "</h2></button>");
         out.println("<button onclick='myFunction3()' id='r2' class=\"btn btn-w-m btn-primary\"><h2 >" + respuestas.get((numero + 1) % 3) + "</h2></button>");
         out.println("<button onclick='myFunction4()' id='r3' class=\"btn btn-w-m btn-primary\"><h2 >" + respuestas.get((numero + 2) % 3) + "</h2></button>");
-
+        out.println("<br/>");
+        out.println("<br/>");
+        out.println("<b><font color=\"green\"><h2 id='ganar'></h2></font></b>");
+        out.println("<b><font color=\"red\"><h3 id='perder'></h3></font></b>");
         out.println("<script>\n"
                 + "function myFunction2() {\n"
                 + "  if(" + respuestas.get(numero).equals(respuestaCorrectaM) + "){"
                 + "var x = document.getElementById(\"r1\");"
                 + "x.setAttribute(\"class\",'btn btn-w-m btn-success');"
-                + "  document.getElementById(\"ganar\").innerHTML = 'GANASTE!!!';\n"
+                + "  document.getElementById(\"ganar\").innerHTML = 'RESPUESTA CORRECTA!!';\n"
+                + "  document.getElementById(\"perder\").innerHTML = '';\n"
+                + "  document.getElementById(\"r2\").disabled = true;\n"
+                + "  document.getElementById(\"r3\").disabled = true;\n"
                 + "}\n"
                 + "else{"
                 + "var x = document.getElementById(\"r1\");"
                 + "x.setAttribute(\"class\",'btn btn-w-m btn-danger');"
+                + "  document.getElementById(\"perder\").innerHTML = 'Respuesta incorrecta, intenta de nuevo';\n"
                 + "}"
                 + "}\n"
                 + "</script>");
@@ -223,11 +229,15 @@ public class verEjercicio extends HttpServlet {
                 + "  if(" + respuestas.get((numero + 1) % 3).equals(respuestaCorrectaM) + "){"
                 + "var x = document.getElementById(\"r2\");"
                 + "x.setAttribute(\"class\",'btn btn-w-m btn-success');"
-                + "  document.getElementById(\"ganar\").innerHTML = 'GANASTE!!!';\n"
+                + "  document.getElementById(\"ganar\").innerHTML = 'RESPUESTA CORRECTA!!';\n"
+                + "  document.getElementById(\"perder\").innerHTML = '';\n"
+                + "  document.getElementById(\"r1\").disabled = true;\n"
+                + "  document.getElementById(\"r3\").disabled = true;\n"
                 + "}\n"
                 + "else{"
                 + "var x = document.getElementById(\"r2\");"
                 + "x.setAttribute(\"class\",'btn btn-w-m btn-danger');"
+                + "  document.getElementById(\"perder\").innerHTML = 'Respuesta incorrecta, intenta de nuevo';\n"
                 + "}"
                 + "}\n"
                 + "</script>");
@@ -236,11 +246,15 @@ public class verEjercicio extends HttpServlet {
                 + "  if(" + respuestas.get((numero + 2) % 3).equals(respuestaCorrectaM) + "){"
                 + "var x = document.getElementById(\"r3\");"
                 + "x.setAttribute(\"class\",'btn btn-w-m btn-success');"
-                + "  document.getElementById(\"ganar\").innerHTML = 'GANASTE!!!';\n"
+                + "  document.getElementById(\"ganar\").innerHTML = 'RESPUESTA CORRECTA!!';\n"
+                + "  document.getElementById(\"perder\").innerHTML = '';\n"
+                + "  document.getElementById(\"r1\").disabled = true;\n"
+                + "  document.getElementById(\"r2\").disabled = true;\n"
                 + "}\n"
                 + "else{"
                 + "var x = document.getElementById(\"r3\");"
                 + "x.setAttribute(\"class\",'btn btn-w-m btn-danger');"
+                + "  document.getElementById(\"perder\").innerHTML = 'Respuesta incorrecta, intenta de nuevo';\n"
                 + "}"
                 + "}\n"
                 + "</script>");
