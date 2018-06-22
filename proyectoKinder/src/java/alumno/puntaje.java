@@ -17,30 +17,29 @@ import javax.servlet.http.HttpSession;
  *
  * @author sam-y
  */
-public class resolverEjercicios extends HttpServlet {
+public class puntaje extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-            //Recuperamos la sesion
-            HttpSession session = request.getSession();
-            String usuario = (String)session.getAttribute("usuario");
-            String tipoAtt = (String)session.getAttribute("tipo");
-            PrintWriter out = response.getWriter();
-            
-            //info del alumno
+        //Recuperamos la sesion
+        HttpSession session = request.getSession();
+        String usuario = (String) session.getAttribute("usuario");
+        String tipoAtt = (String) session.getAttribute("tipo");
+        PrintWriter out = response.getWriter();
+
+        //info del alumno
 //            System.out.println("menuAlumno");
 //            System.out.println("alumno= "+usuario);
 //            System.out.println("alumno= "+contrasena);
 //            System.out.println("alumno= "+tipoAtt);
-            
-            //********Valida Tipo Usuario****************//
-            if(!tipoAtt.equals("3")){
-               response.sendRedirect("login.html");
-            }
-            //*******************************************//
-            out.println("<!DOCTYPE html>");
+        //********Valida Tipo Usuario****************//
+        if (!tipoAtt.equals("3")) {
+            response.sendRedirect("login.html");
+        }
+        //*******************************************//
+        out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
         out.println("    <meta charset=\"utf-8\">");
@@ -88,34 +87,89 @@ public class resolverEjercicios extends HttpServlet {
         out.println("        </div>");
         out.println("            <div class=\"row wrapper border-bottom white-bg page-heading\">");
         out.println("                <center>");
-        out.println("                    <h2><font color=\"blue\"><b>Instrucciones: </b></font></h2>");
+        out.println("                    <h2><font color=\"blue\"><b>Resultados (progreso): </b></font></h2>");
         out.println("                    <br/>");
         out.println("                    <p>");
-        out.println("                    <h3>Jugarás una ronda de 3 ejercicios y deberás conseguir la mayor puntuación posible.<br/>");
-        out.println("                    Una vez iniciada la partida no podrás cancelarla hasta concluir con los 3 ejercicios.<br/></h3>");
-        out.println("                    <h3><b>Suerte!!</b></h3>");
+
+        out.println("<h3>Ejercicio 1 resuelto en " + (session.getAttribute("clics1")) + " intento(s)</h3>");//contenido que se va a desplegar dentro de la pagina web
+        out.println("<h3>Ejercicio 2 resuelto en " + session.getAttribute("clics2") + " intento(s)</h3>");
+        out.println("<h3>Ejercicio 3 resuelto en " + request.getParameter("clics3") + " intento(s)</h3>");
+
         out.println("                    </p>");
         out.println("                    <br/>");
         out.println("                    <h2><font color=\"blue\"><b>");
-        out.println("                    Puntajes si respondes al:");
+        out.println("                    Puntuacion final:");
         out.println("                    </b></font></h2>");
-        out.println("                    <h3><p>");
-        out.println("                    1er intento - 3 puntos");
-        out.println("                    </p>");
-        out.println("                    <p>");
-        out.println("                    2do intento - 1 punto");
-        out.println("                    </p>");
-        out.println("                    <p>");
-        out.println("                    3er intento - 0 puntos");
-        out.println("                    </p></h3>");
         out.println("                    <br/>");
-        out.println("<form action='ejercicio1' method='get'>");
-        out.println("<h6><input type='submit' value='Comenzar' class=\"btn btn-sm btn-success\"></h6>");
-        out.println("</form>");
+        int calif1 = Integer.parseInt((String) session.getAttribute("clics1"));
+        int calif2 = Integer.parseInt((String) session.getAttribute("clics2"));
+        int calif3 = Integer.parseInt(request.getParameter("clics3"));
+        System.out.println(calif1 + " - " + calif2 + " - " + calif3);
+        if (calif1 < 3) {
+            if (calif1 < 2) {
+                if (calif1 == 1) {
+                    calif1 =3;
+                }
+                else{
+                    calif1 = -10; //nunca deberia llegar
+                }
+            }
+            else{
+                calif1=1;
+            }
+        }
+        else{
+            calif1=0;
+        }
+        if (calif2 < 3) {
+            if (calif2 < 2) {
+                if (calif2 == 1) {
+                    calif2 =3;
+                }
+                else{
+                    calif2 = -10; //nunca deberia llegar
+                }
+            }
+            else{
+                calif2=1;
+            }
+        }
+        else{
+            calif2=0;
+        }
+        if (calif3 < 3) {
+            if (calif3 < 2) {
+                if (calif3 == 1) {
+                    calif3 =3;
+                }
+                else{
+                    calif3 = -10; //nunca deberia llegar
+                }
+            }
+            else{
+                calif3=1;
+            }
+        }
+        else{
+            calif3=0;
+        }
+        int resultado = calif1 + calif2 + calif3;
+        out.println("<h3><b>" + resultado + " / 9</b></h3>");
+        out.println("                    <br/>");
+        out.println("                    <br/>");
+        if (resultado==9) {
+            out.println("<h1><font color='green'><b>FELICIDADES, LO HICISTE INCREIBLE!!</b></font></h1>");
+        }
+        else if (resultado>=5) {
+            out.println("<h1><font color='green'><b>FELICIDADES, SIGUE ESFORZANDOTE!!</b></font></h1>");
+        }
+        else{
+            out.println("<h1><font color='red'><b>UPS... NECESITAMOS REPASAR MÁS</b></font></h1>");
+        }
         out.println("                    <br/>");
         out.println("                    <br/>");
         out.println("<form action='menuAlumno' method='get'>");
-        out.println("<input type='submit' value='Regresar' class=\"btn btn-sm btn-warning\">");
+        out.println("<input type='submit' value='Continuar' class=\"btn btn-sm btn-success\">");
         out.println("</form>");
         out.println("                </center>");
         out.println("            </div>");

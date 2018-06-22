@@ -153,12 +153,21 @@
         <servlet-class>alumno.ejercicio2</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
         <servlet-name>adminGpo</servlet-name>
         <servlet-class>profesor.adminGpo</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>modifyGpo</servlet-name>
         <servlet-class>profesor.modifyGpo</servlet-class>
+=======
+        <servlet-name>ejercicio3</servlet-name>
+        <servlet-class>alumno.ejercicio3</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>puntaje</servlet-name>
+        <servlet-class>alumno.puntaje</servlet-class>
+>>>>>>> 2d635f36014eeb2c3f664fa0be28dce3547d57ab
     </servlet>
     <servlet-mapping>
         <servlet-name>formInicioSesion</servlet-name>
@@ -313,12 +322,12 @@
         <url-pattern>/ejercicio2</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>adminGpo</servlet-name>
-        <url-pattern>/adminGpo</url-pattern>
+        <servlet-name>ejercicio3</servlet-name>
+        <url-pattern>/ejercicio3</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>modifyGpo</servlet-name>
-        <url-pattern>/modifyGpo</url-pattern>
+        <servlet-name>puntaje</servlet-name>
+        <url-pattern>/puntaje</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
