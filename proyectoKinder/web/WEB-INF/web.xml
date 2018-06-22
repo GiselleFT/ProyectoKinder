@@ -152,6 +152,14 @@
         <servlet-name>ejercicio2</servlet-name>
         <servlet-class>alumno.ejercicio2</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ejercicio3</servlet-name>
+        <servlet-class>alumno.ejercicio3</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>puntaje</servlet-name>
+        <servlet-class>alumno.puntaje</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>formInicioSesion</servlet-name>
         <url-pattern>/formInicioSesion</url-pattern>
@@ -289,10 +297,6 @@
         <url-pattern>/cerrarSesion</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
-        <servlet-name>adminGpo</servlet-name>
-        <url-pattern>/adminGpo</url-pattern>
-=======
         <servlet-name>resolverEjercicios</servlet-name>
         <url-pattern>/resolverEjercicios</url-pattern>
     </servlet-mapping>
@@ -307,7 +311,14 @@
     <servlet-mapping>
         <servlet-name>ejercicio2</servlet-name>
         <url-pattern>/ejercicio2</url-pattern>
->>>>>>> 4602582ad7e195373c061b95d98a812b9930fdef
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ejercicio3</servlet-name>
+        <url-pattern>/ejercicio3</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>puntaje</servlet-name>
+        <url-pattern>/puntaje</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -67,15 +67,80 @@ public class ejercicio1 extends HttpServlet {
             Document doc = builder.build(BD);//documentos para contruir base de datos
             //Se obtiene el elemento raiz del xml
             Element raiz = doc.getRootElement();
+            
+            
+            List lista_grupos = raiz.getChildren("GRUPO");
+            Element elem;
+            Attribute idElem = null;
+            int bandera=0;
+            for (int i = 0; i < lista_grupos.size(); i++) {
+                elem = (Element) lista_grupos.get(i);
+                List lista_grupos2 = elem.getChildren();
+                for (int j = 4; j < lista_grupos2.size(); j++) {
+                   Element id_alumno = (Element) lista_grupos2.get(j);
+                    if (id_alumno.getText().equals(idUsuario)) { //si uno de los alumnos en un grupo soy yo (el alumno logueado)
+                        idElem = elem.getAttribute("id");
+                        bandera=1;
+                        break;
+                    }
+                }
+                if (bandera==1) {
+                    break;
+                }
+            }
+            if (idElem!=null) {
+                System.out.println("Pertenece a un grupo");
+            }
+            else{
+                System.out.println("No pertenece a ningun grupo");
+            }
+            System.out.println(idElem.getValue()+"*************************************************************");
+            //----------------------------------------------------------------------------------------------------------
+            List lista_ejerciciosGrupos = raiz.getChildren("EJERCICIOS_GRUPO");
+            Element elemento;
+            int indice = -1;
+            for (int q = 0; q < lista_ejerciciosGrupos.size(); q++) {
+                elemento = (Element) lista_ejerciciosGrupos.get(q);
+                if (elemento.getAttribute("idGrupo").getValue().equals(idElem.getValue())) {
+                    indice=q;
+                }
+            }
+            if (indice!=-1) {
+                System.out.println("ENCONTRO EL EJERCICIO GRUPO QUE BUSCABAMOS");
+            }
+            else{
+                System.out.println("NO EXISTE EL EJERCICIO GRUPO QUE BUSCABAMOS");
+            }
+            //--------------------------------------------------------------------------------------------
+            elemento = (Element) lista_ejerciciosGrupos.get(indice);//Este ya es el conjunto de ejercicios que quiero
+            List id_ejercicios = elemento.getChildren();
+            
+            
             //Lista de nodos almacenados, lo que esta contenido entre las etiquetas de raiz
             List lista = raiz.getChildren("EJERCICIO");
-            int ejer1 = (int) (Math.random() * lista.size());
-            session.setAttribute("ejer1", ejer1);
-
+            Integer ejer1 = (int) (Math.random() * id_ejercicios.size());
+            
+            System.out.println(ejer1+" - Numero Random");
+            
+            session.setAttribute("random1", ejer1);
+            Element element = null;
+            for (int i = 0; i < lista.size(); i++) {
+                 element = (Element) lista.get(i);
+                 Attribute idElement = element.getAttribute("id");
+                 Element a = (Element)id_ejercicios.get(ejer1);
+                 if (idElement.getValue().equals(a.getValue())) {
+                     System.out.println("Encontré el ejercicio que buscaba");
+                     break;
+                }
+            }
+            
+            
             //Se procesa un elemento de la lista
-            Element element = (Element) lista.get(ejer1);//guarda los datos de la lista en un arreglo de elementos
+            //guarda los datos de la lista en un arreglo de elementos
             //encontrar el elemento con el id capturado
-            Attribute idElement = element.getAttribute("id");
+            Attribute idProfesorCreador = element.getAttribute("idProfesor");
+            idProfesorCreador.getIntValue();
+            
             //se ha encontrado ejercicio con id a modificar
             //Obtiene los elementos que contiene el elemento actual
 
@@ -111,7 +176,7 @@ public class ejercicio1 extends HttpServlet {
         out.println("<head>");
         out.println("    <meta charset=\"utf-8\">");
         out.println("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-        out.println("    <title>Menu Administrador</title>");
+        out.println("    <title>Menu Alumno</title>");
         out.println("    <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">");
         out.println("    <link href=\"font-awesome/css/font-awesome.css\" rel=\"stylesheet\">");
         out.println("    <link href=\"css/animate.css\" rel=\"stylesheet\">");
@@ -130,7 +195,7 @@ public class ejercicio1 extends HttpServlet {
         out.println("</div>");
         out.println("</li>");
         out.println("                <li>");
-        out.println("                    <a href=\"#\"><i class=\"fa fa-user-circle\"></i> <span class=\"nav-label\">Menu profesor</span><span class=\"fa arrow\"></span></a>");
+        out.println("                    <a href=\"#\"><i class=\"fa fa-user-circle\"></i> <span class=\"nav-label\">Menu alumno</span><span class=\"fa arrow\"></span></a>");
         out.println("                    <ul class=\"nav nav-second-level collapse\">");
         out.println("                        <li><a href=\"resolverEjercicios\">Resolver Ejercicios</a></li>");
         out.println("                        <li><a href=\"verCalificaciones\">Ver Calificaciones</a></li>");
@@ -159,7 +224,7 @@ public class ejercicio1 extends HttpServlet {
         out.println("        </div>");
         out.println("            <div class=\"row wrapper border-bottom white-bg page-heading\">");
         out.println("                <div class=\"col-sm-4\">");
-        out.println("                    <h2>Bienvenido profesor: <b>" + usuario + "</b></h2>");
+        out.println("                    <h2>Bienvenido alumno: <b>" + usuario + "</b></h2>");
         out.println("                </div>");
         out.println("            </div>");
 
@@ -226,7 +291,8 @@ public class ejercicio1 extends HttpServlet {
                 + "  document.getElementById(\"perder\").innerHTML = '';\n"
                 + "  document.getElementById(\"r2\").disabled = true;\n"
                 + "  document.getElementById(\"r3\").disabled = true;\n"
-                + "var m = document.getElementById('contador');\n" 
+                + "var m = document.getElementById('contador');\n"
+                + "countClicks++;"
                 +"m.setAttribute('value',countClicks);"
                 + "  document.getElementById(\"siguiente\").disabled = false;\n" 
                 + "}\n"
@@ -248,6 +314,7 @@ public class ejercicio1 extends HttpServlet {
                 + "  document.getElementById(\"r1\").disabled = true;\n"
                 + "  document.getElementById(\"r3\").disabled = true;\n"
                 + "var m = document.getElementById('contador');\n" 
+                + "countClicks++;"
                 +"m.setAttribute('value',countClicks);"
                 + "  document.getElementById(\"siguiente\").disabled = false;\n"   
                 + "}\n"
@@ -269,6 +336,7 @@ public class ejercicio1 extends HttpServlet {
                 + "  document.getElementById(\"r1\").disabled = true;\n"
                 + "  document.getElementById(\"r2\").disabled = true;\n"
                 + "var m = document.getElementById('contador');\n" 
+                + "countClicks++;"
                 +"m.setAttribute('value',countClicks);"
                 + "  document.getElementById(\"siguiente\").disabled = false;\n"   
                 + "}\n"
@@ -304,7 +372,7 @@ public class ejercicio1 extends HttpServlet {
         out.println("                </div>");
         out.println("<form action='ejercicio2' method='get'>");
         out.println("<input type=\"hidden\" id=\"contador\" name=\"clics\">");
-        out.println("<input type='submit' id='siguiente' value='Siguiente' class=\"btn btn-sm btn-default\"  disable>");
+        out.println("<input type='submit' id='siguiente' value='Siguiente' class=\"btn btn-sm btn-default\"  disabled>");
         out.println("</form>");
         out.println("                        </div>");
 

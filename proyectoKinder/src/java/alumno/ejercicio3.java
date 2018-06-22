@@ -20,7 +20,7 @@ import org.jdom.input.SAXBuilder;
  *
  * @author sam-y
  */
-public class ejercicio2 extends HttpServlet {
+public class ejercicio3 extends HttpServlet {
 
     @Override
     //protected, solo los miembros de la clase los puede ocupar 
@@ -120,11 +120,12 @@ public class ejercicio2 extends HttpServlet {
             List lista = raiz.getChildren("EJERCICIO");
             int ejer1 = (int) (Math.random() * id_ejercicios.size());
             Integer val_ejer1 = (Integer)session.getAttribute("random1");
-            while ((Integer)ejer1 == val_ejer1) {
+            Integer val_ejer2 = (Integer)session.getAttribute("random2");
+            while ((Integer)ejer1 == val_ejer1 || (Integer)ejer1 == val_ejer2) {
                 ejer1 = (int) (Math.random() * id_ejercicios.size());
             }
-            session.setAttribute("random2", ejer1);
-            session.setAttribute("clics1", request.getParameter("clics"));
+            session.setAttribute("random3", ejer1);
+            session.setAttribute("clics2", request.getParameter("clics2"));
             
             System.out.println(ejer1+" - Numero Random");
             
@@ -376,8 +377,8 @@ public class ejercicio2 extends HttpServlet {
         out.println("                    </div>");
         out.println("                </div>");
         out.println("                </div>");
-        out.println("<form action='ejercicio3' method='get'>");
-        out.println("<input type=\"hidden\" id=\"contador\" name=\"clics2\">");
+        out.println("<form action='puntaje' method='get'>");
+        out.println("<input type=\"hidden\" id=\"contador\" name=\"clics3\">");
         out.println("<input type='submit' id='siguiente' value='Siguiente' class=\"btn btn-sm btn-default\"  disabled>");
         out.println("</form>");
         out.println("                        </div>");
@@ -405,3 +406,5 @@ public class ejercicio2 extends HttpServlet {
 
     }
 }
+
+
