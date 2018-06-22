@@ -144,6 +144,14 @@
         <servlet-name>verCalificaciones</servlet-name>
         <servlet-class>alumno.verCalificaciones</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ejercicio1</servlet-name>
+        <servlet-class>alumno.ejercicio1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ejercicio2</servlet-name>
+        <servlet-class>alumno.ejercicio2</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>formInicioSesion</servlet-name>
         <url-pattern>/formInicioSesion</url-pattern>
@@ -287,6 +295,14 @@
     <servlet-mapping>
         <servlet-name>verCalificaciones</servlet-name>
         <url-pattern>/verCalificaciones</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ejercicio1</servlet-name>
+        <url-pattern>/ejercicio1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ejercicio2</servlet-name>
+        <url-pattern>/ejercicio2</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
