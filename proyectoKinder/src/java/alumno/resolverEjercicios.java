@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package alumno;
 
 import java.io.IOException;
@@ -8,13 +13,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class menuAlumno extends HttpServlet {
-    
+/**
+ *
+ * @author sam-y
+ */
+public class resolverEjercicios extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         
-            response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
             //Recuperamos la sesion
             HttpSession session = request.getSession();
             String usuario = (String)session.getAttribute("usuario");
@@ -79,9 +87,37 @@ public class menuAlumno extends HttpServlet {
         out.println("        </nav>");
         out.println("        </div>");
         out.println("            <div class=\"row wrapper border-bottom white-bg page-heading\">");
-        out.println("                <div class=\"col-sm-4\">");
-        out.println("                    <h2>Bienvenido alumno: </h2><b><h3>" + usuario + "</h3></b>");
-        out.println("                </div>");
+        out.println("                <center>");
+        out.println("                    <h2><font color=\"blue\"><b>Instrucciones: </b></font></h2>");
+        out.println("                    <br/>");
+        out.println("                    <p>");
+        out.println("                    <h3>Jugarás una ronda de 3 ejercicios y deberás conseguir la mayor puntuación posible.<br/>");
+        out.println("                    Una vez iniciada la partida no podrás cancelarla hasta concluir con los 3 ejercicios.<br/></h3>");
+        out.println("                    <h3><b>Suerte!!</b></h3>");
+        out.println("                    </p>");
+        out.println("                    <br/>");
+        out.println("                    <h2><font color=\"blue\"><b>");
+        out.println("                    Puntajes si respondes al:");
+        out.println("                    </b></font></h2>");
+        out.println("                    <h3><p>");
+        out.println("                    1er intento - 3 puntos");
+        out.println("                    </p>");
+        out.println("                    <p>");
+        out.println("                    2do intento - 1 punto");
+        out.println("                    </p>");
+        out.println("                    <p>");
+        out.println("                    3er intento - 0 puntos");
+        out.println("                    </p></h3>");
+        out.println("                    <br/>");
+        out.println("<form action='ejercicio1' method='get'>");
+        out.println("<h6><input type='submit' value='Comenzar' class=\"btn btn-sm btn-success\"></h6>");
+        out.println("</form>");
+        out.println("                    <br/>");
+        out.println("                    <br/>");
+        out.println("<form action='menuAlumno' method='get'>");
+        out.println("<input type='submit' value='Regresar' class=\"btn btn-sm btn-warning\">");
+        out.println("</form>");
+        out.println("                </center>");
         out.println("            </div>");
         out.println("        </div>");
         out.println("        </div>");
@@ -95,5 +131,4 @@ public class menuAlumno extends HttpServlet {
         out.println("</html>");
         out.println("");
     }
-
 }

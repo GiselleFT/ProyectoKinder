@@ -137,8 +137,20 @@
         <servlet-class>general.cerrarSesion</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>adminGpo</servlet-name>
-        <servlet-class>profesor.adminGpo</servlet-class>
+        <servlet-name>resolverEjercicios</servlet-name>
+        <servlet-class>alumno.resolverEjercicios</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>verCalificaciones</servlet-name>
+        <servlet-class>alumno.verCalificaciones</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ejercicio1</servlet-name>
+        <servlet-class>alumno.ejercicio1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ejercicio2</servlet-name>
+        <servlet-class>alumno.ejercicio2</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>formInicioSesion</servlet-name>
@@ -277,8 +289,25 @@
         <url-pattern>/cerrarSesion</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
         <servlet-name>adminGpo</servlet-name>
         <url-pattern>/adminGpo</url-pattern>
+=======
+        <servlet-name>resolverEjercicios</servlet-name>
+        <url-pattern>/resolverEjercicios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>verCalificaciones</servlet-name>
+        <url-pattern>/verCalificaciones</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ejercicio1</servlet-name>
+        <url-pattern>/ejercicio1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ejercicio2</servlet-name>
+        <url-pattern>/ejercicio2</url-pattern>
+>>>>>>> 4602582ad7e195373c061b95d98a812b9930fdef
     </servlet-mapping>
     <session-config>
         <session-timeout>
