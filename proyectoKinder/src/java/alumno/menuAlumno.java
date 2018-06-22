@@ -13,7 +13,8 @@ public class menuAlumno extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         
+        int algo=0;
+        
             response.setContentType("text/html;charset=UTF-8");
             //Recuperamos la sesion
             HttpSession session = request.getSession();
@@ -37,7 +38,7 @@ public class menuAlumno extends HttpServlet {
         out.println("<head>");
         out.println("    <meta charset=\"utf-8\">");
         out.println("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-        out.println("    <title>Menu Administrador</title>");
+        out.println("    <title>Menu Alumno</title>");
         out.println("    <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">");
         out.println("    <link href=\"font-awesome/css/font-awesome.css\" rel=\"stylesheet\">");
         out.println("    <link href=\"css/animate.css\" rel=\"stylesheet\">");
@@ -56,7 +57,7 @@ public class menuAlumno extends HttpServlet {
         out.println("</div>");
         out.println("</li>");
         out.println("                <li>");
-        out.println("                    <a href=\"#\"><i class=\"fa fa-user-circle\"></i> <span class=\"nav-label\">Menu profesor</span><span class=\"fa arrow\"></span></a>");
+        out.println("                    <a href=\"#\"><i class=\"fa fa-user-circle\"></i> <span class=\"nav-label\">Menu alumno</span><span class=\"fa arrow\"></span></a>");
         out.println("                    <ul class=\"nav nav-second-level collapse\">");
         out.println("                        <li><a href=\"resolverEjercicios\">Resolver Ejercicios</a></li>");
         out.println("                        <li><a href=\"verCalificaciones\">Ver Calificaciones</a></li>");

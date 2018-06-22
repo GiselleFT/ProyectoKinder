@@ -94,7 +94,7 @@ public class puntaje extends HttpServlet {
         out.println("<h3>Ejercicio 1 resuelto en " + (session.getAttribute("clics1")) + " intento(s)</h3>");//contenido que se va a desplegar dentro de la pagina web
         out.println("<h3>Ejercicio 2 resuelto en " + session.getAttribute("clics2") + " intento(s)</h3>");
         out.println("<h3>Ejercicio 3 resuelto en " + request.getParameter("clics3") + " intento(s)</h3>");
-
+//Este es el cambio
         out.println("                    </p>");
         out.println("                    <br/>");
         out.println("                    <h2><font color=\"blue\"><b>");
