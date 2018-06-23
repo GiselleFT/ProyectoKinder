@@ -124,10 +124,10 @@ public class adminGrupos extends HttpServlet {
                 out.println("<div class=\"alert alert-danger\" role=\"alert\"><H4>MODIFICACIÓN CANCELADA</H4></div>");
                 
             }
-//            if (request.getParameter("mod")!=null) {
-//                out.println("<div class=\"alert alert-success\" role=\"alert\"><H4>MODIFICACIÓN EXITOSA!</H4></div>");
-//                
-//            }
+            if (request.getParameter("mod")!=null) {
+                out.println("<div class=\"alert alert-success\" role=\"alert\"><H4>MODIFICACIÓN EXITOSA!</H4></div>");
+                
+            }
             out.println("            <div class=\"wrapper  wrapper-content animated fadeInRight\">");
             out.println("                    <div class=\"row\">");
             out.println("                <div class=\"col-lg-12\">");
@@ -149,7 +149,7 @@ public class adminGrupos extends HttpServlet {
             out.println("                        <div class=\"ibox-content\">");
             out.println("                            <div class=\"row\">");
             out.println("<div class=\"col-sm-200\">");
-            out.println("<div class=\"input-group\"><input type=\"text\" id='names' onkeyup='loadDoc(this.value)' placeholder=\"Search\" class=\"input-sm form-control\"> <span class=\"input-group-btn\">");
+            out.println("<div class=\"input-group\"><input type=\"text\" id='names' onkeyup='loadDoc(this.value, "+idUsuario+")' placeholder=\"Search\" class=\"input-sm form-control\"> <span class=\"input-group-btn\">");
             out.println("</span></div>");
             out.println("                                </div>");
             out.println("                            </div>");
@@ -205,19 +205,19 @@ public class adminGrupos extends HttpServlet {
             
             //Tabla dinamica conforme a busqueda
                 out.println("<script>");
-                out.println("function loadDoc(nombreProfesor){\n"
+                out.println("function loadDoc(nombreProfesor, idUsuario){\n"
                     + "        if(document.getElementById(\"names\").value.length > 0){\n"
                     + "        var xhttp = new XMLHttpRequest();\n"
                     + "                        xhttp.onreadystatechange = function(){\n"
                     + "                        if(xhttp.readyState == 4 && xhttp.status == 200) {\n"
-                    + "                            cargarTabla(xhttp, nombreProfesor);\n"
+                    + "                            cargarTabla(xhttp, nombreProfesor, idUsuario);\n"
                     + "                        }\n"
                     + "            };\n"
                     + "            xhttp.open(\"GET\", \"BD.xml\", true);\n"
                     + "            xhttp.send();\n"
                     + "        }\n"
                     + "    }");
-                out.println("function cargarTabla(xml, nombreProfesor){\n"
+                out.println("function cargarTabla(xml, nombreProfesor, idUsuario){\n"
                     + "        var i, j;\n"
                     + "        var xmlDoc = xml.responseXML;\n"
                     + "        var table = \"<tr><th>ID</th><th>Nombre</th><th>Administrar</th></tr>\";\n"
@@ -225,10 +225,12 @@ public class adminGrupos extends HttpServlet {
                     + "                    for (i = 0; i < x.length; i++) {\n"
                     + "                        //Contiene el nombre del grupo\n"
                     + "                        var elemento = x[i].getElementsByTagName('grupo')[0].childNodes[0].nodeValue;\n"
+                    + "                        var idRecibido = idUsuario+\"\";"
                     + "                        //Extraer del nombre del profesor la cadena del tamaño del prefijo a comparar\n"
                     + "                        var aux = elemento.substring(0,nombreProfesor.length);\n"
                     + "                        //Si el prefijo coincide con el prefijo del profesor lo muestra en la tabla\n"
                     + "                        if(nombreProfesor === aux){\n"
+                    + "                         if(x[i].getElementsByTagName('idProfesor')[0].childNodes[0].nodeValue === idRecibido){"
                     + "                            table += \"<tr><td>\" +\n"
                     + "                            x[i].getAttribute('id') +\n"
                     + "                            \"</td><td>\"+\n"
@@ -239,6 +241,7 @@ public class adminGrupos extends HttpServlet {
                     + "                            \"<input type='submit' value='Administrar'>\"+\n"
                     + "                            \"</form>\"+\n"
                     + "                            \"</td></tr>\";\n"
+                    + "                          }"
                     + "                        }\n"
                     + "                }\n"
                     + "                document.getElementById(\"miTabla\").innerHTML = table;\n"

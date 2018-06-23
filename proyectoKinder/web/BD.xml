@@ -113,7 +113,7 @@
     <idProfesor>2</idProfesor>
     <nombreProfesor>Ian Mendoza</nombreProfesor>
     <inscritos>2</inscritos>
-    <idAlumno>7</idAlumno>
+    <idAlumno>12</idAlumno>
     <idAlumno>13</idAlumno>
   </GRUPO>
   <EJERCICIO id="13" idProfesor="8">
@@ -161,17 +161,21 @@
     <respuestaIncorrecta>tal vez</respuestaIncorrecta>
   </EJERCICIO>
   <EJERCICIOS_GRUPO idGrupo="1" idProfesor="2">
-      <idEjercicio>7</idEjercicio>
-      <idEjercicio>13</idEjercicio>
-      <idEjercicio>14</idEjercicio>
-      <idEjercicio>8</idEjercicio>
+    <idEjercicio>7</idEjercicio>
+    <idEjercicio>13</idEjercicio>
+    <idEjercicio>14</idEjercicio>
+    <idEjercicio>8</idEjercicio>
   </EJERCICIOS_GRUPO>
   <RONDA_ALUMNO idGrupo="2" idAlumno="12" idProfesor="2">
-      <idRonda>1</idRonda>
-      <calificacion>8</calificacion>
-      <idEjercicio>7</idEjercicio>
-      <idEjercicio>8</idEjercicio>
-      <idEjercicio>10</idEjercicio>
+    <idRonda>1</idRonda>
+    <calificacion>8</calificacion>
+    <idEjercicio>7</idEjercicio>
+    <idEjercicio>8</idEjercicio>
+    <idEjercicio>10</idEjercicio>
   </RONDA_ALUMNO>
+  <EJERCICIOS_GRUPO idGrupo="2" idProfesor="2">
+    <idEjercicio>5</idEjercicio>
+    <idEjercicio>7</idEjercicio>
+  </EJERCICIOS_GRUPO>
 </raiz>
 

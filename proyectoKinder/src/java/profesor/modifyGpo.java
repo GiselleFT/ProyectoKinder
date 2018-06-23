@@ -89,7 +89,7 @@ public class modifyGpo extends HttpServlet {
                             xmlo.output(doc, fw);//se escribe en el archivo
                             fw.flush();
                         }
-                        response.sendRedirect("adminGrupos");
+                        response.sendRedirect("adminGrupos?mod=1");
                     }
                     
                 } 
