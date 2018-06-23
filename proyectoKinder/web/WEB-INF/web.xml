@@ -168,6 +168,10 @@
         <servlet-name>puntaje</servlet-name>
         <servlet-class>alumno.puntaje</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>verCalificacionesProfesor</servlet-name>
+        <servlet-class>profesor.verCalificacionesProfesor</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>formInicioSesion</servlet-name>
         <url-pattern>/formInicioSesion</url-pattern>
@@ -335,6 +339,10 @@
     <servlet-mapping>
         <servlet-name>puntaje</servlet-name>
         <url-pattern>/puntaje</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>verCalificacionesProfesor</servlet-name>
+        <url-pattern>/verCalificacionesProfesor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

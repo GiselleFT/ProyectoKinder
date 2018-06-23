@@ -69,10 +69,11 @@
                 <xs:element name="RONDA_ALUMNO">
                         <xs:complexType>
                             <xs:sequence>
-                                <xs:element name="idRonda" type="xs:integer"/>
+                                <xs:element name="nombreAlumno" type="xs:string"/>
                                 <xs:element name="calificacion" type="xs:integer"/>
                                 <xs:element name="idEjercicio" type="xs:integer" minOccurs="3" maxOccurs="3"/>
                             </xs:sequence>
+                            <xs:attribute name="idRonda" type="xs:integer" use= "required"/>
                             <xs:attribute name="idGrupo" type="xs:integer" use="required"/>
                             <xs:attribute name="idAlumno" type="xs:integer" use="required"/>
                             <xs:attribute name="idProfesor" type="xs:integer" use="required"/>

@@ -58,6 +58,7 @@ public class agregarEjercicio extends HttpServlet {
         out.println("                    <ul class=\"nav nav-second-level collapse\">");
         out.println("                        <li><a href=\"adminEjercicios\">Administrar Ejercicios</a></li>");
         out.println("                        <li><a href=\"adminGrupos\">Administrar Grupos</a></li>");
+        out.println("                        <li><a href=\"verCalificacionesProfesor\">Ver Calificaciones</a></li>");
         out.println("                    </ul>");
         out.println("                </li>");
         out.println("                <li class=\"special_link\">");

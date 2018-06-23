@@ -15,7 +15,7 @@ import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 
-public class adminGrupos extends HttpServlet {
+public class verCalificacionesProfesor extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -55,7 +55,7 @@ public class adminGrupos extends HttpServlet {
             //Se obtiene el elemento raiz del xml
             Element raiz = doc.getRootElement();
             //Lista de nodos almacenados, lo que esta contenido entre las etiquetas de raiz
-            List lista = raiz.getChildren("GRUPO");
+            
 
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -109,18 +109,18 @@ public class adminGrupos extends HttpServlet {
             out.println("                </div>");
             out.println("            </div>");
             out.println("<br />");
-//            if (request.getParameter("eliminado")!=null) {
-//                out.println("<div class=\"alert alert-danger\" role=\"alert\"><H4>REGISTRO ELIMINADO</H4></div>");
-//                
-//            }
-//            if (request.getParameter("error")!=null) {
-//                out.println("<div class=\"alert alert-danger\" role=\"alert\"><H4>NO FUE POSIBLE CREAR EL EJERCICIO - ARCHIVOS FALTANTES</H4></div>");
-//                
-//            }
-//            if (request.getParameter("listo")!=null) {
-//                out.println("<div class=\"alert alert-success\" role=\"alert\"><H4>REGISTRO EXITOSO!</H4></div>");
-//                
-//            }
+            if (request.getParameter("eliminado")!=null) {
+                out.println("<div class=\"alert alert-danger\" role=\"alert\"><H4>REGISTRO ELIMINADO</H4></div>");
+                
+            }
+            if (request.getParameter("error")!=null) {
+                out.println("<div class=\"alert alert-danger\" role=\"alert\"><H4>NO FUE POSIBLE CREAR EL EJERCICIO - ARCHIVOS FALTANTES</H4></div>");
+                
+            }
+            if (request.getParameter("listo")!=null) {
+                out.println("<div class=\"alert alert-success\" role=\"alert\"><H4>REGISTRO EXITOSO!</H4></div>");
+                
+            }
             if (request.getParameter("cancelMod")!=null) {
                 out.println("<div class=\"alert alert-danger\" role=\"alert\"><H4>MODIFICACIÓN CANCELADA</H4></div>");
                 
@@ -129,12 +129,13 @@ public class adminGrupos extends HttpServlet {
                 out.println("<div class=\"alert alert-success\" role=\"alert\"><H4>MODIFICACIÓN EXITOSA!</H4></div>");
                 
             }
+            
             out.println("            <div class=\"wrapper  wrapper-content animated fadeInRight\">");
             out.println("                    <div class=\"row\">");
             out.println("                <div class=\"col-lg-12\">");
             out.println("                    <div class=\"ibox float-e-margins\">");
             out.println("                        <div class=\"ibox-title\">");
-            out.println("                            <h5>Grupos</h5>");
+            out.println("                            <h5>Calificaciones</h5>");
             out.println("                            <div class=\"ibox-tools\">");
             out.println("                                <a class=\"collapse-link\">");
             out.println("                                    <i class=\"fa fa-chevron-up\"></i>");
@@ -158,42 +159,76 @@ public class adminGrupos extends HttpServlet {
             out.println("                                <table id='miTabla' class=\"footable table table-stripped\" data-page-size=\"32\" data-filter=#filter>");
             out.println("                                    <thead>");
             out.println("                                    <tr>");
-            out.println("<th>ID</th>");
-            out.println("<th>Nombre</th>");
-            out.println("<th>Administrar</th>");
+            out.println("<th>ID ronda</th>");
+            out.println("<th>Grupo</th>");
+            out.println("<th>Alumno</th>");
+            out.println("<th>Calificacion</th>");
             out.println("                                    </tr>");
             out.println("                                    </thead>");
             
-
+            List lista = raiz.getChildren("RONDA_ALUMNO");
             //Para recorrer el arbol de nodos
             for (int i = 0; i < lista.size(); i++) {//Por cada elemento  
                 //Se procesa un elemento de la lista
                 Element element = (Element) lista.get(i);//guarda los datos de la lista en un arreglo de elementos
                 //Obtiene los elementos que contiene el elemento actual
                 List lista2 = element.getChildren();//pasa los elementos a lista2
-                //Se recupera nombre
-                Element idProfesor = (Element) lista2.get(1);
-                //Se recupera ID de ejercicio
-                Attribute id = element.getAttribute("id");
-              
-                //Solo se pueden mostrar los grupos del profesor
-                if (idUsuario.matches(idProfesor.getText())) {
-                    Element grupo = (Element) lista2.get(0);
+                //Se recupera idRonda
+                Element nombreAlumno = (Element) lista2.get(0);
+                Element calificacion = (Element) lista2.get(1);
+                //Se recuperan ID's de ronda
+                Attribute idRonda = element.getAttribute("idRonda");
+                Attribute idGrupo = element.getAttribute("idGrupo");
+                //Attribute idAlumno = element.getAttribute("idAlumno");
+                Attribute idProfesor = element.getAttribute("idProfesor");
+                
+                List listaGrupos = raiz.getChildren("GRUPO");
+                List listaUsuarios = raiz.getChildren("USUARIO");
+                
+                
+                //Solo se pueden mostrar los ejercicios que el profesor es autor
+                if (idUsuario.matches(idProfesor.getValue())) {
+                    String nombreGrupo = "";
+                    for (int j = 0; j < listaGrupos.size(); j++) {
+                        Element eGrupo = (Element)listaGrupos.get(j);
+                        List infoGrupo = eGrupo.getChildren();
+                        Element nGrupo = (Element)infoGrupo.get(0);
+                        Attribute idG = eGrupo.getAttribute("id");
+                        //Se encontró el grupo al que pertenece la ronda
+                        if(idGrupo.getValue().matches(idG.getValue())){
+                            nombreGrupo = nGrupo.getText();
+                        }
+                    }
+                    
+//                    String nombreAlumno = "";
+//                    for (int j = 0; j < listaUsuarios.size(); j++) {
+//                        Element eUsuario = (Element)listaUsuarios.get(j);
+//                        List infoUsuario = eUsuario.getChildren();
+//                        Element nUsuario = (Element)infoUsuario.get(0);
+//                        Attribute idU = eUsuario.getAttribute("id");
+//                        Attribute idTipoU = eUsuario.getAttribute("tipo");
+//                        //Se encontró el alumno que hizo la ronda
+//                        if(idTipoU.getValue().equals(3) && idAlumno.getValue().matches(idU.getValue())){
+//                            nombreAlumno = nUsuario.getText();
+//                        }
+//                    }
+                    
+                    
+                    
                     //Se crea una fila para desplegar info de ejercicio
                     out.println("                                    <tbody>");
                     out.println("<tr>");
                     out.println("<td>");
-                    out.println(id.getValue());
+                    out.println(idRonda.getValue());
                     out.println("</td>");
                     out.println("<td>");
-                    out.println(grupo.getText());
+                    out.println(nombreGrupo);
                     out.println("</td>");
-                    //Por medio del id, se localiza al ejercicio por ver
                     out.println("<td>");
-                    out.println("<form action='adminGpo' method='post'>");
-                    out.println("<input type='hidden' name='id' value=" + id.getValue() + ">");//Del grupo
-                    out.println("<input type='submit' value='Administrar' class=\"btn btn-w-m btn-default\">");
-                    out.println("</form>");
+                    out.println(nombreAlumno.getText());
+                    out.println("</td>");
+                    out.println("<td>");
+                    out.println(calificacion.getText());
                     out.println("</td>");
                     out.println("</tr>");
                     out.println("                                    </tbody>");
@@ -221,28 +256,27 @@ public class adminGrupos extends HttpServlet {
                 out.println("function cargarTabla(xml, nombreProfesor, idUsuario){\n"
                     + "        var i, j;\n"
                     + "        var xmlDoc = xml.responseXML;\n"
-                    + "        var table = \"<tr><th>ID</th><th>Nombre</th><th>Administrar</th></tr>\";\n"
-                    + "                var x = xmlDoc.getElementsByTagName(\"GRUPO\");\n"
+                    + "        var table = \"<tr><th>ID ronda</th><th>Grupo</th><th>Alumno</th><th>Calificacion</th></tr>\";\n"
+                    + "                var x = xmlDoc.getElementsByTagName(\"RONDA_ALUMNO\");\n"
                     + "                    for (i = 0; i < x.length; i++) {\n"
-                    + "                        //Contiene el nombre del grupo\n"
-                    + "                        var elemento = x[i].getElementsByTagName('grupo')[0].childNodes[0].nodeValue;\n"
+                    + "                        //Contiene el nombre del profesor\n"
+                    + "                        var elemento = x[i].getElementsByTagName('nombreAlumno')[0].childNodes[0].nodeValue;\n"
                     + "                        var idRecibido = idUsuario+\"\";"
                     + "                        //Extraer del nombre del profesor la cadena del tamaño del prefijo a comparar\n"
                     + "                        var aux = elemento.substring(0,nombreProfesor.length);\n"
                     + "                        //Si el prefijo coincide con el prefijo del profesor lo muestra en la tabla\n"
                     + "                        if(nombreProfesor === aux){\n"
-                    + "                         if(x[i].getElementsByTagName('idProfesor')[0].childNodes[0].nodeValue === idRecibido){"
+                    + "                         if(x[i].getAttribute('idProfesor') === idRecibido){"
                     + "                            table += \"<tr><td>\" +\n"
-                    + "                            x[i].getAttribute('id') +\n"
+                    + "                            x[i].getAttribute('idRonda') +\n"
                     + "                            \"</td><td>\"+\n"
-                    + "                            x[i].getElementsByTagName('grupo')[0].childNodes[0].nodeValue + \n"
+                    + "                            x[i].getAttribute('idGrupo') + \n"
                     + "                            \"</td><td>\"+\n"
-                    + "                            \"<form action='adminGpo' method='post'>\"+\n"
-                    + "                            \"<input type='hidden' name='id' value='\"+x[i].getAttribute('id')+\"'>\"+\n"
-                    + "                            \"<input type='submit' value='Administrar'>\"+\n"
-                    + "                            \"</form>\"+\n"
+                    + "                            x[i].getElementsByTagName('nombreAlumno')[0].childNodes[0].nodeValue"
+                    + "                            \"</td><td>\"+\n"
+                    + "                            x[i].getElementsByTagName('calificacion')[0].childNodes[0].nodeValue;"
                     + "                            \"</td></tr>\";\n"
-                    + "                          }"
+                    + "                         }"
                     + "                        }\n"
                     + "                }\n"
                     + "                document.getElementById(\"miTabla\").innerHTML = table;\n"
