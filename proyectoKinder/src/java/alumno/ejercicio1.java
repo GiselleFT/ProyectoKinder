@@ -68,6 +68,19 @@ public class ejercicio1 extends HttpServlet {
             //Se obtiene el elemento raiz del xml
             Element raiz = doc.getRootElement();
             
+            List lista_nombreUsuario = raiz.getChildren("USUARIO");
+            for (int i = 0; i < lista_nombreUsuario.size(); i++) {
+                Element elem1 = (Element)lista_nombreUsuario.get(i);
+                List lista_nombre = elem1.getChildren();
+                Attribute idElement = elem1.getAttribute("id");
+                if (idElement.getValue().matches(idUsuario)) {
+                    Element nombre = (Element)lista_nombre.get(0);
+                    session.setAttribute("nombreAlumnoRA", nombre.getText());
+                }
+            }
+            
+            
+            
             
             List lista_grupos = raiz.getChildren("GRUPO");
             Element elem;
@@ -76,9 +89,12 @@ public class ejercicio1 extends HttpServlet {
             for (int i = 0; i < lista_grupos.size(); i++) {
                 elem = (Element) lista_grupos.get(i);
                 List lista_grupos2 = elem.getChildren();
+                Attribute idElement = elem.getAttribute("id");
                 for (int j = 4; j < lista_grupos2.size(); j++) {
                    Element id_alumno = (Element) lista_grupos2.get(j);
                     if (id_alumno.getText().equals(idUsuario)) { //si uno de los alumnos en un grupo soy yo (el alumno logueado)
+                        session.setAttribute("idGrupoRA",idElement.getValue());
+                        session.setAttribute("idAlumnoRA", idUsuario);
                         idElem = elem.getAttribute("id");
                         bandera=1;
                         break;
@@ -103,6 +119,8 @@ public class ejercicio1 extends HttpServlet {
                 elemento = (Element) lista_ejerciciosGrupos.get(q);
                 if (elemento.getAttribute("idGrupo").getValue().equals(idElem.getValue())) {
                     indice=q;
+                    Attribute idElemento = elemento.getAttribute("idProfesor");
+                    session.setAttribute("idProfesorRA", idElemento.getValue());
                 }
             }
             if (indice!=-1) {
@@ -129,6 +147,7 @@ public class ejercicio1 extends HttpServlet {
                  Attribute idElement = element.getAttribute("id");
                  Element a = (Element)id_ejercicios.get(ejer1);
                  if (idElement.getValue().equals(a.getValue())) {
+                     session.setAttribute("idEjercicio1", idElement.getValue());
                      System.out.println("Encontré el ejercicio que buscaba");
                      break;
                 }

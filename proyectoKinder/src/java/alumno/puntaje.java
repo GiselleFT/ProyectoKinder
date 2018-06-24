@@ -5,13 +5,21 @@
  */
 package alumno;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.jdom.Document;
+import org.jdom.Element;
+import org.jdom.input.SAXBuilder;
+import org.jdom.output.Format;
+import org.jdom.output.XMLOutputter;
 
 /**
  *
@@ -39,6 +47,25 @@ public class puntaje extends HttpServlet {
             response.sendRedirect("login.html");
         }
         //*******************************************//
+        
+        String idGrupo = (String)session.getAttribute("idGrupoRA");
+        String idAlumno = (String)session.getAttribute("idAlumnoRA");
+        String idProfesor = (String)session.getAttribute("idProfesorRA");
+        String nombreAlumno = (String)session.getAttribute("nombreAlumnoRA");
+        String idEjercicio1 = (String)session.getAttribute("idEjercicio1");
+        String idEjercicio2 = (String)session.getAttribute("idEjercicio2");
+        String idEjercicio3 = (String)session.getAttribute("idEjercicio3");
+        
+        System.out.println("-------------INFO. QUE RECIBO PARA EXAMEN-----------");
+        System.out.println(idGrupo);
+        System.out.println(idAlumno);
+        System.out.println(idProfesor);
+        System.out.println(nombreAlumno);
+        System.out.println(idEjercicio1);
+        System.out.println(idEjercicio2);
+        System.out.println(idEjercicio3);
+        System.out.println("----------------------------------------------------");
+        
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
@@ -98,7 +125,7 @@ public class puntaje extends HttpServlet {
         out.println("                    </p>");
         out.println("                    <br/>");
         out.println("                    <h2><font color=\"blue\"><b>");
-        out.println("                    Puntuacion final:");
+        out.println("                    Calificación:");
         out.println("                    </b></font></h2>");
         out.println("                    <br/>");
         int calif1 = Integer.parseInt((String) session.getAttribute("clics1"));
@@ -153,8 +180,12 @@ public class puntaje extends HttpServlet {
         else{
             calif3=0;
         }
+        
         int resultado = calif1 + calif2 + calif3;
-        out.println("<h3><b>" + resultado + " / 9</b></h3>");
+        double calif = (resultado*10/9);
+        int calificacio = (int)calif;
+        String calificacion = String.valueOf(calificacio);
+        out.println("<h3><b>" + calificacio + "</b></h3>");
         out.println("                    <br/>");
         out.println("                    <br/>");
         if (resultado==9) {
@@ -184,5 +215,77 @@ public class puntaje extends HttpServlet {
         out.println("</body>");
         out.println("</html>");
         out.println("");
+        
+        try {
+                //Contruye un documento JDOM usando SAX, para procesar xml
+                SAXBuilder builder = new SAXBuilder();
+                //Para obtener la ruta absoluta del proyecto
+                String rutaAbsoluta = request.getSession().getServletContext().getRealPath("/");
+                rutaAbsoluta = rutaAbsoluta.replace("\\", "/");
+                rutaAbsoluta = rutaAbsoluta.replaceAll("/build", "");
+                rutaAbsoluta = rutaAbsoluta.concat("BD.xml");
+                File BD = new File(rutaAbsoluta);
+                //Para cargar el documento xml
+                Document doc = builder.build(BD);//documentos para contruir base de datos
+                //Se obtiene el elemento raiz del xml
+                Element raiz = doc.getRootElement();
+                //Crea los elementos que conforman a un Ejercicio con los valores del nuevo registro
+                Element ronda_alumno = new Element("RONDA_ALUMNO");
+                Element nombreAlumnoF = new Element("nombreAlumno");
+                Element calificacionF = new Element("calificacion");
+                Element ejercicio1 = new Element("idEjercicio");
+                Element ejercicio2 = new Element("idEjercicio");
+                Element ejercicio3 = new Element("idEjercicio");
+
+                //Lista de nodos almacenados, lo que esta contenido entre las etiquetas de raiz
+                List lista = raiz.getChildren("RONDA_ALUMNO");
+                String id = "";
+                int id2;
+                //Obtiene informacion del último elemento añadido, para asignar ID
+                if (lista.size() == 0) {
+                    id = "1";
+                } else {
+                    Element e = (Element) lista.get(lista.size() - 1);
+                    id = e.getAttributeValue("idRonda");
+                    id2 = Integer.parseInt(id) + 1;
+                    id = "" + id2;//para ultimo id
+                }
+
+                ronda_alumno.setAttribute("idRonda", id);
+                ronda_alumno.setAttribute("idGrupo", idGrupo);
+                ronda_alumno.setAttribute("idAlumno", idAlumno);
+                ronda_alumno.setAttribute("idProfesor", idProfesor);
+                
+
+                nombreAlumnoF.setText(nombreAlumno);//setText lo que va entre etiqueta de apertura y cierre
+                calificacionF.setText(calificacion);
+                ejercicio1.setText(idEjercicio1);
+                ejercicio2.setText(idEjercicio2);
+                ejercicio3.setText(idEjercicio3);
+
+                //Agregar contenido de los elementos a nodo padre (EJERCICIO)
+                ronda_alumno.addContent(nombreAlumnoF);
+                ronda_alumno.addContent(calificacionF);
+                ronda_alumno.addContent(ejercicio1);
+                ronda_alumno.addContent(ejercicio2);
+                ronda_alumno.addContent(ejercicio3);
+
+                //Agregar contenido de USUARIO a raiz
+                raiz.addContent(ronda_alumno);
+
+                //Se crea serializador xml (para guardar en el xml)
+                XMLOutputter xmlo = new XMLOutputter();
+
+                //validar que si escriba bien el archivo, guardar los cambios al archivo
+//                try (FileWriter fw = new FileWriter(rutaAbsoluta+"\\BD.xml")){
+                try (FileWriter fw = new FileWriter(rutaAbsoluta)) {
+                    xmlo.setFormat(Format.getPrettyFormat());//Formato de salida al xml
+                    xmlo.output(doc, fw);//se escribe en el archivo
+                    fw.flush();
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
     }
 }

@@ -136,6 +136,7 @@ public class ejercicio3 extends HttpServlet {
                  Attribute idElement = element.getAttribute("id");
                  Element a = (Element)id_ejercicios.get(ejer1);
                  if (idElement.getValue().equals(a.getValue())) {
+                     session.setAttribute("idEjercicio3", idElement.getValue());
                      System.out.println("Encontré el ejercicio que buscaba");
                      break;
                 }

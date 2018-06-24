@@ -102,8 +102,8 @@
   </USUARIO>
   <GRUPO id="1">
     <grupo>1CM1</grupo>
-    <idProfesor>8</idProfesor>
-    <nombreProfesor>Tona Barrera</nombreProfesor>
+    <idProfesor>2</idProfesor>
+    <nombreProfesor>Ian Mendoza</nombreProfesor>
     <inscritos>2</inscritos>
     <idAlumno>7</idAlumno>
     <idAlumno>11</idAlumno>
@@ -116,7 +116,7 @@
     <idAlumno>12</idAlumno>
     <idAlumno>13</idAlumno>
   </GRUPO>
-  <EJERCICIO id="13" idProfesor="8">
+  <EJERCICIO id="13" idProfesor="2">
     <nombre>Ejercicio 1</nombre>
     <instruccion>?Con que sonido comienza la palabra?</instruccion>
     <audioInstruccion>8_instruccionComienzaSonido.mp3</audioInstruccion>
@@ -127,7 +127,7 @@
     <respuestaIncorrecta>Er</respuestaIncorrecta>
     <respuestaIncorrecta>Ir</respuestaIncorrecta>
   </EJERCICIO>
-  <EJERCICIO id="14" idProfesor="8">
+  <EJERCICIO id="14" idProfesor="2">
     <nombre>Ejercicio 2</nombre>
     <instruccion>Complete la palabra que corresponde a la imagen. P E . . .</instruccion>
     <audioInstruccion>8_instruccionComplete.mp3</audioInstruccion>
@@ -166,14 +166,14 @@
     <idEjercicio>14</idEjercicio>
     <idEjercicio>8</idEjercicio>
   </EJERCICIOS_GRUPO>
-  <RONDA_ALUMNO idRonda= "1" idGrupo="2" idAlumno="12" idProfesor="2">
+  <RONDA_ALUMNO idRonda="1" idGrupo="2" idAlumno="12" idProfesor="2">
     <nombreAlumno>Esli Osorio</nombreAlumno>
     <calificacion>8</calificacion>
     <idEjercicio>7</idEjercicio>
     <idEjercicio>8</idEjercicio>
     <idEjercicio>10</idEjercicio>
   </RONDA_ALUMNO>
-  <RONDA_ALUMNO idRonda= "2" idGrupo="2" idAlumno="13" idProfesor="2">
+  <RONDA_ALUMNO idRonda="2" idGrupo="2" idAlumno="13" idProfesor="2">
     <nombreAlumno>Mario Aburto</nombreAlumno>
     <calificacion>9</calificacion>
     <idEjercicio>7</idEjercicio>
@@ -184,5 +184,33 @@
     <idEjercicio>5</idEjercicio>
     <idEjercicio>7</idEjercicio>
   </EJERCICIOS_GRUPO>
+  <RONDA_ALUMNO idRonda="3" idGrupo="1" idAlumno="7" idProfesor="2">
+    <nombreAlumno>Elioth Monroy</nombreAlumno>
+    <calificacion>10</calificacion>
+    <idEjercicio>7</idEjercicio>
+    <idEjercicio>14</idEjercicio>
+    <idEjercicio>13</idEjercicio>
+  </RONDA_ALUMNO>
+  <RONDA_ALUMNO idRonda="4" idGrupo="1" idAlumno="7" idProfesor="2">
+    <nombreAlumno>Elioth Monroy</nombreAlumno>
+    <calificacion>5</calificacion>
+    <idEjercicio>7</idEjercicio>
+    <idEjercicio>13</idEjercicio>
+    <idEjercicio>8</idEjercicio>
+  </RONDA_ALUMNO>
+  <RONDA_ALUMNO idRonda="5" idGrupo="1" idAlumno="7" idProfesor="2">
+    <nombreAlumno>Elioth Monroy</nombreAlumno>
+    <calificacion>7</calificacion>
+    <idEjercicio>13</idEjercicio>
+    <idEjercicio>7</idEjercicio>
+    <idEjercicio>8</idEjercicio>
+  </RONDA_ALUMNO>
+  <RONDA_ALUMNO idRonda="6" idGrupo="1" idAlumno="7" idProfesor="2">
+    <nombreAlumno>Elioth Monroy</nombreAlumno>
+    <calificacion>6</calificacion>
+    <idEjercicio>8</idEjercicio>
+    <idEjercicio>7</idEjercicio>
+    <idEjercicio>14</idEjercicio>
+  </RONDA_ALUMNO>
 </raiz>
 
