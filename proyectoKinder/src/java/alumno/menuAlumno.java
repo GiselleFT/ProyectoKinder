@@ -84,6 +84,11 @@ public class menuAlumno extends HttpServlet {
         out.println("                    <h2>Bienvenido alumno: </h2><b><h3>" + usuario + "</h3></b>");
         out.println("                </div>");
         out.println("            </div>");
+        out.println("<br/>");
+        if (request.getParameter("error")!=null) {
+                out.println("<div class=\"alert alert-danger\" role=\"alert\"><H4>TU GRUPO NO CUENTA CON EJERCICIOS SUFICIENTES PARA REALIZAR UNA PRUEBA</H4></div>");
+                
+            }
         out.println("        </div>");
         out.println("        </div>");
         out.println("    <script src=\"js/jquery-3.1.1.min.js\"></script>");

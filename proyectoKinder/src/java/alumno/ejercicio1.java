@@ -136,6 +136,9 @@ public class ejercicio1 extends HttpServlet {
             
             //Lista de nodos almacenados, lo que esta contenido entre las etiquetas de raiz
             List lista = raiz.getChildren("EJERCICIO");
+            if (id_ejercicios.size()<3) {
+                response.sendRedirect("menuAlumno?error=0");
+            }
             Integer ejer1 = (int) (Math.random() * id_ejercicios.size());
             
             System.out.println(ejer1+" - Numero Random");
