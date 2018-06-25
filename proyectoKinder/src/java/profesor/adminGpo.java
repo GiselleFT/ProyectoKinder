@@ -32,12 +32,6 @@ public class adminGpo extends HttpServlet {
             
             PrintWriter out = response.getWriter();
             
-            //info del administrador
-//            System.out.println("agregarUsuario");
-//            System.out.println("admin= "+usuario);
-//            System.out.println("admin= "+contrasena);
-//            System.out.println("admin= "+tipoAtt);
-            
 
             //********Valida Tipo Usuario****************//
             if(!tipoAtt.equals("2")){
@@ -182,13 +176,13 @@ public class adminGpo extends HttpServlet {
                 if(!existe){
                     //Crea los elementos que conforman a un EJERCICIOS_GRUPO
                     Element ejerciciosGrupo = new Element("EJERCICIOS_GRUPO");
-                    //Element idEjercicio = new Element("idEjercicio");
+                    Element idEjercicio = new Element("idEjercicio");
                     
                     ejerciciosGrupo.setAttribute("idGrupo",idGrupo);
                     ejerciciosGrupo.setAttribute("idProfesor", idUsuario);
                     
-                    //idEjercicio.setText("");
-                    //ejerciciosGrupo.addContent(idEjercicio);
+                    idEjercicio.setText("0");
+                    ejerciciosGrupo.addContent(idEjercicio);
                     
                     raiz.addContent(ejerciciosGrupo);
                     

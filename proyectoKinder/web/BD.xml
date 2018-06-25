@@ -203,7 +203,6 @@
     <idEjercicio>3</idEjercicio>
     <idEjercicio>7</idEjercicio>
   </EJERCICIOS_GRUPO>
-  <EJERCICIOS_GRUPO idGrupo="3" idProfesor="4" />
   <RONDA_ALUMNO idRonda="1" idGrupo="1" idAlumno="5" idProfesor="2">
     <nombreAlumno>Samuel Arteaga</nombreAlumno>
     <calificacion>4</calificacion>
@@ -292,5 +291,19 @@
     <idEjercicio>4</idEjercicio>
     <idEjercicio>5</idEjercicio>
   </RONDA_ALUMNO>
+  <EJERCICIOS_GRUPO idGrupo="3" idProfesor="4">
+    <idEjercicio>9</idEjercicio>
+  </EJERCICIOS_GRUPO>
+  <EJERCICIO id="9" idProfesor="4">
+    <nombre>borrar</nombre>
+    <instruccion>borrar</instruccion>
+    <audioInstruccion>4_arcoiris.mp3</audioInstruccion>
+    <imagen>4_arcoiris.jpg</imagen>
+    <audioImagen>4_instruccionComienzaSonido.mp3</audioImagen>
+    <pista>borrar</pista>
+    <respuestaCorrecta>borrar</respuestaCorrecta>
+    <respuestaIncorrecta>borrar</respuestaIncorrecta>
+    <respuestaIncorrecta>borrar</respuestaIncorrecta>
+  </EJERCICIO>
 </raiz>
 

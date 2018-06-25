@@ -67,50 +67,51 @@ public class ejercicio1 extends HttpServlet {
             Document doc = builder.build(BD);//documentos para contruir base de datos
             //Se obtiene el elemento raiz del xml
             Element raiz = doc.getRootElement();
-            
+
             List lista_nombreUsuario = raiz.getChildren("USUARIO");
             for (int i = 0; i < lista_nombreUsuario.size(); i++) {
-                Element elem1 = (Element)lista_nombreUsuario.get(i);
+                Element elem1 = (Element) lista_nombreUsuario.get(i);
                 List lista_nombre = elem1.getChildren();
                 Attribute idElement = elem1.getAttribute("id");
                 if (idElement.getValue().matches(idUsuario)) {
-                    Element nombre = (Element)lista_nombre.get(0);
+                    Element nombre = (Element) lista_nombre.get(0);
                     session.setAttribute("nombreAlumnoRA", nombre.getText());
                 }
             }
-            
-            
-            
-            
+
             List lista_grupos = raiz.getChildren("GRUPO");
             Element elem;
             Attribute idElem = null;
-            int bandera=0;
+            int bandera = 0;
             for (int i = 0; i < lista_grupos.size(); i++) {
                 elem = (Element) lista_grupos.get(i);
                 List lista_grupos2 = elem.getChildren();
                 Attribute idElement = elem.getAttribute("id");
-                for (int j = 4; j < lista_grupos2.size(); j++) {
-                   Element id_alumno = (Element) lista_grupos2.get(j);
-                    if (id_alumno.getText().equals(idUsuario)) { //si uno de los alumnos en un grupo soy yo (el alumno logueado)
-                        session.setAttribute("idGrupoRA",idElement.getValue());
-                        session.setAttribute("idAlumnoRA", idUsuario);
-                        idElem = elem.getAttribute("id");
-                        bandera=1;
-                        break;
+                if (lista_grupos2.size() > 4) {
+                    for (int j = 4; j < lista_grupos2.size(); j++) {
+                        Element id_alumno = (Element) lista_grupos2.get(j);
+                        if (id_alumno.getText().equals(idUsuario)) { //si uno de los alumnos en un grupo soy yo (el alumno logueado)
+                            session.setAttribute("idGrupoRA", idElement.getValue());
+                            session.setAttribute("idAlumnoRA", idUsuario);
+                            idElem = elem.getAttribute("id");
+                            bandera = 1;
+                            break;
+                        }
                     }
+                } else {
+                    response.sendRedirect("menuAlumno?error=0");
                 }
-                if (bandera==1) {
+
+                if (bandera == 1) {
                     break;
                 }
             }
-            if (idElem!=null) {
+            if (idElem != null) {
                 System.out.println("Pertenece a un grupo");
-            }
-            else{
+            } else {
                 System.out.println("No pertenece a ningun grupo");
             }
-            System.out.println(idElem.getValue()+"*************************************************************");
+            System.out.println(idElem.getValue() + "*************************************************************");
             //----------------------------------------------------------------------------------------------------------
             List lista_ejerciciosGrupos = raiz.getChildren("EJERCICIOS_GRUPO");
             Element elemento;
@@ -118,54 +119,53 @@ public class ejercicio1 extends HttpServlet {
             for (int q = 0; q < lista_ejerciciosGrupos.size(); q++) {
                 elemento = (Element) lista_ejerciciosGrupos.get(q);
                 if (elemento.getAttribute("idGrupo").getValue().equals(idElem.getValue())) {
-                    indice=q;
+                    indice = q;
                     Attribute idElemento = elemento.getAttribute("idProfesor");
                     session.setAttribute("idProfesorRA", idElemento.getValue());
                 }
             }
-            if (indice!=-1) {
+            if (indice != -1) {
                 System.out.println("ENCONTRO EL EJERCICIO GRUPO QUE BUSCABAMOS");
-            }
-            else{
+            } else {
                 System.out.println("NO EXISTE EL EJERCICIO GRUPO QUE BUSCABAMOS");
             }
             //--------------------------------------------------------------------------------------------
+            
+            System.out.println(indice);
             elemento = (Element) lista_ejerciciosGrupos.get(indice);//Este ya es el conjunto de ejercicios que quiero
+            
             List id_ejercicios = elemento.getChildren();
-            
-            
+
             //Lista de nodos almacenados, lo que esta contenido entre las etiquetas de raiz
             List lista = raiz.getChildren("EJERCICIO");
-            if (id_ejercicios.size()<3) {
+            if (id_ejercicios.size() < 3) {
                 response.sendRedirect("menuAlumno?error=0");
             }
             Integer ejer1 = (int) (Math.random() * id_ejercicios.size());
-            
-            System.out.println(ejer1+" - Numero Random");
-            
+
+            System.out.println(ejer1 + " - Numero Random");
+
             session.setAttribute("random1", ejer1);
             Element element = null;
             for (int i = 0; i < lista.size(); i++) {
-                 element = (Element) lista.get(i);
-                 Attribute idElement = element.getAttribute("id");
-                 Element a = (Element)id_ejercicios.get(ejer1);
-                 if (idElement.getValue().equals(a.getValue())) {
-                     session.setAttribute("idEjercicio1", idElement.getValue());
-                     System.out.println("Encontré el ejercicio que buscaba");
-                     break;
+                element = (Element) lista.get(i);
+                Attribute idElement = element.getAttribute("id");
+                Element a = (Element) id_ejercicios.get(ejer1);
+                if (idElement.getValue().equals(a.getValue())) {
+                    session.setAttribute("idEjercicio1", idElement.getValue());
+                    System.out.println("Encontré el ejercicio que buscaba");
+                    break;
                 }
             }
-            
-            
+
             //Se procesa un elemento de la lista
             //guarda los datos de la lista en un arreglo de elementos
             //encontrar el elemento con el id capturado
             Attribute idProfesorCreador = element.getAttribute("idProfesor");
             idProfesorCreador.getIntValue();
-            
+
             //se ha encontrado ejercicio con id a modificar
             //Obtiene los elementos que contiene el elemento actual
-
             List lista2 = element.getChildren();//pasa los elementos a lista2
             Element nombre = (Element) lista2.get(0);
             Element instruccion = (Element) lista2.get(1);
@@ -304,7 +304,6 @@ public class ejercicio1 extends HttpServlet {
         out.println("<b><font color=\"red\"><h3 id='perder'></h3></font></b>");
         out.println("<script>\n"
                 + "var countClicks = 0;"
-                
                 + "function myFunction2() {\n"
                 + "  if(" + respuestas.get(numero).equals(respuestaCorrectaM) + "){"
                 + "var x = document.getElementById(\"r1\");"
@@ -315,8 +314,8 @@ public class ejercicio1 extends HttpServlet {
                 + "  document.getElementById(\"r3\").disabled = true;\n"
                 + "var m = document.getElementById('contador');\n"
                 + "countClicks++;"
-                +"m.setAttribute('value',countClicks);"
-                + "  document.getElementById(\"siguiente\").disabled = false;\n" 
+                + "m.setAttribute('value',countClicks);"
+                + "  document.getElementById(\"siguiente\").disabled = false;\n"
                 + "}\n"
                 + "else{"
                 + "countClicks++;"
@@ -335,10 +334,10 @@ public class ejercicio1 extends HttpServlet {
                 + "  document.getElementById(\"perder\").innerHTML = '';\n"
                 + "  document.getElementById(\"r1\").disabled = true;\n"
                 + "  document.getElementById(\"r3\").disabled = true;\n"
-                + "var m = document.getElementById('contador');\n" 
+                + "var m = document.getElementById('contador');\n"
                 + "countClicks++;"
-                +"m.setAttribute('value',countClicks);"
-                + "  document.getElementById(\"siguiente\").disabled = false;\n"   
+                + "m.setAttribute('value',countClicks);"
+                + "  document.getElementById(\"siguiente\").disabled = false;\n"
                 + "}\n"
                 + "else{"
                 + "countClicks++;"
@@ -357,10 +356,10 @@ public class ejercicio1 extends HttpServlet {
                 + "  document.getElementById(\"perder\").innerHTML = '';\n"
                 + "  document.getElementById(\"r1\").disabled = true;\n"
                 + "  document.getElementById(\"r2\").disabled = true;\n"
-                + "var m = document.getElementById('contador');\n" 
+                + "var m = document.getElementById('contador');\n"
                 + "countClicks++;"
-                +"m.setAttribute('value',countClicks);"
-                + "  document.getElementById(\"siguiente\").disabled = false;\n"   
+                + "m.setAttribute('value',countClicks);"
+                + "  document.getElementById(\"siguiente\").disabled = false;\n"
                 + "}\n"
                 + "else{"
                 + "countClicks++;"
@@ -372,7 +371,6 @@ public class ejercicio1 extends HttpServlet {
                 + "</script>");
 
         out.println("<script>\n"
-                
                 + "function myFunction() {\n"
                 + "  document.getElementById(\"demo\").innerHTML = '" + pistaM + "';\n"
                 + "}\n"
