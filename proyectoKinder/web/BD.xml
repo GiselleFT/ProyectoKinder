@@ -6,211 +6,292 @@
     <contrasena>root</contrasena>
   </USUARIO>
   <USUARIO id="2" tipo="2">
-    <nombre>Ian Mendoza</nombre>
-    <usuario>ian@gmail.com</usuario>
-    <contrasena>ian</contrasena>
+    <nombre>Ruben Peredo</nombre>
+    <usuario>rperedo@gmail.com</usuario>
+    <contrasena>rperedo</contrasena>
+  </USUARIO>
+  <USUARIO id="3" tipo="2">
+    <nombre>Miguel Olvera</nombre>
+    <usuario>molvera@gmail.com</usuario>
+    <contrasena>molvera</contrasena>
+  </USUARIO>
+  <USUARIO id="4" tipo="2">
+    <nombre>Josefina Hernandez</nombre>
+    <usuario>jhernandez@gmail.com</usuario>
+    <contrasena>jhernandez</contrasena>
+  </USUARIO>
+  <USUARIO id="5" tipo="3">
+    <nombre>Samuel Arteaga</nombre>
+    <usuario>sarteaga@gmail.com</usuario>
+    <contrasena>sarteaga</contrasena>
+  </USUARIO>
+  <USUARIO id="6" tipo="3">
+    <nombre>Giselle Flores</nombre>
+    <usuario>gflores@gmail.com</usuario>
+    <contrasena>gflores</contrasena>
   </USUARIO>
   <USUARIO id="7" tipo="3">
     <nombre>Elioth Monroy</nombre>
-    <usuario>elioth@gmail.com</usuario>
-    <contrasena>elioth</contrasena>
+    <usuario>emonroy@gmail.com</usuario>
+    <contrasena>emonroy</contrasena>
   </USUARIO>
-  <EJERCICIO id="5" idProfesor="2">
-    <nombre>ssamm</nombre>
-    <instruccion>s</instruccion>
-    <audioInstruccion>2_sam</audioInstruccion>
-    <imagen>2_sam</imagen>
-    <audioImagen>2_sam</audioImagen>
-    <pista>s</pista>
-    <respuestaCorrecta>s</respuestaCorrecta>
-    <respuestaIncorrecta>s</respuestaIncorrecta>
-    <respuestaIncorrecta>sam</respuestaIncorrecta>
-  </EJERCICIO>
-  <EJERCICIO id="7" idProfesor="2">
-    <nombre>panky</nombre>
-    <instruccion>panky</instruccion>
-    <audioInstruccion>2_instruccion1.mp3</audioInstruccion>
-    <imagen>2_perritos2.jpg</imagen>
-    <audioImagen>2_perro.mp3</audioImagen>
-    <pista>panky</pista>
-    <respuestaCorrecta>pankybonito</respuestaCorrecta>
-    <respuestaIncorrecta>panqueque</respuestaIncorrecta>
-    <respuestaIncorrecta>panka</respuestaIncorrecta>
-  </EJERCICIO>
-  <EJERCICIO id="8" idProfesor="2">
-    <nombre>CHIDO</nombre>
-    <instruccion>CHIDO</instruccion>
-    <audioInstruccion>2_take_on_me_chida.mp3</audioInstruccion>
-    <imagen>2_20160414_085203.jpg</imagen>
-    <audioImagen>2_take_on_me_chida.mp3</audioImagen>
-    <pista>CHIDO</pista>
-    <respuestaCorrecta>CHIDO</respuestaCorrecta>
-    <respuestaIncorrecta>CHIDO</respuestaIncorrecta>
-    <respuestaIncorrecta>CHIDO</respuestaIncorrecta>
-  </EJERCICIO>
-  <USUARIO id="8" tipo="2">
-    <nombre>Tona Barrera</nombre>
-    <usuario>tona@gmail.com</usuario>
-    <contrasena>tona</contrasena>
+  <USUARIO id="8" tipo="3">
+    <nombre>Ian Mendoza</nombre>
+    <usuario>imendoza@gmail.com</usuario>
+    <contrasena>imendoza</contrasena>
   </USUARIO>
-  <EJERCICIO id="10" idProfesor="2">
-    <nombre>PM</nombre>
-    <instruccion>PM</instruccion>
-    <audioInstruccion>2_take_on_me_chida.mp3</audioInstruccion>
-    <imagen>2_20160414_085203.jpg</imagen>
-    <audioImagen>2_take_on_me_chida.mp3</audioImagen>
-    <pista>PM</pista>
-    <respuestaCorrecta>PM</respuestaCorrecta>
-    <respuestaIncorrecta>PM</respuestaIncorrecta>
-    <respuestaIncorrecta>PM</respuestaIncorrecta>
-  </EJERCICIO>
-  <USUARIO id="9" tipo="2">
+  <USUARIO id="9" tipo="3">
+    <nombre>Tonatihu Barrera</nombre>
+    <usuario>tbarrera@gmail.com</usuario>
+    <contrasena>tbarrera</contrasena>
+  </USUARIO>
+  <USUARIO id="10" tipo="3">
     <nombre>Andres Saldana</nombre>
-    <usuario>andres@gmail.com</usuario>
-    <contrasena>andres</contrasena>
-  </USUARIO>
-  <EJERCICIO id="12" idProfesor="2">
-    <nombre>p</nombre>
-    <instruccion>p</instruccion>
-    <audioInstruccion>2_bicicleta.mp3</audioInstruccion>
-    <imagen>2_avion.jpg</imagen>
-    <audioImagen>2_gato.mp3</audioImagen>
-    <pista>p</pista>
-    <respuestaCorrecta>p</respuestaCorrecta>
-    <respuestaIncorrecta>p</respuestaIncorrecta>
-    <respuestaIncorrecta>p</respuestaIncorrecta>
-  </EJERCICIO>
-  <USUARIO id="10" tipo="1">
-    <nombre>Giselle Flores</nombre>
-    <usuario>gis@gmail.com</usuario>
-    <contrasena>gis</contrasena>
+    <usuario>asaldana@gmail.com</usuario>
+    <contrasena>asaldana</contrasena>
   </USUARIO>
   <USUARIO id="11" tipo="3">
-    <nombre>Samuel Arteaga</nombre>
-    <usuario>sam@gmail.com</usuario>
-    <contrasena>sam</contrasena>
+    <nombre>Esli Osorio</nombre>
+    <usuario>eosorio@gmail.com</usuario>
+    <contrasena>eosorio</contrasena>
   </USUARIO>
   <USUARIO id="12" tipo="3">
-    <nombre>Esli Osorio</nombre>
-    <usuario>esli@gmail.com</usuario>
-    <contrasena>esli</contrasena>
-  </USUARIO>
-  <USUARIO id="13" tipo="3">
     <nombre>Mario Aburto</nombre>
-    <usuario>mario@gmail.com</usuario>
-    <contrasena>mario</contrasena>
+    <usuario>maburto@gmail.com</usuario>
+    <contrasena>maburto</contrasena>
   </USUARIO>
   <GRUPO id="1">
-    <grupo>1CM1</grupo>
+    <grupo>2CM9</grupo>
     <idProfesor>2</idProfesor>
-    <nombreProfesor>Ian Mendoza</nombreProfesor>
-    <inscritos>2</inscritos>
+    <nombreProfesor>Ruben Peredo</nombreProfesor>
+    <inscritos>3</inscritos>
+    <idAlumno>5</idAlumno>
+    <idAlumno>6</idAlumno>
     <idAlumno>7</idAlumno>
-    <idAlumno>11</idAlumno>
   </GRUPO>
   <GRUPO id="2">
     <grupo>1CM2</grupo>
-    <idProfesor>2</idProfesor>
-    <nombreProfesor>Ian Mendoza</nombreProfesor>
-    <inscritos>2</inscritos>
-    <idAlumno>12</idAlumno>
-    <idAlumno>13</idAlumno>
+    <idProfesor>3</idProfesor>
+    <nombreProfesor>Miguel Olvera</nombreProfesor>
+    <inscritos>3</inscritos>
+    <idAlumno>8</idAlumno>
+    <idAlumno>9</idAlumno>
+    <idAlumno>10</idAlumno>
   </GRUPO>
-  <EJERCICIO id="13" idProfesor="2">
+  <GRUPO id="3">
+    <grupo>1CM9</grupo>
+    <idProfesor>4</idProfesor>
+    <nombreProfesor>Josefina Hernandez</nombreProfesor>
+    <inscritos>2</inscritos>
+    <idAlumno>11</idAlumno>
+    <idAlumno>12</idAlumno>
+  </GRUPO>
+  <EJERCICIO id="1" idProfesor="2">
     <nombre>Ejercicio 1</nombre>
-    <instruccion>?Con que sonido comienza la palabra?</instruccion>
-    <audioInstruccion>8_instruccionComienzaSonido.mp3</audioInstruccion>
-    <imagen>8_arcoiris.jpg</imagen>
-    <audioImagen>8_arcoiris.mp3</audioImagen>
-    <pista>Con el mismo que arbol</pista>
-    <respuestaCorrecta>Ar</respuestaCorrecta>
-    <respuestaIncorrecta>Er</respuestaIncorrecta>
-    <respuestaIncorrecta>Ir</respuestaIncorrecta>
+    <instruccion>Con que sonido comienza la palabra ?</instruccion>
+    <audioInstruccion>2_instruccionComienzaSonido.mp3</audioInstruccion>
+    <imagen>2_perro.jpg</imagen>
+    <audioImagen>2_perro.mp3</audioImagen>
+    <pista>perro</pista>
+    <respuestaCorrecta>pe</respuestaCorrecta>
+    <respuestaIncorrecta>me</respuestaIncorrecta>
+    <respuestaIncorrecta>be</respuestaIncorrecta>
   </EJERCICIO>
-  <EJERCICIO id="14" idProfesor="2">
+  <EJERCICIO id="2" idProfesor="2">
     <nombre>Ejercicio 2</nombre>
-    <instruccion>Complete la palabra que corresponde a la imagen. P E . . .</instruccion>
-    <audioInstruccion>8_instruccionComplete.mp3</audioInstruccion>
-    <imagen>8_perro2.jpg</imagen>
-    <audioImagen>8_perro.mp3</audioImagen>
-    <pista>ladra</pista>
-    <respuestaCorrecta>rro</respuestaCorrecta>
-    <respuestaIncorrecta>gro</respuestaIncorrecta>
-    <respuestaIncorrecta>tro</respuestaIncorrecta>
+    <instruccion>Complete la palabra que corresponde a la imagen</instruccion>
+    <audioInstruccion>2_instruccionComplete.mp3</audioInstruccion>
+    <imagen>2_bicicleta.jpg</imagen>
+    <audioImagen>2_bicicleta.mp3</audioImagen>
+    <pista>Bi..cleta</pista>
+    <respuestaCorrecta>ci</respuestaCorrecta>
+    <respuestaIncorrecta>si</respuestaIncorrecta>
+    <respuestaIncorrecta>zi</respuestaIncorrecta>
   </EJERCICIO>
-  <EJERCICIO id="15" idProfesor="8">
+  <EJERCICIO id="3" idProfesor="2">
     <nombre>Ejercicio 3</nombre>
-    <instruccion>Que palabra corresponde a la imagen</instruccion>
-    <audioInstruccion>8_instruccionCorresponde.mp3</audioInstruccion>
-    <imagen>8_conejo.jpg</imagen>
-    <audioImagen>8_conejo.mp3</audioImagen>
-    <pista>Come zanahorias</pista>
-    <respuestaCorrecta>Conejo</respuestaCorrecta>
-    <respuestaIncorrecta>Cuyo</respuestaIncorrecta>
-    <respuestaIncorrecta>Hamster</respuestaIncorrecta>
+    <instruccion>Que palabra corresponde a la imagen?</instruccion>
+    <audioInstruccion>2_instruccionCorresponde.mp3</audioInstruccion>
+    <imagen>2_arcoiris.jpg</imagen>
+    <audioImagen>2_arcoiris.mp3</audioImagen>
+    <pista>arcoiris</pista>
+    <respuestaCorrecta>arcoiris</respuestaCorrecta>
+    <respuestaIncorrecta>sol</respuestaIncorrecta>
+    <respuestaIncorrecta>lluvia</respuestaIncorrecta>
   </EJERCICIO>
-  <EJERCICIO id="16" idProfesor="8">
-    <nombre>Ejercicio video</nombre>
-    <instruccion>Te gusto el video</instruccion>
-    <audioInstruccion>8_instruccionComienzaSonido.mp3</audioInstruccion>
-    <imagen>8_BPKW3252.MP4</imagen>
-    <audioImagen />
-    <pista>si</pista>
-    <respuestaCorrecta>si</respuestaCorrecta>
-    <respuestaIncorrecta>no</respuestaIncorrecta>
-    <respuestaIncorrecta>tal vez</respuestaIncorrecta>
+  <EJERCICIO id="4" idProfesor="3">
+    <nombre>Ejercicio 1</nombre>
+    <instruccion>Con que sonido comienza la palabra ?</instruccion>
+    <audioInstruccion>3_instruccionComienzaSonido.mp3</audioInstruccion>
+    <imagen>3_flores.jpg</imagen>
+    <audioImagen>3_flores.mp3</audioImagen>
+    <pista>flores</pista>
+    <respuestaCorrecta>flo</respuestaCorrecta>
+    <respuestaIncorrecta>glo</respuestaIncorrecta>
+    <respuestaIncorrecta>clo</respuestaIncorrecta>
+  </EJERCICIO>
+  <EJERCICIO id="5" idProfesor="3">
+    <nombre>Ejercicio 2</nombre>
+    <instruccion>Complete la palabra que corresponde a la imagen</instruccion>
+    <audioInstruccion>3_instruccionComplete.mp3</audioInstruccion>
+    <imagen>3_llave.jpg</imagen>
+    <audioImagen>3_llave.mp3</audioImagen>
+    <pista>lla..</pista>
+    <respuestaCorrecta>ve</respuestaCorrecta>
+    <respuestaIncorrecta>ce</respuestaIncorrecta>
+    <respuestaIncorrecta>be</respuestaIncorrecta>
+  </EJERCICIO>
+  <EJERCICIO id="6" idProfesor="3">
+    <nombre>Ejercicio 3</nombre>
+    <instruccion>Que palabra corresponde a la imagen?</instruccion>
+    <audioInstruccion>3_instruccionCorresponde.mp3</audioInstruccion>
+    <imagen>3_gato.jpg</imagen>
+    <audioImagen>3_gato.mp3</audioImagen>
+    <pista>gato</pista>
+    <respuestaCorrecta>gato</respuestaCorrecta>
+    <respuestaIncorrecta>leon</respuestaIncorrecta>
+    <respuestaIncorrecta>perro</respuestaIncorrecta>
   </EJERCICIO>
   <EJERCICIOS_GRUPO idGrupo="1" idProfesor="2">
+    <idEjercicio>1</idEjercicio>
+    <idEjercicio>2</idEjercicio>
+    <idEjercicio>3</idEjercicio>
     <idEjercicio>7</idEjercicio>
-    <idEjercicio>13</idEjercicio>
-    <idEjercicio>14</idEjercicio>
     <idEjercicio>8</idEjercicio>
   </EJERCICIOS_GRUPO>
-  <RONDA_ALUMNO idRonda="1" idGrupo="2" idAlumno="12" idProfesor="2">
-    <nombreAlumno>Esli Osorio</nombreAlumno>
-    <calificacion>8</calificacion>
-    <idEjercicio>7</idEjercicio>
-    <idEjercicio>8</idEjercicio>
-    <idEjercicio>10</idEjercicio>
-  </RONDA_ALUMNO>
-  <RONDA_ALUMNO idRonda="2" idGrupo="2" idAlumno="13" idProfesor="2">
-    <nombreAlumno>Mario Aburto</nombreAlumno>
-    <calificacion>9</calificacion>
-    <idEjercicio>7</idEjercicio>
-    <idEjercicio>8</idEjercicio>
-    <idEjercicio>10</idEjercicio>
-  </RONDA_ALUMNO>
-  <EJERCICIOS_GRUPO idGrupo="2" idProfesor="2">
+  <EJERCICIOS_GRUPO idGrupo="2" idProfesor="3">
+    <idEjercicio>4</idEjercicio>
     <idEjercicio>5</idEjercicio>
+    <idEjercicio>6</idEjercicio>
+  </EJERCICIOS_GRUPO>
+  <USUARIO id="13" tipo="3">
+    <nombre>Juan Castillo</nombre>
+    <usuario>jcastillo@gmail.com</usuario>
+    <contrasena>jcastillo</contrasena>
+  </USUARIO>
+  <USUARIO id="14" tipo="3">
+    <nombre>Hugo Ramirez</nombre>
+    <usuario>hramirez@gmail.com</usuario>
+    <contrasena>hramirez</contrasena>
+  </USUARIO>
+  <USUARIO id="15" tipo="3">
+    <nombre>Alejandro Esquivel</nombre>
+    <usuario>aesquivel@gmail.com</usuario>
+    <contrasena>aesquivel</contrasena>
+  </USUARIO>
+  <GRUPO id="4">
+    <grupo>2CM7</grupo>
+    <idProfesor>2</idProfesor>
+    <nombreProfesor>Ruben Peredo</nombreProfesor>
+    <inscritos>3</inscritos>
+    <idAlumno>13</idAlumno>
+    <idAlumno>14</idAlumno>
+    <idAlumno>15</idAlumno>
+  </GRUPO>
+  <EJERCICIO id="7" idProfesor="2">
+    <nombre>Ejercicio 4</nombre>
+    <instruccion>Que palabra corresponde a la imagen?</instruccion>
+    <audioInstruccion>2_instruccionCorresponde.mp3</audioInstruccion>
+    <imagen>2_conejo.jpg</imagen>
+    <audioImagen>2_conejo.mp3</audioImagen>
+    <pista>conejo</pista>
+    <respuestaCorrecta>conejo</respuestaCorrecta>
+    <respuestaIncorrecta>cuyo</respuestaIncorrecta>
+    <respuestaIncorrecta>hamster</respuestaIncorrecta>
+  </EJERCICIO>
+  <EJERCICIOS_GRUPO idGrupo="4" idProfesor="2">
+    <idEjercicio>2</idEjercicio>
+    <idEjercicio>3</idEjercicio>
     <idEjercicio>7</idEjercicio>
   </EJERCICIOS_GRUPO>
-  <RONDA_ALUMNO idRonda="3" idGrupo="1" idAlumno="7" idProfesor="2">
-    <nombreAlumno>Elioth Monroy</nombreAlumno>
+  <EJERCICIOS_GRUPO idGrupo="3" idProfesor="4" />
+  <RONDA_ALUMNO idRonda="1" idGrupo="1" idAlumno="5" idProfesor="2">
+    <nombreAlumno>Samuel Arteaga</nombreAlumno>
+    <calificacion>4</calificacion>
+    <idEjercicio>2</idEjercicio>
+    <idEjercicio>1</idEjercicio>
+    <idEjercicio>3</idEjercicio>
+  </RONDA_ALUMNO>
+  <RONDA_ALUMNO idRonda="2" idGrupo="1" idAlumno="5" idProfesor="2">
+    <nombreAlumno>Samuel Arteaga</nombreAlumno>
     <calificacion>10</calificacion>
+    <idEjercicio>1</idEjercicio>
+    <idEjercicio>3</idEjercicio>
     <idEjercicio>7</idEjercicio>
-    <idEjercicio>14</idEjercicio>
-    <idEjercicio>13</idEjercicio>
   </RONDA_ALUMNO>
-  <RONDA_ALUMNO idRonda="4" idGrupo="1" idAlumno="7" idProfesor="2">
-    <nombreAlumno>Elioth Monroy</nombreAlumno>
-    <calificacion>5</calificacion>
-    <idEjercicio>7</idEjercicio>
-    <idEjercicio>13</idEjercicio>
-    <idEjercicio>8</idEjercicio>
-  </RONDA_ALUMNO>
-  <RONDA_ALUMNO idRonda="5" idGrupo="1" idAlumno="7" idProfesor="2">
-    <nombreAlumno>Elioth Monroy</nombreAlumno>
+  <RONDA_ALUMNO idRonda="3" idGrupo="1" idAlumno="5" idProfesor="2">
+    <nombreAlumno>Samuel Arteaga</nombreAlumno>
     <calificacion>7</calificacion>
-    <idEjercicio>13</idEjercicio>
-    <idEjercicio>7</idEjercicio>
-    <idEjercicio>8</idEjercicio>
+    <idEjercicio>2</idEjercicio>
+    <idEjercicio>3</idEjercicio>
+    <idEjercicio>1</idEjercicio>
   </RONDA_ALUMNO>
-  <RONDA_ALUMNO idRonda="6" idGrupo="1" idAlumno="7" idProfesor="2">
-    <nombreAlumno>Elioth Monroy</nombreAlumno>
-    <calificacion>6</calificacion>
+  <RONDA_ALUMNO idRonda="4" idGrupo="1" idAlumno="5" idProfesor="2">
+    <nombreAlumno>Samuel Arteaga</nombreAlumno>
+    <calificacion>10</calificacion>
+    <idEjercicio>1</idEjercicio>
+    <idEjercicio>3</idEjercicio>
+    <idEjercicio>7</idEjercicio>
+  </RONDA_ALUMNO>
+  <EJERCICIO id="8" idProfesor="2">
+    <nombre>Ejercicio 5</nombre>
+    <instruccion>Que palabra corresponde a la imagen?</instruccion>
+    <audioInstruccion>2_instruccionCorresponde.mp3</audioInstruccion>
+    <imagen>2_avion.jpg</imagen>
+    <audioImagen>2_avion.mp3</audioImagen>
+    <pista>avion</pista>
+    <respuestaCorrecta>avion</respuestaCorrecta>
+    <respuestaIncorrecta>barco</respuestaIncorrecta>
+    <respuestaIncorrecta>auto</respuestaIncorrecta>
+  </EJERCICIO>
+  <RONDA_ALUMNO idRonda="5" idGrupo="1" idAlumno="5" idProfesor="2">
+    <nombreAlumno>Samuel Arteaga</nombreAlumno>
+    <calificacion>7</calificacion>
+    <idEjercicio>1</idEjercicio>
+    <idEjercicio>2</idEjercicio>
+    <idEjercicio>3</idEjercicio>
+  </RONDA_ALUMNO>
+  <RONDA_ALUMNO idRonda="6" idGrupo="1" idAlumno="6" idProfesor="2">
+    <nombreAlumno>Giselle Flores</nombreAlumno>
+    <calificacion>7</calificacion>
+    <idEjercicio>7</idEjercicio>
+    <idEjercicio>1</idEjercicio>
+    <idEjercicio>3</idEjercicio>
+  </RONDA_ALUMNO>
+  <RONDA_ALUMNO idRonda="7" idGrupo="1" idAlumno="6" idProfesor="2">
+    <nombreAlumno>Giselle Flores</nombreAlumno>
+    <calificacion>10</calificacion>
+    <idEjercicio>3</idEjercicio>
+    <idEjercicio>2</idEjercicio>
+    <idEjercicio>1</idEjercicio>
+  </RONDA_ALUMNO>
+  <RONDA_ALUMNO idRonda="8" idGrupo="1" idAlumno="6" idProfesor="2">
+    <nombreAlumno>Giselle Flores</nombreAlumno>
+    <calificacion>10</calificacion>
+    <idEjercicio>3</idEjercicio>
+    <idEjercicio>1</idEjercicio>
+    <idEjercicio>7</idEjercicio>
+  </RONDA_ALUMNO>
+  <RONDA_ALUMNO idRonda="9" idGrupo="1" idAlumno="6" idProfesor="2">
+    <nombreAlumno>Giselle Flores</nombreAlumno>
+    <calificacion>4</calificacion>
+    <idEjercicio>3</idEjercicio>
+    <idEjercicio>1</idEjercicio>
+    <idEjercicio>7</idEjercicio>
+  </RONDA_ALUMNO>
+  <RONDA_ALUMNO idRonda="10" idGrupo="1" idAlumno="5" idProfesor="2">
+    <nombreAlumno>Samuel Arteaga</nombreAlumno>
+    <calificacion>10</calificacion>
     <idEjercicio>8</idEjercicio>
     <idEjercicio>7</idEjercicio>
-    <idEjercicio>14</idEjercicio>
+    <idEjercicio>3</idEjercicio>
+  </RONDA_ALUMNO>
+  <RONDA_ALUMNO idRonda="11" idGrupo="2" idAlumno="8" idProfesor="3">
+    <nombreAlumno>Ian Mendoza</nombreAlumno>
+    <calificacion>10</calificacion>
+    <idEjercicio>6</idEjercicio>
+    <idEjercicio>4</idEjercicio>
+    <idEjercicio>5</idEjercicio>
   </RONDA_ALUMNO>
 </raiz>
 

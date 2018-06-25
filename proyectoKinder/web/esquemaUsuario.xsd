@@ -60,7 +60,7 @@
                 <xs:element name="EJERCICIOS_GRUPO">
                         <xs:complexType>
                             <xs:sequence>
-                                <xs:element name="idEjercicio" type="xs:integer" minOccurs="1" maxOccurs="unbounded"/>
+                                <xs:element name="idEjercicio" type="xs:integer" minOccurs="0" maxOccurs="unbounded"/>
                             </xs:sequence>
                             <xs:attribute name="idGrupo" type="xs:integer" use="required"/>
                             <xs:attribute name="idProfesor" type="xs:integer" use="required"/>

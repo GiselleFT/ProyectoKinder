@@ -156,7 +156,7 @@ public class verCalificaciones extends HttpServlet {
             out.println("                        <div class=\"ibox-content\">");
             out.println("                            <div class=\"row\">");
             out.println("<div class=\"col-sm-200\">");
-            out.println("<div class=\"input-group\"><input type=\"text\" id='names' onkeyup='loadDoc(this.value, " + idUsuario + ")' placeholder=\"Search\" class=\"input-sm form-control\"> <span class=\"input-group-btn\">");
+            out.println("<div class=\"input-group\"><input type=\"text\" id='names' onkeyup='loadDoc(this.value, "+idUsuario+")' placeholder=\"Search\" class=\"input-sm form-control\"> <span class=\"input-group-btn\">");
             out.println("</span></div>");
             out.println("                                </div>");
             out.println("                            </div>");
@@ -260,21 +260,21 @@ public class verCalificaciones extends HttpServlet {
                     + "                var x = xmlDoc.getElementsByTagName(\"RONDA_ALUMNO\");\n"
                     + "                    for (i = 0; i < x.length; i++) {\n"
                     + "                        //Contiene el nombre del profesor\n"
-                    + "                        var elemento = x[i].getElementsByTagName('nombreAlumno')[0].childNodes[0].nodeValue;\n"
+                    + "                        var elemento = x[i].getElementsByTagName('calificacion')[0].childNodes[0].nodeValue;\n"
                     + "                        var idRecibido = idUsuario+\"\";"
                     + "                        //Extraer del nombre del profesor la cadena del tamaño del prefijo a comparar\n"
                     + "                        var aux = elemento.substring(0,nombreProfesor.length);\n"
                     + "                        //Si el prefijo coincide con el prefijo del profesor lo muestra en la tabla\n"
                     + "                        if(nombreProfesor === aux){\n"
-                    + "                         if(x[i].getAttribute('idProfesor') === idRecibido){"
+                    + "                         if(x[i].getAttribute('idAlumno') === idRecibido){"
                     + "                            table += \"<tr><td>\" +\n"
                     + "                            x[i].getAttribute('idRonda') +\n"
                     + "                            \"</td><td>\"+\n"
                     + "                            x[i].getAttribute('idGrupo') + \n"
                     + "                            \"</td><td>\"+\n"
-                    + "                            x[i].getElementsByTagName('nombreAlumno')[0].childNodes[0].nodeValue"
+                    + "                            x[i].getElementsByTagName('nombreAlumno')[0].childNodes[0].nodeValue +"
                     + "                            \"</td><td>\"+\n"
-                    + "                            x[i].getElementsByTagName('calificacion')[0].childNodes[0].nodeValue;"
+                    + "                            x[i].getElementsByTagName('calificacion')[0].childNodes[0].nodeValue +"
                     + "                            \"</td></tr>\";\n"
                     + "                         }"
                     + "                        }\n"

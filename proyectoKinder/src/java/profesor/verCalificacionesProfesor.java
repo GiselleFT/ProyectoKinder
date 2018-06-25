@@ -183,7 +183,7 @@ public class verCalificacionesProfesor extends HttpServlet {
                 Attribute idProfesor = element.getAttribute("idProfesor");
                 
                 List listaGrupos = raiz.getChildren("GRUPO");
-                List listaUsuarios = raiz.getChildren("USUARIO");
+//                List listaUsuarios = raiz.getChildren("USUARIO");
                 
                 
                 //Solo se pueden mostrar los ejercicios que el profesor es autor
@@ -267,14 +267,22 @@ public class verCalificacionesProfesor extends HttpServlet {
                     + "                        //Si el prefijo coincide con el prefijo del profesor lo muestra en la tabla\n"
                     + "                        if(nombreProfesor === aux){\n"
                     + "                         if(x[i].getAttribute('idProfesor') === idRecibido){"
+                    + "                             var listaGrupos = xmlDoc.getElementsByTagName(\"GRUPO\");\n"
+                    + "                             var nombreGrupo ='';"
+                    + "                             for (j = 0; j < listaGrupos.length; j++) {\n" 
+                    + "                                 var eGrupo = listaGrupos[j].getElementsByTagName('grupo')[0].childNodes[0].nodeValue;\n"
+                    + "                                 if(listaGrupos[j].getAttribute('id') === x[i].getAttribute('idGrupo')){\n"
+                    + "                                     nombreGrupo = eGrupo;\n"
+                    + "                                 }\n"
+                    + "                            }"
                     + "                            table += \"<tr><td>\" +\n"
                     + "                            x[i].getAttribute('idRonda') +\n"
                     + "                            \"</td><td>\"+\n"
-                    + "                            x[i].getAttribute('idGrupo') + \n"
+                    + "                            nombreGrupo + \n"
                     + "                            \"</td><td>\"+\n"
-                    + "                            x[i].getElementsByTagName('nombreAlumno')[0].childNodes[0].nodeValue"
+                    + "                            x[i].getElementsByTagName('nombreAlumno')[0].childNodes[0].nodeValue + \n"
                     + "                            \"</td><td>\"+\n"
-                    + "                            x[i].getElementsByTagName('calificacion')[0].childNodes[0].nodeValue;"
+                    + "                            x[i].getElementsByTagName('calificacion')[0].childNodes[0].nodeValue + \n"
                     + "                            \"</td></tr>\";\n"
                     + "                         }"
                     + "                        }\n"
